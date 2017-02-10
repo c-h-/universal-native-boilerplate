@@ -1,8 +1,10 @@
 {
   "name": "universal-native-boilerplate",
   "version": "0.0.1",
+  "author": "Charlie Hulcher",
   "private": true,
   "scripts": {
+    "setup": "gulp setup",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
@@ -21,9 +23,11 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-react-native": "^2.2.1",
+    "gulp": "^3.9.1",
     "jest": "18.1.0",
     "react-test-renderer": "~15.4.0",
-    "rnpm-plugin-windows": "^0.2.3"
+    "rnpm-plugin-windows": "^0.2.3",
+    "shelljs": "^0.7.6"
   },
   "jest": {
     "preset": "react-native"
