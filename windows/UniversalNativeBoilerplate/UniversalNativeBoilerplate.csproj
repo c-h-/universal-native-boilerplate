@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{ee961fdb-2f4d-459b-9a96-6e46387b8055}</ProjectGuid>
+    <ProjectGuid>{2bc5dcfe-cb1e-4159-a8b4-4050859ab325}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>universal-native-boilerplate</RootNamespace>
-    <AssemblyName>universal-native-boilerplate</AssemblyName>
+    <RootNamespace>UniversalNativeBoilerplate</RootNamespace>
+    <AssemblyName>UniversalNativeBoilerplate</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -16,7 +16,7 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>universal-native-boilerplate_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>UniversalNativeBoilerplate_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -183,7 +183,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="universal-native-boilerplate_TemporaryKey.pfx" />
+    <None Include="UniversalNativeBoilerplate_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />

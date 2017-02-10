@@ -1,8 +1,8 @@
 <Application
-    x:Class="universal-native-boilerplate.App"
+    x:Class="UniversalNativeBoilerplate.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:universal-native-boilerplate"
+    xmlns:local="using:UniversalNativeBoilerplate"
     RequestedTheme="Light">
 
 </Application>

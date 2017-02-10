@@ -1,9 +1,8 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "universal-native-boilerplate", "universal-native-boilerplate\universal-native-boilerplate.csproj", "{ee961fdb-2f4d-459b-9a96-6e46387b8055}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalNativeBoilerplate", "UniversalNativeBoilerplate\UniversalNativeBoilerplate.csproj", "{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactNative", "..\node_modules\react-native-windows\ReactWindows\ReactNative\ReactNative.csproj", "{C7673AD5-E3AA-468C-A5FD-FA38154E205C}"
 EndProject
@@ -12,11 +11,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChakraBridge", "..\node_modules\react-native-windows\ReactWindows\ChakraBridge\ChakraBridge.vcxproj", "{4B72C796-16D5-4E3A-81C0-3E36F531E578}"
 EndProject
 Global
-GlobalSection(SharedMSBuildProjectFiles) = preSolution
-	ReactNative.Shared\ReactNative.Shared.projitems*{98efa5d4-a185-4971-ae77-3845e31b84ce}*SharedItemsImports = 4
-	ReactNative.Shared\ReactNative.Shared.projitems*{c7673ad5-e3aa-468c-a5fd-fa38154e205c}*SharedItemsImports = 4
-	ReactNative.Shared\ReactNative.Shared.projitems*{eea8b852-4d07-48e1-8294-a21ab5909fe5}*SharedItemsImports = 13
-EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\node_modules\react-native-windows\ReactWindows\ReactNative.Shared\ReactNative.Shared.projitems*{c7673ad5-e3aa-468c-a5fd-fa38154e205c}*SharedItemsImports = 4
+		..\node_modules\react-native-windows\ReactWindows\ReactNative.Shared\ReactNative.Shared.projitems*{eea8b852-4d07-48e1-8294-a21ab5909fe5}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
@@ -32,42 +30,42 @@ EndGlobalSection
 		ReleaseBundle|x86 = ReleaseBundle|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|ARM.ActiveCfg = Debug|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|ARM.Build.0 = Debug|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|ARM.Deploy.0 = Debug|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|x64.ActiveCfg = Debug|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|x64.Build.0 = Debug|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|x64.Deploy.0 = Debug|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|x86.ActiveCfg = Debug|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|x86.Build.0 = Debug|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Debug|x86.Deploy.0 = Debug|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|ARM.ActiveCfg = DebugBundle|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|ARM.Build.0 = DebugBundle|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|ARM.Deploy.0 = DebugBundle|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|x64.ActiveCfg = DebugBundle|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|x64.Build.0 = DebugBundle|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|x64.Deploy.0 = DebugBundle|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|x86.ActiveCfg = DebugBundle|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|x86.Build.0 = DebugBundle|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.DebugBundle|x86.Deploy.0 = DebugBundle|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|ARM.ActiveCfg = Release|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|ARM.Build.0 = Release|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|ARM.Deploy.0 = Release|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|x64.ActiveCfg = Release|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|x64.Build.0 = Release|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|x64.Deploy.0 = Release|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|x86.ActiveCfg = Release|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|x86.Build.0 = Release|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.Release|x86.Deploy.0 = Release|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|ARM.ActiveCfg = ReleaseBundle|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|ARM.Build.0 = ReleaseBundle|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|ARM.Deploy.0 = ReleaseBundle|ARM
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|x64.ActiveCfg = ReleaseBundle|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|x64.Build.0 = ReleaseBundle|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|x64.Deploy.0 = ReleaseBundle|x64
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|x86.ActiveCfg = ReleaseBundle|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|x86.Build.0 = ReleaseBundle|x86
-		{ee961fdb-2f4d-459b-9a96-6e46387b8055}.ReleaseBundle|x86.Deploy.0 = ReleaseBundle|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|ARM.ActiveCfg = Debug|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|ARM.Build.0 = Debug|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|ARM.Deploy.0 = Debug|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|x64.ActiveCfg = Debug|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|x64.Build.0 = Debug|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|x64.Deploy.0 = Debug|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|x86.ActiveCfg = Debug|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|x86.Build.0 = Debug|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Debug|x86.Deploy.0 = Debug|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|ARM.ActiveCfg = DebugBundle|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|ARM.Build.0 = DebugBundle|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|ARM.Deploy.0 = DebugBundle|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|x64.ActiveCfg = DebugBundle|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|x64.Build.0 = DebugBundle|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|x64.Deploy.0 = DebugBundle|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|x86.ActiveCfg = DebugBundle|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|x86.Build.0 = DebugBundle|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.DebugBundle|x86.Deploy.0 = DebugBundle|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|ARM.ActiveCfg = Release|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|ARM.Build.0 = Release|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|ARM.Deploy.0 = Release|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|x64.ActiveCfg = Release|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|x64.Build.0 = Release|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|x64.Deploy.0 = Release|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|x86.ActiveCfg = Release|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|x86.Build.0 = Release|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.Release|x86.Deploy.0 = Release|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|ARM.ActiveCfg = ReleaseBundle|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|ARM.Build.0 = ReleaseBundle|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|ARM.Deploy.0 = ReleaseBundle|ARM
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|x64.ActiveCfg = ReleaseBundle|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|x64.Build.0 = ReleaseBundle|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|x64.Deploy.0 = ReleaseBundle|x64
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|x86.ActiveCfg = ReleaseBundle|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|x86.Build.0 = ReleaseBundle|x86
+		{2BC5DCFE-CB1E-4159-A8B4-4050859AB325}.ReleaseBundle|x86.Deploy.0 = ReleaseBundle|x86
 		{C7673AD5-E3AA-468C-A5FD-FA38154E205C}.Debug|ARM.ActiveCfg = Debug|ARM
 		{C7673AD5-E3AA-468C-A5FD-FA38154E205C}.Debug|ARM.Build.0 = Debug|ARM
 		{C7673AD5-E3AA-468C-A5FD-FA38154E205C}.Debug|x64.ActiveCfg = Debug|x64

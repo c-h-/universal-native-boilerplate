@@ -25,9 +25,13 @@
     "eslint-plugin-react-native": "^2.2.1",
     "gulp": "^3.9.1",
     "jest": "18.1.0",
+    "react-native-web": "^0.0.70",
     "react-test-renderer": "~15.4.0",
     "rnpm-plugin-windows": "^0.2.3",
-    "shelljs": "^0.7.6"
+    "shelljs": "^0.7.6",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0",
+    "yargs": "^6.6.0"
   },
   "jest": {
     "preset": "react-native"
