@@ -2,17 +2,29 @@ const gulp = require('gulp');
 const shell = require('shelljs');
 
 /**
- * Setup the project by ejecting from original repository
+ * Clean caches
  */
 gulp.task('clean', [
   'clean:npm',
+  'clean:yarn',
 ]);
 
 /**
- * Initialize a new git repository
+ * Cleans NPM cache
  */
 gulp.task('clean:npm', (callback) => {
   shell.exec('npm cache clean', {
+    async: true,
+  }, () => {
+    callback();
+  });
+});
+
+/**
+ * Cleans Yarn cache
+ */
+gulp.task('clean:yarn', (callback) => {
+  shell.exec('yarn cache clean', {
     async: true,
   }, () => {
     callback();

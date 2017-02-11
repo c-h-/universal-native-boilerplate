@@ -21,6 +21,13 @@
     "arrow-body-style": "off",
     "brace-style": ["error", "stroustrup"],
     "camelcase": "off",
+    "comma-dangle": ["error", {
+        "functions": "never",
+        "objects": "always",
+        "arrays": "always",
+        "imports": "always",
+        "exports": "always"
+    }],
     "curly": "error",
     "guard-for-in": "off",
     "jsx-a11y/img-uses-alt": "off",

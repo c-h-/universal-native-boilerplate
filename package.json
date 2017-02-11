@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "setup": "gulp setup",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start:packager": "node node_modules/react-native/local-cli/cli.js start",
     "start:web": "webpack-dev-server --port 3000 --config web/webpack.config.js --inline --hot --colors --quiet",
     "start:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
     "test": "jest"
@@ -15,8 +15,8 @@
     "react": "~15.4.0",
     "react-dom": "^15.4.2",
     "react-native": "0.41.2",
-    "react-native-macos": "https://github.com/c-h-/react-native-macos.git",
-    "react-native-windows": "^0.41.0-rc.0"
+    "react-native-windows": "^0.41.0-rc.0",
+    "react-native-macos": "https://github.com/c-h-/react-native-macos.git"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -31,8 +31,12 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-react-native": "^2.2.1",
+    "fs-extra": "^2.0.0",
     "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
     "jest": "18.1.0",
+    "lodash.assign": "^4.2.0",
+    "lodash.isequal": "^4.5.0",
     "react-native-web": "^0.0.70",
     "react-test-renderer": "~15.4.0",
     "rnpm-plugin-windows": "^0.2.3",

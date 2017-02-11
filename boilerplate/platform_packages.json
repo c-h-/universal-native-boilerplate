@@ -1,0 +1,50 @@
+{
+  "windows": {
+    "dependencies": {
+      "react": "~15.4.0",
+      "react-native": "0.41.2",
+      "react-native-windows": "^0.41.0-rc.0"
+    },
+    "devDependencies": {
+      "rnpm-plugin-windows": "^0.2.3"
+    }
+  },
+  "macos": {
+    "dependencies": {
+      "react": "~15.4.0",
+      "react-native-macos": "https://github.com/c-h-/react-native-macos.git"
+    }
+  },
+  "server": {
+    "dependencies": {
+      "react": "~15.4.0",
+      "express": "^4.14.1",
+      "react-dom": "^15.4.2"
+    }
+  },
+  "android": {
+    "dependencies": {
+      "react": "~15.4.0",
+      "react-native": "0.41.2"
+    }
+  },
+  "ios": {
+    "dependencies": {
+      "react": "~15.4.0",
+      "react-native": "0.41.2"
+    }
+  },
+  "web": {
+    "dependencies": {
+      "react": "~15.4.0",
+      "react-native-web": "^0.0.70"
+    },
+    "devDependencies": {
+      "babel-cli": "^6.22.2",
+      "babel-core": "^6.22.1",
+      "babel-loader": "^6.2.10",
+      "webpack": "1.13.2",
+      "webpack-dev-server": "1.14.1"
+    }
+  }
+}
