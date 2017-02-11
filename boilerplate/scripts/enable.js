@@ -15,15 +15,26 @@ const haveYarn = shell.which('yarn');
 function enablePlatform(platform) {
   return new Promise((resolve, reject) => {
     gutil.log(gutil.colors.green(`Enabling ${platform}...`));
+    const platforms = Array.isArray(platform)
+      ? [
+        platform,
+      ]
+      : platform;
     fs.readJSON(pathToPkg, (err, origPkg) => {
       const pkg = origPkg;
       let modified = false;
-      const newDeps = assign({}, pkg.dependencies, platformPkgs[platform].dependencies);
+      const newDeps = assign({}, pkg.dependencies);
+      platforms.forEach((plat) => {
+        assign(newDeps, platformPkgs[plat].dependencies);
+      });
       if (!isEqual(pkg.dependencies, newDeps)) {
         pkg.dependencies = newDeps;
         modified = true;
       }
-      const newDevDeps = assign({}, pkg.devDependencies, platformPkgs[platform].devDependencies);
+      const newDevDeps = assign({}, pkg.devDependencies);
+      platforms.forEach((plat) => {
+        assign(newDevDeps, platformPkgs[plat].devDependencies);
+      });
       if (!isEqual(pkg.devDependencies, newDevDeps)) {
         pkg.devDependencies = newDevDeps;
         modified = true;
@@ -47,44 +58,17 @@ function enablePlatform(platform) {
   });
 }
 
-/**
- * Enable platforms one by one
- */
-gulp.task('enable', [
-  'enable:android',
-  'enable:ios',
-  'enable:macos',
-  'enable:windows',
-  'enable:server',
-  'enable:web',
-]);
+function enableAllPlatforms() {
+
+}
 
 /**
- * Enable Android platform
+ * Enable a platform
  */
-gulp.task('enable:android', () => enablePlatform('android'));
+gulp.task('enable', () => enablePlatform(global.settings.platform));
 
 /**
- * Enable iOS platform
+ * Enable all platforms
  */
-gulp.task('enable:ios', () => enablePlatform('ios'));
+gulp.task('enable-all', () => enableAllPlatforms(global.platforms));
 
-/**
- * Enable macOS platform
- */
-gulp.task('enable:macos', () => enablePlatform('macos'));
-
-/**
- * Enable Server platform
- */
-gulp.task('enable:server', () => enablePlatform('server'));
-
-/**
- * Enable Windows platform
- */
-gulp.task('enable:windows', () => enablePlatform('windows'));
-
-/**
- * Enable Web platform
- */
-gulp.task('enable:web', () => enablePlatform('web'));

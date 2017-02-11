@@ -4,6 +4,15 @@ require('./boilerplate/scripts/clean.js');
 require('./boilerplate/scripts/enable.js');
 require('./boilerplate/scripts/setup.js');
 
+global.platforms = [
+  'android',
+  'ios',
+  'macos',
+  'server',
+  'web',
+  'windows',
+];
+
 const argv = require('yargs')
   .usage('Usage: gulp <task> [options]')
   .command('setup', 'Eject from original repository after cloning')
@@ -16,7 +25,7 @@ const argv = require('yargs')
   .describe('r', 'Build the release version. Defaults to debug version.')
   .help('h')
   .alias('h', 'help')
-  .epilogue('Available platforms: Android, iOS, macOS, Server, Windows, and Web')
+  .epilogue(`Available platforms: ${global.platforms.join(', ')}`)
   .argv;
 
 // SETUP
