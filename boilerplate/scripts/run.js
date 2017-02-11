@@ -14,7 +14,9 @@ function runStdPlatform(callback) {
 }
 
 function runWebPlatform(callback) {
-  shell.exec('npm run start:packager:web');
+  shell.exec(global.settings.release
+    ? 'npm run start:release:web'
+    : 'npm run start:packager:web');
   callback();
 }
 

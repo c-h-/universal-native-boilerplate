@@ -6,34 +6,34 @@ const isEqual = require('lodash.isequal');
 const path = require('path');
 const shell = require('shelljs');
 
-const platformPkgs = require('../platform_packages');
+const recipePkgs = require('../recipes');
 
-const pathToPkg = path.resolve(__dirname, '..', '..', 'package.json');
+const pathToPkg = path.join(process.cwd(), 'package.json');
 
 const haveYarn = shell.which('yarn');
 
-function enablePlatform(platform) {
+function enableRecipe(recipe) {
   return new Promise((resolve, reject) => {
-    gutil.log(gutil.colors.green(`Enabling ${platform}...`));
-    const platforms = Array.isArray(platform)
-      ? [
-        platform,
-      ]
-      : platform;
+    gutil.log(gutil.colors.green(`Enabling ${recipe}...`));
+    const recipes = Array.isArray(recipe)
+      ? recipe
+      : [
+        recipe,
+      ];
     fs.readJSON(pathToPkg, (err, origPkg) => {
       const pkg = origPkg;
       let modified = false;
       const newDeps = assign({}, pkg.dependencies);
-      platforms.forEach((plat) => {
-        assign(newDeps, platformPkgs[plat].dependencies);
+      recipes.forEach((plat) => {
+        assign(newDeps, recipePkgs[plat].dependencies);
       });
       if (!isEqual(pkg.dependencies, newDeps)) {
         pkg.dependencies = newDeps;
         modified = true;
       }
       const newDevDeps = assign({}, pkg.devDependencies);
-      platforms.forEach((plat) => {
-        assign(newDevDeps, platformPkgs[plat].devDependencies);
+      recipes.forEach((plat) => {
+        assign(newDevDeps, recipePkgs[plat].devDependencies);
       });
       if (!isEqual(pkg.devDependencies, newDevDeps)) {
         pkg.devDependencies = newDevDeps;
@@ -47,7 +47,7 @@ function enablePlatform(platform) {
           }
           else {
             shell.exec(haveYarn ? 'yarn' : 'npm i');
-            gutil.log(gutil.colors.green(`Platform ${platform} enabled.`));
+            gutil.log(gutil.colors.green(`Platform ${recipe} enabled.`));
           }
         });
       }
@@ -58,17 +58,13 @@ function enablePlatform(platform) {
   });
 }
 
-function enableAllPlatforms() {
-
-}
+/**
+ * Enable a recipe
+ */
+gulp.task('enable', () => enableRecipe(global.settings.recipe));
 
 /**
- * Enable a platform
+ * Enable all recipes
  */
-gulp.task('enable', () => enablePlatform(global.settings.platform));
-
-/**
- * Enable all platforms
- */
-gulp.task('enable-all', () => enableAllPlatforms(global.platforms));
+gulp.task('enable-all', () => enableRecipe(global.platforms));
 

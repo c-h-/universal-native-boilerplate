@@ -4,6 +4,39 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development';
 
+// plugins used in dev and production
+const initPlugins = [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+  }),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+  }),
+  new HtmlWebpackPlugin({
+    template: path.resolve(process.cwd(), './web/src/index.html'),
+    minify: {
+      collapseWhitespace: true,
+      hash: true,
+    },
+  }),
+];
+
+// optional plugins. once installed they succeed being required and get added to plugin list.
+let Visualizer;
+try {
+  Visualizer = require('webpack-visualizer-plugin');
+}
+catch (e) {
+  console.info('Install visualizer with command `gulp enable visualizer`');
+}
+
+// add optional plugins to config
+if (Visualizer) {
+  initPlugins.push(new Visualizer({
+    filename: './__stats.html',
+  }));
+}
+
 module.exports = {
   devServer: {
     // https://webpack.js.org/configuration/dev-server/
@@ -32,7 +65,12 @@ module.exports = {
   },
   entry: {
     application: path.join(process.cwd(), 'index.web.js'),
-    vendor: ['react', 'react-dom', 'react-redux', 'redux'],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-native-web',
+      'animated',
+    ],
   },
   resolve: {
     modules: [
@@ -82,21 +120,16 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'bundle.js',
+    path: path.join(
+      process.cwd(),
+      'build',
+      'web',
+      ENV === 'production' ? 'release' : 'debug'
+    ),
+    publicPath: '/',
+    filename: '[name].[hash].js',
   },
-  plugins: ([
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(process.cwd(), './web/src/index.html'),
-      minify: {
-        collapseWhitespace: true,
-        hash: true,
-      },
-    }),
-  ]).concat(ENV === 'production' ? [
+  plugins: (initPlugins).concat(ENV === 'production' ? [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,

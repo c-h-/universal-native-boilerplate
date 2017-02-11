@@ -21,8 +21,8 @@ global.platforms = [
 const argv = require('yargs')
   .usage('Usage: gulp <task> [options]')
   .command('setup', 'Eject from original repository after cloning')
-  .command('enable <platform>', 'Enable a platform in the project')
-  .command('enable-all', 'Enable all platforms in the project')
+  .command('enable <recipe>', 'Enable a platform or feature')
+  .command('enable-all', 'Enable all platforms')
   .command('clean[:target]', 'Clean all caches (npm, yarn). Or, include a single target')
   .command('run <platform>', 'Runs the app on the supplied platform')
   .command('build <platform>', 'Builds the app for the supplied platform')
@@ -39,6 +39,7 @@ function setSettings(args) {
   if (args._) {
     if (!global.settings) {
       global.settings = {
+        recipe: args.recipe,
         platform: args.platform,
         release: args.r,
       };
@@ -56,7 +57,7 @@ setSettings(argv);
 if (argv._) {
   const tasks = Object.keys(gulp.tasks);
   // fill in missing tasks
-  const toFillIn = ['_', 'platform'];
+  const toFillIn = ['_', 'platform', 'recipe'];
   toFillIn.forEach((key) => {
     if (argv[key]) {
       const vals = Array.isArray(argv[key]) ? argv[key] : [argv[key]];

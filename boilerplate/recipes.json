@@ -1,4 +1,9 @@
 {
+  "visualizer": {
+    "devDependencies": {
+      "webpack-visualizer-plugin": "^0.1.10"
+    }
+  },
   "windows": {
     "dependencies": {
       "react": "~15.4.0",

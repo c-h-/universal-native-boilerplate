@@ -5,11 +5,21 @@
   "private": true,
   "scripts": {
     "setup": "gulp setup",
+    "start": "gulp -h",
     "start:packager": "node node_modules/react-native/local-cli/cli.js start",
     "start:packager:web": "webpack-dev-server --config web/webpack.config.js --inline --hot",
     "start:packager:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
-    "test": "jest"
+    "build:web": "cross-env NODE_ENV=production webpack --config web/webpack.config.js -p --progress",
+    "build:debug:web": "webpack --config web/webpack.config.js -p --progress",
+    "prestart:release:web": "npm run build:web",
+    "start:release:web": "serve build/web/release -s -c 1",
+    "test": "jest",
+    "lint": "eslint -c .eslintrc --fix js/**",
+    "validate": "npm ls"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "express": "^4.14.1",
     "react": "~15.4.0",
@@ -25,6 +35,7 @@
     "babel-jest": "18.0.0",
     "babel-loader": "^6.2.10",
     "babel-preset-react-native": "^1.9.1",
+    "cross-env": "^3.1.4",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -45,11 +56,13 @@
     "react-test-renderer": "~15.4.0",
     "rnpm-plugin-windows": "^0.2.3",
     "run-sequence": "^1.2.2",
+    "serve": "2.0.0",
     "shelljs": "^0.7.6",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-server": "1.14.1",
-    "yargs": "^6.6.0"
+    "yargs": "^6.6.0",
+    "webpack-visualizer-plugin": "^0.1.10"
   },
   "jest": {
     "preset": "react-native"
