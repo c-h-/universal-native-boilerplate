@@ -149,13 +149,4 @@ module.exports = {
   stats: {
     colors: true,
   },
-
-  node: {
-    global: true,
-    process: false,
-    Buffer: false,
-    __filename: false,
-    __dirname: false,
-    setImmediate: false,
-  },
 };
