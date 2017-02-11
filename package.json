@@ -6,12 +6,14 @@
   "scripts": {
     "setup": "gulp setup",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "dev": "webpack-dev-server --port 3000 --config web/webpack.config.js --inline --hot --colors --quiet",
+    "start:web": "webpack-dev-server --port 3000 --config web/webpack.config.js --inline --hot --colors --quiet",
+    "start:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
     "react": "~15.4.0",
     "react-native": "0.41.2",
+    "react-native-macos": "^0.12.0-rc.1",
     "react-native-windows": "^0.41.0-rc.0"
   },
   "devDependencies": {
