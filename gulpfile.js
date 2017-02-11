@@ -1,7 +1,9 @@
+const gulp = require('gulp');
 const gutil = require('gulp-util');
 
 require('./boilerplate/scripts/clean.js');
 require('./boilerplate/scripts/enable.js');
+require('./boilerplate/scripts/run.js');
 require('./boilerplate/scripts/setup.js');
 
 global.platforms = [
@@ -13,6 +15,7 @@ global.platforms = [
   'windows',
 ];
 
+// CLI options
 const argv = require('yargs')
   .usage('Usage: gulp <task> [options]')
   .command('setup', 'Eject from original repository after cloning')
@@ -21,6 +24,7 @@ const argv = require('yargs')
   .command('clean[:target]', 'Clean all caches (npm, yarn). Or, include a single target')
   .command('run <platform>', 'Runs the app on the supplied platform')
   .command('build <platform>', 'Builds the app for the supplied platform')
+  // .command('start <platform>', 'Start packager for the supplied platform')
   .alias('r', 'release')
   .describe('r', 'Build the release version. Defaults to debug version.')
   .help('h')
@@ -31,17 +35,6 @@ const argv = require('yargs')
 // SETUP
 function setSettings(args) {
   if (args._) {
-    switch (args._[0]) {
-      case 'enable':
-      case 'build':
-      case 'run':
-        if (args._.length !== 2) {
-          gutil.log(gutil.colors.red('Invalid CLI command. Run "gulp --help" for options.'));
-        }
-        break;
-      default:
-        break;
-    }
     if (!global.settings) {
       global.settings = {
         platform: args.platform,
@@ -54,3 +47,21 @@ function setSettings(args) {
   }
 }
 setSettings(argv);
+
+// Customize CLI behavior
+// Make gulp think we have tasks so that it doesn't error
+if (argv._) {
+  const tasks = Object.keys(gulp.tasks);
+  // fill in missing tasks
+  const toFillIn = ['_', 'platform'];
+  toFillIn.forEach((key) => {
+    if (argv[key]) {
+      const vals = Array.isArray(argv[key]) ? argv[key] : [argv[key]];
+      vals.forEach((taskName) => {
+        if (tasks.indexOf(taskName) === -1) {
+          gulp.task(taskName, () => {});
+        }
+      });
+    }
+  });
+}
