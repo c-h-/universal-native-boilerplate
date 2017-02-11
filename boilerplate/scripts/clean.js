@@ -1,13 +1,32 @@
 const gulp = require('gulp');
+const path = require('path');
+const rimraf = require('rimraf');
 const shell = require('shelljs');
 
 /**
  * Clean caches
  */
-gulp.task('clean', [
+gulp.task('clean', [[
+  'clean:boilerplate',
   'clean:npm',
   'clean:yarn',
-]);
+]]);
+
+/**
+ * Cleans Boilerplate cache
+ */
+gulp.task('clean:boilerplate', () => {
+  return new Promise((resolve, reject) => {
+    rimraf(path.join(process.cwd(), 'build'), (err) => {
+      if (err) {
+        reject(err);
+      }
+      else {
+        resolve();
+      }
+    });
+  });
+});
 
 /**
  * Cleans NPM cache
