@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   devServer: {
-    contentBase: path.resolve(__dirname, '..', 'src'),
+    contentBase: path.join(__dirname, 'src'),
   },
   entry: [
     path.join(__dirname, '../index.web.js'),
