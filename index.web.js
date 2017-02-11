@@ -4,22 +4,14 @@
  * @flow
  */
 
-import React, { Component } from 'react';
 import {
   AppRegistry,
 } from 'react-native';
 
-import HelloWorld from './js/components/HelloWorld';
+import Wrapper from './js/components/Wrapper';
 
-export default class UniversalNativeBoilerplate extends Component {
-  render() {
-    return (
-      <HelloWorld />
-    );
-  }
-}
+AppRegistry.registerComponent('UniversalNativeBoilerplate', Wrapper);
 
-AppRegistry.registerComponent('UniversalNativeBoilerplate', () => UniversalNativeBoilerplate);
 AppRegistry.runApplication('UniversalNativeBoilerplate', {
   rootTag: document.getElementById('container'),
 });
