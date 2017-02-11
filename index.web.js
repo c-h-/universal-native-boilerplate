@@ -9,7 +9,7 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import HelloWorld from './js/components/HelloWorld';
+import HelloWorld from './src/js/components/HelloWorld';
 
 export default class UniversalNativeBoilerplate extends Component {
   render() {
@@ -20,3 +20,6 @@ export default class UniversalNativeBoilerplate extends Component {
 }
 
 AppRegistry.registerComponent('UniversalNativeBoilerplate', () => UniversalNativeBoilerplate);
+AppRegistry.runApplication('UniversalNativeBoilerplate', {
+  rootTag: document.getElementById('container'),
+});
