@@ -3,10 +3,32 @@ const webpack = require('webpack');
 
 module.exports = {
   devServer: {
-    contentBase: path.join(__dirname, 'src'),
+    quiet: true,
+    contentBase: path.join(process.cwd(), 'web', 'src'),
+    port: process.env.PORT || 3000,
+    host: 'localhost',
+    colors: true,
+    publicPath: '/',
+    historyApiFallback: {
+      index: '/index.html',
+    },
+    setup: (/* app */) => {
+      // Here you can access the Express app object and add your own custom middleware to it.
+      // For example, to define custom handlers for some paths:
+      // app.get('/', (req, res) => {
+      // });
+    },
+    open: true,
+    proxy: {
+      // OPTIONAL: proxy configuration:
+      // '/optional-prefix/**': { // path pattern to rewrite
+      //   target: 'http://target-host.com',
+      //   pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
+      // }
+    },
   },
   entry: [
-    path.join(__dirname, '../index.web.js'),
+    path.join(process.cwd(), 'index.web.js'),
   ],
   module: {
     loaders: [
@@ -14,12 +36,16 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: { cacheDirectory: true },
+        query: {
+          cacheDirectory: true,
+        },
       },
       {
         test: /\.(gif|jpe?g|png|svg)$/,
         loader: 'url-loader',
-        query: { name: '[name].[hash:16].[ext]' },
+        query: {
+          name: '[name].[hash:16].[ext]',
+        },
       },
     ],
   },

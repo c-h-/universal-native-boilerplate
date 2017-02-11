@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 
+require('./boilerplate/scripts/build.js');
 require('./boilerplate/scripts/clean.js');
 require('./boilerplate/scripts/enable.js');
 require('./boilerplate/scripts/run.js');
@@ -39,6 +40,7 @@ function setSettings(args) {
     if (!global.settings) {
       global.settings = {
         platform: args.platform,
+        release: args.r,
       };
     }
   }

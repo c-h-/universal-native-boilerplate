@@ -13,13 +13,20 @@ function runStdPlatform(callback) {
   callback();
 }
 
+function runWebPlatform(callback) {
+  shell.exec('npm run start:packager:web');
+  callback();
+}
+
 /**
  * Run the project
  */
 gulp.task('run', ['switch'], (callback) => {
   switch (global.settings.platform) {
-    case 'server':
     case 'web':
+      runWebPlatform(callback);
+      break;
+    case 'server':
       gutil.log(gutil.colors.yellow('Not yet implemented'));
       break;
     default:

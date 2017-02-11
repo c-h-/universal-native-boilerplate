@@ -6,8 +6,8 @@
   "scripts": {
     "setup": "gulp setup",
     "start:packager": "node node_modules/react-native/local-cli/cli.js start",
-    "start:web": "webpack-dev-server --port 3000 --config web/webpack.config.js --inline --hot --colors --quiet",
-    "start:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
+    "start:packager:web": "webpack-dev-server --config web/webpack.config.js --inline --hot",
+    "start:packager:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
