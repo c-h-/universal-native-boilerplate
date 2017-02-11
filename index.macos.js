@@ -3,7 +3,7 @@
  * https://github.com/ptmt/react-native-macos
  */
  import React from 'react';
- import ReactNative from 'react-native-macos';
+ import ReactNative from 'react-native';
  
  const {
    AppRegistry,

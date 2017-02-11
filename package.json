@@ -13,7 +13,7 @@
   "dependencies": {
     "react": "~15.4.0",
     "react-native": "0.41.2",
-    "react-native-macos": "^0.12.0-rc.1",
+    "react-native-macos": "https://github.com/c-h-/react-native-macos.git",
     "react-native-windows": "^0.41.0-rc.0"
   },
   "devDependencies": {
@@ -41,5 +41,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "react-native-macos": {
+    "react-native": "react-native-macos"
   }
 }
