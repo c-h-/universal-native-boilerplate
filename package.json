@@ -15,8 +15,8 @@
     "react": "~15.4.0",
     "react-dom": "^15.4.2",
     "react-native": "0.41.2",
-    "react-native-windows": "^0.41.0-rc.0",
-    "react-native-macos": "https://github.com/c-h-/react-native-macos.git"
+    "react-native-macos": "https://github.com/c-h-/react-native-macos.git",
+    "react-native-windows": "^0.41.0-rc.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -37,6 +37,7 @@
     "jest": "18.1.0",
     "lodash.assign": "^4.2.0",
     "lodash.isequal": "^4.5.0",
+    "path-exists": "^3.0.0",
     "react-native-web": "^0.0.70",
     "react-test-renderer": "~15.4.0",
     "rnpm-plugin-windows": "^0.2.3",

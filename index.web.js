@@ -10,7 +10,7 @@ import {
 
 import Wrapper from './js/components/Wrapper';
 
-AppRegistry.registerComponent('UniversalNativeBoilerplate', Wrapper);
+AppRegistry.registerComponent('UniversalNativeBoilerplate', () => Wrapper);
 
 AppRegistry.runApplication('UniversalNativeBoilerplate', {
   rootTag: document.getElementById('container'),

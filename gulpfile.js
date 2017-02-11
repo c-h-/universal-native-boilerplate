@@ -5,6 +5,7 @@ require('./boilerplate/scripts/clean.js');
 require('./boilerplate/scripts/enable.js');
 require('./boilerplate/scripts/run.js');
 require('./boilerplate/scripts/setup.js');
+require('./boilerplate/scripts/switch.js');
 
 global.platforms = [
   'android',

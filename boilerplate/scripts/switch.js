@@ -15,7 +15,7 @@ gulp.task('switch', () => {
       global.settings.platform,
       'rn-cli.config.js'
     );
-    pathExists(path).then((exists) => {
+    pathExists(configPath).then((exists) => {
       const pathToUse = exists ? configPath : path.resolve(__dirname, '..', 'rn-cli.config.js');
       const dest = path.resolve(__dirname, '..', '..', 'rn-cli.config.js');
       fs.copy(pathToUse, dest, { overwrite: true }, resolve);
