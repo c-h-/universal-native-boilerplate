@@ -1,13 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   devServer: {
+    // https://webpack.js.org/configuration/dev-server/
     quiet: true,
     contentBase: path.join(process.cwd(), 'web', 'src'),
     port: process.env.PORT || 3000,
     host: 'localhost',
-    colors: true,
     publicPath: '/',
     historyApiFallback: {
       index: '/index.html',
@@ -27,11 +30,22 @@ module.exports = {
       // }
     },
   },
-  entry: [
-    path.join(process.cwd(), 'index.web.js'),
-  ],
+  entry: {
+    application: path.join(process.cwd(), 'index.web.js'),
+    vendor: ['react', 'react-dom', 'react-redux', 'redux'],
+  },
+  resolve: {
+    modules: [
+      path.join(process.cwd(), 'node_modules'),
+    ],
+    alias: {
+      'react-native': 'react-native-web',
+    },
+    extensions: ['.js', '.json'],
+  },
   module: {
     loaders: [
+      // JS
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -40,11 +54,29 @@ module.exports = {
           cacheDirectory: true,
         },
       },
+      // JSON
       {
-        test: /\.(gif|jpe?g|png|svg)$/,
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      // Images
+      // Inline base64 URLs for <=8k images, direct URLs for the rest
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
         loader: 'url-loader',
-        query: {
-          name: '[name].[hash:16].[ext]',
+        options: {
+          limit: 8192,
+          name: 'images/[name]_[hash:base64:5].[ext]',
+        },
+      },
+      // Fonts
+      // Inline base64 URLs for <=8k fonts, direct URLs for the rest
+      {
+        test: /\.(woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name: 'fonts/[name]_[hash:base64:5].[ext]',
         },
       },
     ],
@@ -52,16 +84,45 @@ module.exports = {
   output: {
     filename: 'bundle.js',
   },
-  plugins: [
+  plugins: ([
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-  ],
-  resolve: {
-    alias: {
-      'react-native': 'react-native-web',
-    },
+    new HtmlWebpackPlugin({
+      template: path.resolve(process.cwd(), './web/src/index.html'),
+      minify: {
+        collapseWhitespace: true,
+        hash: true,
+      },
+    }),
+  ]).concat(ENV === 'production' ? [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+      },
+      output: {
+        comments: false,
+      },
+      sourceMap: false,
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }),
+  ] : []),
+
+  stats: {
+    colors: true,
+  },
+
+  node: {
+    global: true,
+    process: false,
+    Buffer: false,
+    __filename: false,
+    __dirname: false,
+    setImmediate: false,
   },
 };

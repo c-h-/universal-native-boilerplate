@@ -1,16 +1,19 @@
 const gulp = require('gulp');
 const path = require('path');
 const rimraf = require('rimraf');
+const runSequence = require('run-sequence');
 const shell = require('shelljs');
 
 /**
  * Clean caches
  */
-gulp.task('clean', [[
-  'clean:boilerplate',
-  'clean:npm',
-  'clean:yarn',
-]]);
+gulp.task('clean', (callback) => {
+  runSequence([
+    'clean:boilerplate',
+    'clean:npm',
+    'clean:yarn',
+  ], callback);
+});
 
 /**
  * Cleans Boilerplate cache
