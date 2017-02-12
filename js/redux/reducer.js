@@ -9,8 +9,8 @@ import home from '../views/Home/reducer';
 
 export default combineReducers({
   transient,
-  nav: (state, action) => (
-    AppNavigator.router.getStateForAction(action, state)
-  ),
+  // nav: (state, action) => (
+  //   AppNavigator.router.getStateForAction(action, state)
+  // ),
   home,
 });

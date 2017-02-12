@@ -42,6 +42,7 @@ if (Visualizer) {
 }
 
 module.exports = {
+  devtool: 'cheap-eval-source-map',
   devServer: {
     // https://webpack.js.org/configuration/dev-server/
     quiet: true,
