@@ -6,7 +6,11 @@ This boilerplate is meant to be an hassle-free project starting point. Since pla
 
 Simply get the boilerplate and enable the platforms and features you need.
 
+A command line interface is included with the boilerplate that should aid in development and maintenance for the life of the project. It's easily extendable by adding Gulp tasks.
+
 Familiarity with React and React Native is recommended before using this boilerplate.
+
+`Node >= 6.8.0 recommended`
 
 ## Quick Start
 
@@ -46,6 +50,7 @@ windows | platform | [react-native-windows](https://github.com/ReactWindows/reac
 visualizer | feature | Works with web platform. Generates a nice graph of dependency weight so it's easy to see where bundle size is coming from. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
 
 ### Run, Build, Release
+#### Command Line
 Nothing stops you from using the underlying commands to manage your project, however it can be a pain to remember how to do each operation. There's `react-native` commands, `react-native-macos` commands, package.json commands, and on and on.
 
 This boilerplate comes with a customized Gulp CLI to ease configuration and day-to-day dev. Run `gulp --help` for up to date options. The point of this CLI is to make it unnecessary to remember every CLI command for each platform.
@@ -57,16 +62,19 @@ Commands:
   setup             Eject from original repository after cloning
   enable <recipe>   Enable a platform or feature
   enable-all        Enable all platforms
-  clean[:target]    Clean all caches (npm, yarn). Or, include a single target
-  run <platform>    Runs the app on the supplied platform
   build <platform>  Builds the app for the supplied platform
+  run <platform>    Builds and runs the app on the supplied platform
+  clean[:target]    Clean all caches (npm, yarn). Or, include a single target.
 
 Options:
-  -r, --release  Build the release version. Defaults to debug version.
+  -r, --release  Build a production, releaseable version. Defaults to debug version.
   -h, --help     Show help                                             [boolean]
 
 Available platforms: android, ios, macos, server, web, windows
 ```
+
+#### Automated Organization
+If you use the Gulp CLI, compiled versions are organized by platform in the `/build` folder.
 
 ### Configure
 
