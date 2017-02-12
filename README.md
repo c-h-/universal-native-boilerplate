@@ -126,6 +126,14 @@ Here's a list of features and notes:
   - [Polyfill.io](https://polyfill.io/v2/docs/) use a lighter Babel transform preset for web code and instead include just the polyfills you need for your app, tailored to each browser. Reduces bundle sizes.
 
 ### Notes and Tips
+#### CSS
+React Native supports a CSS-like API for styling components. No CSS capabilities have been added to the boilerplate because of this.
+It is possible to use CSS with the web platform only, but it's not recommended due to organizational issues that would be inevitable.
+
+#### Supported JS Features
+See the [official docs](https://facebook.github.io/react-native/docs/javascript-environment.html) for details of which JS features are supported by default.
+The web platform uses `/.babelrc.web` to enable the same features in a way that works for the browser.
+
 #### Platform Specific Code
 It's easy to add native functionality to a React Native and consume it from JS. See [official docs](https://facebook.github.io/react-native/docs/native-modules-ios.html) for details.
 

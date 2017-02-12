@@ -10,6 +10,7 @@ const shell = require('shelljs');
 gulp.task('clean', (callback) => {
   runSequence([
     'clean:boilerplate',
+    'clean:watchman',
     'clean:npm',
     'clean:yarn',
   ], callback);
@@ -28,6 +29,17 @@ gulp.task('clean:boilerplate', () => {
         resolve();
       }
     });
+  });
+});
+
+/**
+ * Cleans Watchman cache
+ */
+gulp.task('clean:watchman', (callback) => {
+  shell.exec('watchman watch-del-all', {
+    async: true,
+  }, () => {
+    callback();
   });
 });
 

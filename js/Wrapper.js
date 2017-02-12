@@ -1,10 +1,19 @@
 import React from 'react';
-import Home from './views/home';
+import {
+  Provider,
+} from 'react-redux';
 
-const UniversalNativeBoilerplate = () => {
+import {
+  getStore,
+} from './redux/store';
+import App from './App';
+
+const Wrapper = () => {
   return (
-    <Home />
+    <Provider store={getStore()}>
+      <App />
+    </Provider>
   );
 };
 
-export default UniversalNativeBoilerplate;
+export default Wrapper;

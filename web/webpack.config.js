@@ -7,6 +7,9 @@ const ENV = process.env.NODE_ENV || 'development';
     // ["babel-plugin-transform-es2015-modules-commonjs"],
 // plugins used in dev and production
 const initPlugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+  }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
   }),
@@ -90,7 +93,22 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
+          babelrc: false,
           cacheDirectory: true,
+          plugins: [
+            [
+              'transform-runtime',
+              {
+                'polyfill': true,
+                'regenerator': true,
+              },
+            ],
+          ],
+          presets: [
+            'es2015',
+            'stage-0',
+            'react',
+          ],
         },
       },
       // JSON

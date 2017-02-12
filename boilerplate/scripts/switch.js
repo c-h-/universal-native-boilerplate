@@ -9,15 +9,15 @@ const pathExists = require('path-exists');
 gulp.task('switch', () => {
   return new Promise((resolve) => {
     const configPath = path.resolve(
-      __dirname,
-      '..',
-      '..',
+      process.cwd(),
       global.settings.platform,
       'rn-cli.config.js'
     );
     pathExists(configPath).then((exists) => {
-      const pathToUse = exists ? configPath : path.resolve(__dirname, '..', 'rn-cli.config.js');
-      const dest = path.resolve(__dirname, '..', '..', 'rn-cli.config.js');
+      const pathToUse = exists
+        ? configPath
+        : path.join(process.cwd(), 'boilerplate', 'rn-cli.config.js');
+      const dest = path.resolve(process.cwd(), 'rn-cli.config.js');
       fs.copy(pathToUse, dest, { overwrite: true }, resolve);
     });
   });
