@@ -1,4 +1,7 @@
 import {
+  Platform,
+} from 'react-native';
+import {
   createStore,
   applyMiddleware,
   compose,
@@ -15,13 +18,15 @@ import reducer from './reducer';
 import ActionTypes from './action_types.json';
 
 const persistConfig = {
-  // storage: storageEngine,
   keyPrefix: 'app',
   // don't restore data from these reducers
   blacklist: [
     'transient',
   ],
 };
+if (Platform.OS !== 'web') {
+  persistConfig.storage = storageEngine;
+}
 
 let store;
 

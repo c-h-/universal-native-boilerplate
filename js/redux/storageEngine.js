@@ -2,4 +2,5 @@ import {
   AsyncStorage,
 } from 'react-native';
 
-export default AsyncStorage;
+const storageEngine = AsyncStorage;
+export default storageEngine;
