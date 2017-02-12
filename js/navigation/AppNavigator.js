@@ -24,6 +24,4 @@ AppNavigator.propTypes = {
   navigation: PropTypes.object,
 };
 
-console.log('AppNavigator', typeof AppNavigator, AppNavigator);
-
 export default AppNavigator;

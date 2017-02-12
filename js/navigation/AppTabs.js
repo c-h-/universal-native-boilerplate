@@ -7,7 +7,7 @@ import {
 import Link from '../Link';
 
 const AppTabs = ({ navigation }) => {
-  const links = [
+  const links = navigation.state ? [
     ...navigation.state.routes.map((route, i) => {
       if (route.routeName === 'NotFound') {
         return null;
@@ -22,7 +22,7 @@ const AppTabs = ({ navigation }) => {
         </Link>
       );
     }),
-  ];
+  ] : [];
   return (
     <View>
       {links}

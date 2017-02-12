@@ -32,18 +32,23 @@ class AppFrame extends Component {
     } = this.props;
     const childNavigation = addNavigationHelpers({
       ...navigation,
-      state: navigation.state.routes[navigation.state.index],
+      state: navigation.state
+        ? navigation.state.routes[navigation.state.index]
+        : null,
     });
     const {
       routes,
       index,
     } = navigation;
-    const Scene = router.getComponentForRouteName(routes[index].routeName);
+    let Scene;
+    if (routes) {
+      Scene = router.getComponentForRouteName(routes[index].routeName);
+    }
     return (
       <View>
         <Text>Hi</Text>
         {/*<Scene navigation={childNavigation} />*/}
-        {/*<AppTabs navigation={navigation} />*/}
+        <AppTabs navigation={navigation} />
       </View>
     );
   }
