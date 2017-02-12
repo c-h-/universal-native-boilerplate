@@ -4,13 +4,9 @@ import {
   Text,
 } from 'react-native';
 
-import {
-  sudoMakeMeASandwich,
-} from './test';
+import styles from '../../styles';
 
-import styles from '../styles';
-
-const HelloWorld = () => {
+const Home = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>
@@ -19,11 +15,8 @@ const HelloWorld = () => {
       <Text style={styles.instructions}>
         To get started, edit index.*.js
       </Text>
-      <Text>
-        {sudoMakeMeASandwich()}
-      </Text>
     </View>
   );
 };
 
-export default HelloWorld;
+export default Home;

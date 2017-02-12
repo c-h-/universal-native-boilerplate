@@ -1,9 +1,9 @@
 import React from 'react';
-import HelloWorld from './HelloWorld';
+import Home from './views/home';
 
 const UniversalNativeBoilerplate = () => {
   return (
-    <HelloWorld />
+    <Home />
   );
 };
 
