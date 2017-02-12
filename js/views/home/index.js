@@ -13,7 +13,7 @@ import {
 import {
   getRandomNumber,
 } from './actions';
-import styles from '../../styles';
+import styles from './styles';
 
 class Home extends Component {
   componentWillMount() {

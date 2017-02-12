@@ -126,6 +126,11 @@ Here's a list of features and notes:
   - [Polyfill.io](https://polyfill.io/v2/docs/) use a lighter Babel transform preset for web code and instead include just the polyfills you need for your app, tailored to each browser. Reduces bundle sizes.
 
 ### Notes and Tips
+#### File Organization
+Any way of organizing the `/js` folder of source will work fine. The boilerplate is organized around app views (scenes or pages). This can help with code splitting to reduce web bundle sizes on initial load. It can also assist in keeping organized should the app grow to be a large codebase.
+
+Styles, view sub-components, and redux action creators and reducers are all in a view's subfolder. Everything that's app-wide is exterior to the `/js/views` folder, including app-wide reducers. 
+
 #### CSS
 React Native supports a CSS-like API for styling components. No CSS capabilities have been added to the boilerplate because of this.
 It is possible to use CSS with the web platform only, but it's not recommended due to organizational issues that would be inevitable.
