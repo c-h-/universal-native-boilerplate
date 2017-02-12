@@ -121,11 +121,15 @@ Here's a list of features and notes:
   - It's [offline-first](https://github.com/NekR/offline-plugin) using Service Workers to cache resources
   - It's easy to test how well it performs with automatic [lighthouse](https://github.com/GoogleChrome/lighthouse) testing
 - Supports alternative React backends (Preact, Inferno, etc) (Coming soon)
-- Easy to enable advanced bundle optimizations such as: (Coming soon)
-  - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app.
-  - [Polyfill.io](https://polyfill.io/v2/docs/) use a lighter Babel transform preset for web code and instead include just the polyfills you need for your app, tailored to each browser. Reduces bundle sizes.
+- Advanced bundle optimizations such as:
+  - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app. (Coming soon)
+  - [Polyfill.io](https://polyfill.io/v2/docs/) use a lighter Babel transform preset for web code and instead include just the polyfills you need for your app, tailored to each browser. Reduces bundle sizes. (Coming soon)
+  - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
 
 ### Notes and Tips
+#### Performance
+Try to limit passing dynamic props and passing props between React components wherever possible. [Netflix has good insights](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html) into the lengths you can go to maximize performance.
+
 #### File Organization
 Any way of organizing the `/js` folder of source will work fine. The boilerplate is organized around app views (scenes or pages). This can help with code splitting to reduce web bundle sizes on initial load. It can also assist in keeping organized should the app grow to be a large codebase.
 

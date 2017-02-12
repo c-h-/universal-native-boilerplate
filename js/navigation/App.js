@@ -5,14 +5,28 @@ import {
   Text,
 } from 'react-native';
 import {
+  addNavigationHelpers,
+} from 'react-navigation';
+import {
   connect,
 } from 'react-redux';
-import Home from './views/home';
+
+import AppNavigator from './AppNavigator';
 
 const App = (props) => {
-  if (props.appReady) {
+  const {
+    appReady,
+    dispatch,
+    nav,
+  } = props;
+  if (appReady) {
     return (
-      <Home />
+      <AppNavigator
+        navigation={addNavigationHelpers({
+          dispatch,
+          state: nav,
+        })}
+      />
     );
   }
   else {
@@ -24,11 +38,14 @@ const App = (props) => {
 
 App.propTypes = {
   appReady: PropTypes.bool,
+  nav: PropTypes.object,
+  dispatch: PropTypes.func,
 };
 
 function mapStateToProps(state) {
   return {
     appReady: state.transient.appReady,
+    nav: state.nav,
   };
 }
 

@@ -16,6 +16,9 @@ import {
 import styles from './styles';
 
 class Home extends Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   componentWillMount() {
     const {
       random,

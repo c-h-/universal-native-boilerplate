@@ -103,6 +103,7 @@ module.exports = {
                 'regenerator': true,
               },
             ],
+            'transform-react-inline-elements',
           ],
           presets: [
             'es2015',

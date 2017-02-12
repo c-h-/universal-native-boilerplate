@@ -6,7 +6,7 @@ import {
 import {
   getStore,
 } from './redux/store';
-import App from './App';
+import App from './navigation/App';
 
 const Wrapper = () => {
   return (
