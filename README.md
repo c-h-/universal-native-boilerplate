@@ -6,7 +6,7 @@ This boilerplate is meant to be an hassle-free project starting point. Since pla
 
 Simply get the boilerplate and enable the platforms and features you need.
 
-A command line interface is included with the boilerplate that should aid in development and maintenance for the life of the project. It's easily extendable by adding Gulp tasks.
+A command line interface is included with the boilerplate that should aid in development and maintenance for the life of your project. The CLI is easily extendable by adding Gulp tasks.
 
 Familiarity with React and React Native is recommended before using this boilerplate.
 
@@ -76,6 +76,9 @@ Available platforms: android, ios, macos, server, web, windows
 #### Automated Organization
 If you use the Gulp CLI, compiled versions are organized by platform in the `/build` folder.
 
+#### Publishing
+Additional steps are required to publish your app for most platforms. More documentation soon.
+
 ### Configure
 
 Native platforms need the appropriate tools (SDKs) set up in order to compile and run.
@@ -104,6 +107,24 @@ If it is not already set up, follow the official guide: [official getting starte
 #### Web
 Nothing :P
 
+### Web and Server Platform Notes
+
+The web and server platform has been set up to make newly created projects great by default.
+Here's a list of features and notes:
+
+- Webpack 2 + Babel build script with Tree Shaking enabled.
+- Hot Module Reloading (HMR) enabled.
+- Redux pre-installed
+  - [Web Worker hosted reducers](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive reducer computations. (Coming soon)
+- [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (Coming soon)
+  - Installable on mobile home screens
+  - It's [offline-first](https://github.com/NekR/offline-plugin) using Service Workers to cache resources
+  - It's easy to test how well it performs with automatic [lighthouse](https://github.com/GoogleChrome/lighthouse) testing
+- Supports alternative React backends (Preact, Inferno, etc) (Coming soon)
+- Easy to enable advanced bundle optimizations such as: (Coming soon)
+  - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app.
+  - [Polyfill.io](https://polyfill.io/v2/docs/) use a lighter Babel transform preset for web code and instead include just the polyfills you need for your app, tailored to each browser. Reduces bundle sizes.
+
 ### Notes and Tips
 #### Platform Specific Code
 It's easy to add native functionality to a React Native and consume it from JS. See [official docs](https://facebook.github.io/react-native/docs/native-modules-ios.html) for details.
@@ -115,3 +136,8 @@ Not all React Native third party plugins work on every platform. An easy way to 
 
 #### Preventing Headaches and Refactors
 To ensure your app works on every platform it's recommended to preview each enabled platform as you work, or at least preview each enabled platform often. This will help ensure that code written will work without hassle.
+
+### Roadmap
+The frontend world moves fast. As I have time I'll try to add more features and any new platforms released that are compatible with React Native and stable.
+
+Something that will definitely be added if it's ever released for React (or an alternative React backend) is Ahead of Time compilation, a feature that only Angular 2 currently supports. There may be a path for React to use [EchoJS](https://github.com/toshok/echojs)
