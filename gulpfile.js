@@ -32,6 +32,7 @@ const argv = require('yargs')
   .help('h')
   .alias('h', 'help')
   .epilogue(`Available platforms: ${global.platforms.join(', ')}`)
+  .demand(1)
   .argv;
 
 // SETUP
