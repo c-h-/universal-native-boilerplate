@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development';
 
+    // ["babel-plugin-transform-es2015-modules-commonjs"],
 // plugins used in dev and production
 const initPlugins = [
   new webpack.optimize.CommonsChunkPlugin({

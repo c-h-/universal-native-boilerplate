@@ -4,6 +4,10 @@ import {
   Text,
 } from 'react-native';
 
+import {
+  sudoMakeMeASandwich,
+} from './test';
+
 import styles from '../styles';
 
 const HelloWorld = () => {
@@ -14,6 +18,9 @@ const HelloWorld = () => {
       </Text>
       <Text style={styles.instructions}>
         To get started, edit index.*.js
+      </Text>
+      <Text>
+        {sudoMakeMeASandwich()}
       </Text>
     </View>
   );
