@@ -131,6 +131,7 @@ Here's a list of features and notes:
 - Webpack 2 + Babel build script with Tree Shaking enabled.
 - Hot Module Reloading (HMR) enabled.
 - HappyPack parallelized webpack builds
+  - See `happypack` branch. [Currently broken](https://github.com/amireh/happypack/issues/128).
 - Redux pre-installed
   - [Web Worker hosted reducers](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive reducer computations. (Coming soon)
 - [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (Coming soon)
