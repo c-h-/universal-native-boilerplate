@@ -47,7 +47,7 @@ macos | platform | [react-native-macos](https://github.com/ptmt/react-native-mac
 server | platform | server side rendering of web version. requires web platform.
 web | platform | Offline-first Progressive Web App powered by [react-native-web](https://github.com/necolas/react-native-web)
 windows | platform | [react-native-windows](https://github.com/ReactWindows/react-native-windows)
-visualizer | feature | Works with web platform. Generates a nice graph of dependency weight so it's easy to see where bundle size is coming from. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
+visualizer | feature | Works with web platform. Generates a nice graph of dependency weights. Outputs to `/build/web/{debug|release}/__stats.html`. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
 
 ### Run, Build, Release
 #### Command Line
@@ -78,6 +78,11 @@ If you use the Gulp CLI, compiled versions are organized by platform in the `/bu
 
 #### Publishing
 Additional steps are required to publish your app for most platforms. More documentation soon.
+
+##### Web
+Publishing for the web is the simplest. The files are in `/build/web/release`. Grab the files and publish them somewhere. GitHub Pages is good for static site hosting. Netlify is good too; it supports HTTPS via Let's Encrypt which is nice.
+
+If you have the visualizer feature enabled, don't publish `/build/web/release/__stats.html`.
 
 ### Configure
 
@@ -136,7 +141,7 @@ Here's a list of features and notes:
   - [Web Worker hosted reducers](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive reducer computations. (Coming soon)
 - [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (Coming soon)
   - Installable on mobile home screens
-  - It's [offline-first](https://github.com/NekR/offline-plugin) using Service Workers to cache resources
+  - It's [offline-first](https://github.com/NekR/offline-plugin) using a Service Worker to cache resources
   - It's easy to test how well it performs with automatic [lighthouse](https://github.com/GoogleChrome/lighthouse) testing
 - Supports alternative React backends (Preact, Inferno, etc) (Coming soon)
 - Advanced bundle optimizations such as:
