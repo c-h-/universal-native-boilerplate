@@ -11,7 +11,6 @@ const initState = {
 export default function home(state = initState, action) {
   switch (action.type) {
     case REHYDRATE: {
-      console.log('REHYDRATE', action);
       return {
         ...state,
         ...action.payload.home,

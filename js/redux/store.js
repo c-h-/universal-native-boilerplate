@@ -14,7 +14,7 @@ import {
 
 import logger from './middlewares/logger';
 import storageEngine from './storageEngine';
-import reducer from './reducer';
+import reducer from './reducers';
 import ActionTypes from './action_types.json';
 
 const persistConfig = {
@@ -44,6 +44,7 @@ function init() {
   );
   persistStore(store, persistConfig, () => {
     // called when rehydration complete
+    console.log('INIT STATE', store.getState());
     store.dispatch({
       type: ActionTypes.SET_APP_READY,
       appReady: true,
