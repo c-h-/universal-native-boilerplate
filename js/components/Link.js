@@ -3,6 +3,7 @@ import React, {
   Component,
 } from 'react';
 import {
+  Text,
   View,
 } from 'react-native';
 import {
@@ -44,7 +45,11 @@ class Link extends Component {
       <View
         onClick={this.handleClick}
       >
-        {children}
+        {
+          typeof children === 'string'
+          ? <Text>{children}</Text>
+          : children
+        }
       </View>
     );
   }
