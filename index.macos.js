@@ -8,6 +8,6 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import Wrapper from './js/Wrapper';
+import Wrapper from './js/components/ReduxWrapper';
 
 AppRegistry.registerComponent('UniversalNativeBoilerplate', () => Wrapper);

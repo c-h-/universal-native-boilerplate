@@ -5,8 +5,8 @@ import {
 
 import {
   getStore,
-} from './redux/store';
-import App from './components/App';
+} from '../redux/store';
+import App from './App';
 
 const Wrapper = () => {
   return (

@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import {
   View,
@@ -8,26 +7,21 @@ import {
 } from 'react-native';
 
 import styles from './styles';
-import Random from './components/Random';
 
-class Home extends Component {
+class IconsGrid extends Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Icons',
   };
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native
+          Icons
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.*.js
-        </Text>
-        <Random />
       </View>
     );
   }
 }
 
-export default Home;
+export default IconsGrid;

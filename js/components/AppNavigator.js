@@ -8,7 +8,9 @@ import {
 import navigatorOptions from './AppRoutes';
 import AppFrame from './AppFrame';
 
-const Router = TabRouter(navigatorOptions);
+const Router = TabRouter(navigatorOptions, {
+  initialRouteName: 'Home',
+});
 
 const AppNavigator = ({ navigation }) => {
   return (

@@ -2,10 +2,9 @@ import React, {
   PropTypes,
 } from 'react';
 import {
-  Text,
   View,
 } from 'react-native';
-import Link from '../Link';
+import Link from './Link';
 
 const AppTabs = ({ navigation }) => {
   const links = navigation.state ? [
@@ -15,17 +14,13 @@ const AppTabs = ({ navigation }) => {
       }
       const isActive = i === navigation.state.index;
       return (
-        <Text>{route.routeName}</Text>
-        
-      );
-      /**
-       * <Link
-          to={route.routeName}
+        <Link
+          href={route.routeName}
           key={route.routeName}
         >
           {route.routeName}
         </Link>
-       */
+      );
     }),
   ] : [];
   return (
