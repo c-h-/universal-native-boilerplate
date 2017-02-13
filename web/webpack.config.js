@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HappyPack = require('happypack');
 
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -19,34 +18,6 @@ const initPlugins = [
       collapseWhitespace: true,
       hash: true,
     },
-  }),
-  new HappyPack({
-    cache: true,
-    loaders: [
-      {
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          babelrc: false,
-          cacheDirectory: true,
-          plugins: [
-            [
-              'transform-runtime',
-              {
-                'polyfill': true,
-                'regenerator': true,
-              },
-            ],
-            'transform-react-inline-elements',
-          ],
-          presets: [
-            'es2015',
-            'stage-0',
-            'react',
-          ],
-        },
-      },
-    ],
   }),
 ];
 
@@ -137,7 +108,27 @@ module.exports = {
       // JS
       {
         test: /\.js$/,
-        loader: 'happypack/loader',
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          babelrc: false,
+          cacheDirectory: true,
+          plugins: [
+            [
+              'transform-runtime',
+              {
+                'polyfill': true,
+                'regenerator': true,
+              },
+            ],
+            'transform-react-inline-elements',
+          ],
+          presets: [
+            'es2015',
+            'stage-0',
+            'react',
+          ],
+        },
       },
       // JSON
       {
