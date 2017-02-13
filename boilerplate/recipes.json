@@ -1,4 +1,9 @@
 {
+  "offline": {
+    "devDependencies": {
+      "offline-plugin": "^4.6.1"
+    }
+  },
   "visualizer": {
     "devDependencies": {
       "webpack-visualizer-plugin": "^0.1.10"

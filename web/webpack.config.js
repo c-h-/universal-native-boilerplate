@@ -5,7 +5,6 @@ const HappyPack = require('happypack');
 
 const ENV = process.env.NODE_ENV || 'development';
 
-    // ["babel-plugin-transform-es2015-modules-commonjs"],
 // plugins used in dev and production
 const initPlugins = [
   new webpack.DefinePlugin({
@@ -31,7 +30,13 @@ const initPlugins = [
           babelrc: false,
           cacheDirectory: true,
           plugins: [
-            
+            [
+              'transform-runtime',
+              {
+                'polyfill': true,
+                'regenerator': true,
+              },
+            ],
             'transform-react-inline-elements',
           ],
           presets: [
@@ -47,6 +52,7 @@ const initPlugins = [
 
 // optional plugins. once installed they succeed being required and get added to plugin list.
 let Visualizer;
+let OfflinePlugin;
 try {
   Visualizer = require('webpack-visualizer-plugin');
 }
@@ -54,11 +60,31 @@ catch (e) {
   console.info('Install visualizer with command `gulp enable visualizer`');
 }
 
+try {
+  OfflinePlugin = require('offline-plugin');
+}
+catch (e) {
+  console.info('Install offline support with command `gulp enable offline`');
+}
+
 // add optional plugins to config
 if (Visualizer) {
   initPlugins.push(new Visualizer({
     filename: './__stats.html',
   }));
+}
+if (OfflinePlugin) {
+  // initPlugins.push(new OfflinePlugin({
+  //   relativePaths: false,
+  //   AppCache: false,
+  //   ServiceWorker: {
+  //     events: true,
+  //   },
+  //   publicPath: '/',
+  //   caches: {
+  //     main: ['chat.js', 'chat.css'],
+  //   },
+  // }));
 }
 
 module.exports = {
@@ -171,6 +197,3 @@ module.exports = {
     colors: true,
   },
 };
-
-console.log('ENV', ENV, module.exports.plugins.length);
-
