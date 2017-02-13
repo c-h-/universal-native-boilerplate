@@ -1,6 +1,9 @@
 # MANAGED BY BOILERPLATE
 /rn-cli.config.js
 
+# HappyPack
+.happypack
+
 # OSX
 #
 .DS_Store

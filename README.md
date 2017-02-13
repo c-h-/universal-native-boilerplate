@@ -107,6 +107,22 @@ If it is not already set up, follow the official guide: [official getting starte
 #### Web
 Nothing :P
 
+### Baked-in Features
+Some features come baked in. This includes:
+
+- [React Navigation](https://reactnavigation.org/)
+  - Great library shares navigation across every platform. This boilerplate implements a custom navigator to cover web, server, Windows, and macOS.
+  - This boilerplate is set up to use the native TabNavigators for iOS and Android in order to get smooth native behavior. Delete `/js/components/AppNavigator.android.js` and `/js/components/AppNavigator.ios.js` to use the same navigator on every platform.
+  - Also configured into this boilerplate:
+    - Deep linking support (coming soon)
+    - URL support (coming soon)
+    - Redux integrated
+- Redux
+  - State management and logic organization
+- Redux Persist
+  - Persist state across sessions
+  - See [Redux Persist](https://github.com/rt2zz/redux-persist#transforms) for great transforms like compression and encryption
+
 ### Web and Server Platform Notes
 
 The web and server platform has been set up to make newly created projects great by default.
@@ -114,6 +130,7 @@ Here's a list of features and notes:
 
 - Webpack 2 + Babel build script with Tree Shaking enabled.
 - Hot Module Reloading (HMR) enabled.
+- HappyPack parallelized webpack builds
 - Redux pre-installed
   - [Web Worker hosted reducers](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive reducer computations. (Coming soon)
 - [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (Coming soon)

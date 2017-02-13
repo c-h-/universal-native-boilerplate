@@ -30,7 +30,6 @@ class AppFrame extends Component {
       navigation,
       router,
     } = this.props;
-    console.log('supppp', navigation);
     const childNavigation = addNavigationHelpers({
       ...navigation,
       state: navigation.state
@@ -42,7 +41,6 @@ class AppFrame extends Component {
       index,
     } = navigation.state;
     let Scene = null;
-    console.log('ROUTES', routes, index, navigation.state);
     if (routes) {
       Scene = router.getComponentForRouteName(routes[index].routeName);
     }

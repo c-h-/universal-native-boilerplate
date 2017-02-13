@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HappyPack = require('happypack');
 
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -8,13 +9,10 @@ const ENV = process.env.NODE_ENV || 'development';
 // plugins used in dev and production
 const initPlugins = [
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
-  }),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(process.cwd(), './web/src/index.html'),
@@ -22,6 +20,28 @@ const initPlugins = [
       collapseWhitespace: true,
       hash: true,
     },
+  }),
+  new HappyPack({
+    cache: true,
+    loaders: [
+      {
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          babelrc: false,
+          cacheDirectory: true,
+          plugins: [
+            
+            'transform-react-inline-elements',
+          ],
+          presets: [
+            'es2015',
+            'stage-0',
+            'react',
+          ],
+        },
+      },
+    ],
   }),
 ];
 
@@ -42,7 +62,7 @@ if (Visualizer) {
 }
 
 module.exports = {
-  devtool: 'cheap-eval-source-map',
+  devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
   devServer: {
     // https://webpack.js.org/configuration/dev-server/
     quiet: true,
@@ -91,27 +111,7 @@ module.exports = {
       // JS
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          babelrc: false,
-          cacheDirectory: true,
-          plugins: [
-            [
-              'transform-runtime',
-              {
-                'polyfill': true,
-                'regenerator': true,
-              },
-            ],
-            'transform-react-inline-elements',
-          ],
-          presets: [
-            'es2015',
-            'stage-0',
-            'react',
-          ],
-        },
+        loader: 'happypack/loader',
       },
       // JSON
       {
@@ -171,3 +171,6 @@ module.exports = {
     colors: true,
   },
 };
+
+console.log('ENV', ENV, module.exports.plugins.length);
+
