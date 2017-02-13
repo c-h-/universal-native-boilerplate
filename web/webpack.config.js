@@ -45,17 +45,15 @@ if (Visualizer) {
   }));
 }
 if (OfflinePlugin) {
-  // initPlugins.push(new OfflinePlugin({
-  //   relativePaths: false,
-  //   AppCache: false,
-  //   ServiceWorker: {
-  //     events: true,
-  //   },
-  //   publicPath: '/',
-  //   caches: {
-  //     main: ['chat.js', 'chat.css'],
-  //   },
-  // }));
+  initPlugins.push(new OfflinePlugin({
+    relativePaths: false,
+    AppCache: false,
+    ServiceWorker: {
+      events: true,
+    },
+    publicPath: '/',
+    caches: 'all',
+  }));
 }
 
 module.exports = {
@@ -93,6 +91,16 @@ module.exports = {
       'react-native-web',
       'animated',
     ],
+  },
+  output: {
+    path: path.join(
+      process.cwd(),
+      'build',
+      'web',
+      ENV === 'production' ? 'release' : 'debug'
+    ),
+    publicPath: '/',
+    filename: '[name].[hash].js',
   },
   resolve: {
     modules: [
@@ -156,16 +164,6 @@ module.exports = {
         },
       },
     ],
-  },
-  output: {
-    path: path.join(
-      process.cwd(),
-      'build',
-      'web',
-      ENV === 'production' ? 'release' : 'debug'
-    ),
-    publicPath: '/',
-    filename: '[name].[hash].js',
   },
   plugins: (initPlugins).concat(ENV === 'production' ? [
     new webpack.optimize.UglifyJsPlugin({
