@@ -4,6 +4,9 @@
 # HappyPack
 .happypack
 
+# VS Code
+.vscode
+
 # OSX
 #
 .DS_Store
