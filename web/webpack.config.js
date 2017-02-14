@@ -148,7 +148,7 @@ module.exports = {
   devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
   devServer: {
     // https://webpack.js.org/configuration/dev-server/
-    quiet: true,
+    quiet: false,
     contentBase: path.join(process.cwd(), 'web', 'src'),
     port: process.env.PORT || 3000,
     host: 'localhost',
@@ -206,10 +206,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        include: /node_modules\/react-native-vector-icons/,
         loader: 'babel-loader',
         query: {
           babelrc: false,
-          cacheDirectory: true,
+          cacheDirectory: false,
           plugins: [
             [
               'transform-runtime',
@@ -247,6 +248,7 @@ module.exports = {
       {
         test: /\.(woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
+        include: path.join(process.cwd(), 'node_modules/react-native-vector-icons'),
         options: {
           limit: 8192,
           name: 'fonts/[name]_[hash:base64:5].[ext]',

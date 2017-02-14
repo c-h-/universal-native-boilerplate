@@ -11,6 +11,8 @@ import {
   connect,
 } from 'react-redux';
 
+import '../libs';
+
 import AppNavigator from './AppNavigator';
 
 const App = (props) => {
