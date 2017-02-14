@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development';
 
+const PUBLIC_PATH = '/';
+
 // plugins used in dev and production
 const initPlugins = [
   new webpack.DefinePlugin({
@@ -49,27 +51,38 @@ const optionalPlugins = [
     prodOnly: false,
   },
   {
-    recipe: 'favicon',
+    recipe: 'pwa',
     name: 'favicons-webpack-plugin',
     prodOnly: false,
     options: {
+      // (see https://github.com/haydenbleasel/favicons#usage)
+      appName: 'UniversalNativeBoilerplate', // Your application's name. `string`
+      appDescription: null,           // Your application's description. `string`
+      developerName: 'Charlie Hulcher', // Your (or your developer's) name. `string`
+      developerURL: 'https://charlie.engineer', // Your (or your developer's) URL. `string`
+      background: '#fff',             // Background colour for flattened icons. `string`
+      theme_color: '#ccc',         // Theme color for browser chrome
+      path: '/',                      // Path for overriding default icons path. `string`
+      display: 'standalone',          // Android display: "browser" or "standalone". `string`
+      orientation: 'portrait',        // Android orientation: "portrait" or "landscape". `string`
+      start_url: `${PUBLIC_PATH}?homescreen=1`, // Android start application's URL. `string`
+      logging: false,                 // Print logs to console? `boolean`
+      online: false,                  // Use RealFaviconGenerator to create favicons? `boolean`
+      preferOnline: false,            // Use offline generation, if online has failed. `boolean`
+
       // Your source logo
       logo: path.join(process.cwd(), 'web', 'src', 'img', 'icon.png'),
       // The prefix for all image files (might be a folder or a name)
-      prefix: 'icons-[hash]/',
+      prefix: 'icons/',
       // Emit all stats of the generated icons
       emitStats: false,
       // The name of the json containing all favicon information
       statsFilename: 'iconstats-[hash].json',
       // Generate a cache file with control hashes and
       // don't rebuild the favicons until those hashes change
-      persistentCache: true,
+      persistentCache: false,
       // Inject the html into the html-webpack-plugin
       inject: true,
-      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
-      // background: '#fff',
-      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
-      title: 'UniversalNativeBoilerplate',
 
       // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
       icons: {
@@ -112,7 +125,7 @@ const optionalPlugins = [
       ServiceWorker: {
         events: true,
       },
-      publicPath: '/',
+      publicPath: PUBLIC_PATH,
       caches: 'all',
     },
   },
@@ -139,7 +152,7 @@ module.exports = {
     contentBase: path.join(process.cwd(), 'web', 'src'),
     port: process.env.PORT || 3000,
     host: 'localhost',
-    publicPath: '/',
+    publicPath: PUBLIC_PATH,
     historyApiFallback: {
       index: '/index.html',
     },
@@ -175,7 +188,7 @@ module.exports = {
       'web',
       ENV === 'production' ? 'release' : 'debug'
     ),
-    publicPath: '/',
+    publicPath: PUBLIC_PATH,
     filename: '[name].[hash].js',
   },
   resolve: {

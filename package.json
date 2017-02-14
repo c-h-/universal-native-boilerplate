@@ -52,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-react-native": "^2.2.1",
+    "favicons-webpack-plugin": "https://github.com/c-h-/favicons-webpack-plugin.git",
     "file-loader": "^0.10.0",
     "fs-extra": "^2.0.0",
     "gulp": "^3.9.1",
@@ -62,10 +63,12 @@
     "lodash.assign": "^4.2.0",
     "lodash.isequal": "^4.5.0",
     "offline-plugin": "^4.6.1",
+    "open": "^0.0.5",
     "optimize-js-plugin": "^0.0.4",
     "path-exists": "^3.0.0",
     "react-native-web": "^0.0.70",
     "react-test-renderer": "~15.4.0",
+    "resource-hints-webpack-plugin": "^0.0.1",
     "rnpm-plugin-windows": "^0.2.3",
     "run-sequence": "^1.2.2",
     "serve": "2.0.0",
@@ -74,9 +77,7 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "1.14.1",
     "webpack-visualizer-plugin": "^0.1.10",
-    "yargs": "^6.6.0",
-    "favicons-webpack-plugin": "^0.0.7",
-    "resource-hints-webpack-plugin": "^0.0.1"
+    "yargs": "^6.6.0"
   },
   "jest": {
     "preset": "react-native"

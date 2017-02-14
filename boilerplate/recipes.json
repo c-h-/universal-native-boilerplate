@@ -1,7 +1,7 @@
 {
   "favicon": {
     "devDependencies": {
-      "favicons-webpack-plugin": "^0.0.7"
+      "favicons-webpack-plugin": "https://github.com/c-h-/favicons-webpack-plugin.git"
     }
   },
   "hints": {
