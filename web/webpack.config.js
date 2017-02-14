@@ -12,6 +12,13 @@ const initPlugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
   }),
+  new HtmlWebpackPlugin({
+    template: path.resolve(process.cwd(), './web/src/index.html'),
+    minify: {
+      collapseWhitespace: true,
+      hash: true,
+    },
+  }),
 ];
 const productionPlugins = [
   new webpack.optimize.UglifyJsPlugin({
@@ -37,12 +44,17 @@ const productionPlugins = [
  */
 const optionalPlugins = [
   {
+    recipe: 'hints',
+    name: 'resource-hints-webpack-plugin',
+    prodOnly: false,
+  },
+  {
     recipe: 'favicon',
     name: 'favicons-webpack-plugin',
     prodOnly: false,
     options: {
       // Your source logo
-      logo: path.join(process.cwd(), 'boilerplate', 'icon.png'),
+      logo: path.join(process.cwd(), 'web', 'src', 'img', 'icon.png'),
       // The prefix for all image files (might be a folder or a name)
       prefix: 'icons-[hash]/',
       // Emit all stats of the generated icons
@@ -71,18 +83,6 @@ const optionalPlugins = [
         twitter: true,
         yandex: false,
         windows: true,
-      },
-    },
-  },
-  {
-    recipe: 'html',
-    name: 'html-webpack-plugin',
-    prodOnly: false,
-    options: {
-      template: path.resolve(process.cwd(), './web/src/index.html'),
-      minify: {
-        collapseWhitespace: true,
-        hash: true,
       },
     },
   },

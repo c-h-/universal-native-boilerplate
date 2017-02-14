@@ -4,6 +4,11 @@
       "favicons-webpack-plugin": "^0.0.7"
     }
   },
+  "hints": {
+    "devDependencies": {
+      "resource-hints-webpack-plugin": "^0.0.1"
+    }
+  },
   "offline": {
     "dependencies": {
       "offline-plugin": "^4.6.1"

@@ -47,8 +47,9 @@ macos | platform | [react-native-macos](https://github.com/ptmt/react-native-mac
 server | platform | server side rendering of web version. requires web platform.
 web | platform | Offline-first Progressive Web App powered by [react-native-web](https://github.com/necolas/react-native-web)
 windows | platform | [react-native-windows](https://github.com/ReactWindows/react-native-windows)
-favicon | feature | Generate [favicons](https://github.com/haydenbleasel/favicons#usage) automatically for web. Configure in `/web/webpack.config.js` after enabling.
-offline | feature | Generate a [Service Worker](https://github.com/NekR/offline-plugin) automatically for web. Enables offline use of the app and required to be a Progressive Web App. Configure if necessary in `/web/webpack.config.js` after enabling.
+favicon | feature | Generate [favicons](https://github.com/haydenbleasel/favicons#usage) automatically for web.
+hints | feature | Add (resource hints)[https://www.w3.org/TR/resource-hints/] to speed web load time
+offline | feature | Generate a [Service Worker](https://github.com/NekR/offline-plugin) automatically for web. Enables offline use of the app and required to be a Progressive Web App.
 optimize | feature | Attempt to get faster startup times at the expense of a few bytes. [optimize-js](https://github.com/vigneshshanmugam/optimize-js-plugin)
 visualizer | feature | Works with web platform. Generates a nice graph of dependency weights. Outputs to `/build/web/{debug|release}/__stats.html`. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
 
@@ -144,10 +145,12 @@ Here's a list of features and notes:
   - [Web Worker hosted reducers](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive reducer computations. (Coming soon)
 - [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) (Coming soon)
   - Installable on mobile home screens
+  - [favicons](https://github.com/haydenbleasel/favicons) for every browser
   - It's [offline-first](https://github.com/NekR/offline-plugin) using a Service Worker to cache resources
   - It's easy to test how well it performs with automatic [lighthouse](https://github.com/GoogleChrome/lighthouse) testing
 - Supports alternative React backends (Preact, Inferno, etc) (Coming soon)
 - Advanced bundle optimizations such as:
+  - [Resource Hints](https://www.w3.org/TR/resource-hints/) for faster load times
   - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app. (Coming soon)
   - [Polyfill.io](https://polyfill.io/v2/docs/) use a lighter Babel transform preset for web code and instead include just the polyfills you need for your app, tailored to each browser. Reduces bundle sizes. (Coming soon)
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
