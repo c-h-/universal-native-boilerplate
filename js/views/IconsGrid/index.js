@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
 
-
 class IconsGrid extends Component {
   static navigationOptions = {
     title: 'Icons',

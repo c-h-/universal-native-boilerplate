@@ -205,26 +205,23 @@ module.exports = {
       // JS
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        include: /node_modules\/react-native-vector-icons/,
+        // exclude: /node_modules\/(?!(react-native-vector-icons)\/).*/,
+        include: [
+          path.resolve(process.cwd(), 'node_modules', 'react-native-vector-icons'),
+          path.resolve(process.cwd(), 'js'),
+          path.resolve(process.cwd(), 'index.web.js'),
+        ],
         loader: 'babel-loader',
         query: {
           babelrc: false,
-          cacheDirectory: false,
+          cacheDirectory: true,
           plugins: [
-            [
-              'transform-runtime',
-              {
-                'polyfill': true,
-                'regenerator': true,
-              },
-            ],
             'transform-react-inline-elements',
           ],
           presets: [
             'es2015',
             'stage-0',
-            'react',
+            'react-native',
           ],
         },
       },
