@@ -20,41 +20,73 @@ const initPlugins = [
     },
   }),
 ];
-
-// optional plugins. once installed they succeed being required and get added to plugin list.
-let Visualizer;
-let OfflinePlugin;
-try {
-  Visualizer = require('webpack-visualizer-plugin');
-}
-catch (e) {
-  console.info('Install visualizer with command `gulp enable visualizer`');
-}
-
-try {
-  OfflinePlugin = require('offline-plugin');
-}
-catch (e) {
-  console.info('Install offline support with command `gulp enable offline`');
-}
-
-// add optional plugins to config
-if (Visualizer) {
-  initPlugins.push(new Visualizer({
-    filename: './__stats.html',
-  }));
-}
-if (OfflinePlugin) {
-  initPlugins.push(new OfflinePlugin({
-    relativePaths: false,
-    AppCache: false,
-    ServiceWorker: {
-      events: true,
+const productionPlugins = [
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+      screw_ie8: true,
     },
-    publicPath: '/',
-    caches: 'all',
-  }));
-}
+    output: {
+      comments: false,
+    },
+    sourceMap: false,
+  }),
+  new webpack.LoaderOptionsPlugin({
+    minimize: true,
+    debug: false,
+  }),
+];
+
+/**
+ * optional plugins.
+ * once enabled they succeed being required and get added to plugin list.
+ * order them in the order they should be added to the plugin lists.
+ */
+const optionalPlugins = [
+  {
+    recipe: 'visualizer',
+    name: 'webpack-visualizer-plugin',
+    prodOnly: false,
+    options: {
+      filename: './__stats.html',
+    },
+  },
+  {
+    recipe: 'optimize',
+    name: 'optimize-js-plugin',
+    prodOnly: true,
+    options: {
+      sourceMap: false,
+    },
+  },
+  {
+    recipe: 'offline',
+    name: 'offline-plugin',
+    prodOnly: true,
+    options: {
+      relativePaths: false,
+      AppCache: false,
+      ServiceWorker: {
+        events: true,
+      },
+      publicPath: '/',
+      caches: 'all',
+    },
+  },
+];
+optionalPlugins.forEach((pluginDef) => {
+  let Plugin = null;
+  try {
+    Plugin = require(pluginDef.name); // eslint-disable-line
+  }
+  catch (e) {
+    console.info(`Install ${pluginDef.name} with command 'gulp enable ${pluginDef.recipe}'`);
+  }
+  if (Plugin) {
+    const list = pluginDef.prodOnly ? productionPlugins : initPlugins;
+    list.push(new Plugin(pluginDef.options));
+  }
+});
 
 module.exports = {
   devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
@@ -90,6 +122,7 @@ module.exports = {
       'react-dom',
       'react-native-web',
       'animated',
+      'react-navigation',
     ],
   },
   output: {
@@ -165,22 +198,7 @@ module.exports = {
       },
     ],
   },
-  plugins: (initPlugins).concat(ENV === 'production' ? [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-      },
-      output: {
-        comments: false,
-      },
-      sourceMap: false,
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false,
-    }),
-  ] : []),
+  plugins: (initPlugins).concat(ENV === 'production' ? productionPlugins : []),
 
   stats: {
     colors: true,
