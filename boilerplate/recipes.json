@@ -1,4 +1,9 @@
 {
+  "favicon": {
+    "devDependencies": {
+      "favicons-webpack-plugin": "^0.0.7"
+    }
+  },
   "offline": {
     "dependencies": {
       "offline-plugin": "^4.6.1"

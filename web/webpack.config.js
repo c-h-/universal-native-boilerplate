@@ -12,13 +12,6 @@ const initPlugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
   }),
-  new HtmlWebpackPlugin({
-    template: path.resolve(process.cwd(), './web/src/index.html'),
-    minify: {
-      collapseWhitespace: true,
-      hash: true,
-    },
-  }),
 ];
 const productionPlugins = [
   new webpack.optimize.UglifyJsPlugin({
@@ -43,6 +36,56 @@ const productionPlugins = [
  * order them in the order they should be added to the plugin lists.
  */
 const optionalPlugins = [
+  {
+    recipe: 'favicon',
+    name: 'favicons-webpack-plugin',
+    prodOnly: false,
+    options: {
+      // Your source logo
+      logo: path.join(process.cwd(), 'boilerplate', 'icon.png'),
+      // The prefix for all image files (might be a folder or a name)
+      prefix: 'icons-[hash]/',
+      // Emit all stats of the generated icons
+      emitStats: false,
+      // The name of the json containing all favicon information
+      statsFilename: 'iconstats-[hash].json',
+      // Generate a cache file with control hashes and
+      // don't rebuild the favicons until those hashes change
+      persistentCache: true,
+      // Inject the html into the html-webpack-plugin
+      inject: true,
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      // background: '#fff',
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      title: 'UniversalNativeBoilerplate',
+
+      // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        twitter: true,
+        yandex: false,
+        windows: true,
+      },
+    },
+  },
+  {
+    recipe: 'html',
+    name: 'html-webpack-plugin',
+    prodOnly: false,
+    options: {
+      template: path.resolve(process.cwd(), './web/src/index.html'),
+      minify: {
+        collapseWhitespace: true,
+        hash: true,
+      },
+    },
+  },
   {
     recipe: 'visualizer',
     name: 'webpack-visualizer-plugin',
@@ -80,7 +123,7 @@ optionalPlugins.forEach((pluginDef) => {
     Plugin = require(pluginDef.name); // eslint-disable-line
   }
   catch (e) {
-    console.info(`Install ${pluginDef.name} with command 'gulp enable ${pluginDef.recipe}'`);
+    console.info(`Tip: Install ${pluginDef.name} with command 'gulp enable ${pluginDef.recipe}'`);
   }
   if (Plugin) {
     const list = pluginDef.prodOnly ? productionPlugins : initPlugins;

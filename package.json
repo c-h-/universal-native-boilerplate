@@ -74,7 +74,8 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "1.14.1",
     "webpack-visualizer-plugin": "^0.1.10",
-    "yargs": "^6.6.0"
+    "yargs": "^6.6.0",
+    "favicons-webpack-plugin": "^0.0.7"
   },
   "jest": {
     "preset": "react-native"

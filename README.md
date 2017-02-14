@@ -47,6 +47,9 @@ macos | platform | [react-native-macos](https://github.com/ptmt/react-native-mac
 server | platform | server side rendering of web version. requires web platform.
 web | platform | Offline-first Progressive Web App powered by [react-native-web](https://github.com/necolas/react-native-web)
 windows | platform | [react-native-windows](https://github.com/ReactWindows/react-native-windows)
+favicon | feature | Generate [favicons](https://github.com/haydenbleasel/favicons#usage) automatically for web. Configure in `/web/webpack.config.js` after enabling.
+offline | feature | Generate a [Service Worker](https://github.com/NekR/offline-plugin) automatically for web. Enables offline use of the app and required to be a Progressive Web App. Configure if necessary in `/web/webpack.config.js` after enabling.
+optimize | feature | Attempt to get faster startup times at the expense of a few bytes. [optimize-js](https://github.com/vigneshshanmugam/optimize-js-plugin)
 visualizer | feature | Works with web platform. Generates a nice graph of dependency weights. Outputs to `/build/web/{debug|release}/__stats.html`. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
 
 ### Run, Build, Release
