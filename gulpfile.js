@@ -58,6 +58,10 @@ setSettings(argv);
 // Customize CLI behavior
 // Make gulp think we have tasks so that it doesn't error
 if (argv._) {
+  if (argv._[0] && argv._[0].indexOf(':') > -1) {
+    gutil.log(gutil.colors.red('Running subtasks is not allowed due to unknown behavior.'));
+    process.exit();
+  }
   const tasks = Object.keys(gulp.tasks);
   // fill in missing tasks
   const toFillIn = ['_', 'platform', 'recipe'];
