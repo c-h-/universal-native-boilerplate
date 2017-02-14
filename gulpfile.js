@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 
+require('./boilerplate/scripts/analyze.js');
 require('./boilerplate/scripts/build.js');
 require('./boilerplate/scripts/clean.js');
 require('./boilerplate/scripts/enable.js');
@@ -26,6 +27,7 @@ const argv = require('yargs')
   .command('clean[:target]', 'Clean all caches (npm, yarn). Or, include a single target')
   .command('run <platform>', 'Runs the app on the supplied platform')
   .command('build <platform>', 'Builds the app for the supplied platform')
+  .command('analyze <platform>', 'Analyze weight. For web, also speed and pwa scorecard')
   // .command('start <platform>', 'Start packager for the supplied platform')
   .alias('r', 'release')
   .describe('r', 'Build the release version. Defaults to debug version.')

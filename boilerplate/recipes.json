@@ -1,4 +1,11 @@
 {
+  "analyze": {
+    "devDependencies": {
+      "lighthouse": "^1.5.1",
+      "ngrok": "^2.2.6",
+      "psi": "^2.0.4"
+    }
+  },
   "favicon": {
     "devDependencies": {
       "favicons-webpack-plugin": "https://github.com/c-h-/favicons-webpack-plugin.git"
@@ -6,7 +13,7 @@
   },
   "hints": {
     "devDependencies": {
-      "resource-hints-webpack-plugin": "^0.0.1"
+      "preload-webpack-plugin": "^1.1.0"
     }
   },
   "offline": {
@@ -21,6 +28,7 @@
   },
   "visualizer": {
     "devDependencies": {
+      "open": "^0.0.5",
       "webpack-visualizer-plugin": "^0.1.10"
     }
   },

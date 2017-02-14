@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const runSequence = require('run-sequence');
 const shell = require('shelljs');
 
 function runStdPlatform(callback) {
@@ -14,10 +15,22 @@ function runStdPlatform(callback) {
 }
 
 function runWebPlatform(callback) {
-  shell.exec(global.settings.release
-    ? 'npm run start:release:web'
-    : 'npm run start:packager:web');
-  callback();
+  function startServer() {
+    shell.exec(global.settings.release
+      ? 'npm run start:release:web'
+      : 'npm run start:packager:web',
+      {
+        async: true, // async this so it doesn't block task completion
+      }
+    );
+    callback();
+  }
+  if (global.settings.release) {
+    runSequence('build', startServer);
+  }
+  else {
+    startServer();
+  }
 }
 
 /**
