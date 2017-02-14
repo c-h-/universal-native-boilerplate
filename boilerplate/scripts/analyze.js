@@ -20,6 +20,19 @@ const queuedCallbacks = [];
 let serverStarted = false;
 let serverFinished = false;
 
+function openReport(localPath, cb) {
+  try {
+    open = require('open'); // eslint-disable-line
+  }
+  catch (e) {
+    gutil.log(gutil.colors.cyan('Tip - install npm package "open" to auto-open analysis.'));
+  }
+  if (open) {
+    open(localPath);
+  }
+  cb();
+}
+
 /**
  * Runs page speed insights analysis
  */
@@ -167,7 +180,9 @@ gulp.task('analyze:external:lighthouse', (cb) => {
         async: true,
         cwd: process.cwd(),
       },
-      cb
+      () => {
+        runSequence('analyze:external:lighthouse:open-report', cb);
+      }
     );
   }
 });
@@ -205,17 +220,15 @@ gulp.task('analyze:weight', (cb) => {
 });
 
 /**
- * Open completed page weight report
+ * Open completed bundle weight report
  */
 gulp.task('analyze:weight:open-report', (cb) => {
-  try {
-    open = require('open'); // eslint-disable-line
-  }
-  catch (e) {
-    gutil.log(gutil.colors.cyan('Tip - install npm package "open" to auto-open analysis.'));
-  }
-  if (open) {
-    open(path.join(process.cwd(), 'build', 'web', 'page_weight_report.html'));
-  }
-  cb();
+  openReport(path.join(process.cwd(), 'build', 'web', 'bundle_weight_report.html'), cb);
+});
+
+/**
+ * Open completed pwa report
+ */
+gulp.task('analyze:external:lighthouse:open-report', (cb) => {
+  openReport(path.join(process.cwd(), 'build', 'web', 'progressive_web_app_report.html'), cb);
 });

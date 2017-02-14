@@ -104,7 +104,7 @@ const optionalPlugins = [
     name: 'webpack-visualizer-plugin',
     prodOnly: false,
     options: {
-      filename: '../page_weight_report.html',
+      filename: '../bundle_weight_report.html',
     },
   },
   {

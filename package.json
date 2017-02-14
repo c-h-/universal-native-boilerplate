@@ -69,6 +69,7 @@
     "path-exists": "^3.0.0",
     "preload-webpack-plugin": "^1.1.0",
     "psi": "^2.0.4",
+    "react-native-vector-icons": "^4.0.0",
     "react-native-web": "^0.0.70",
     "react-test-renderer": "~15.4.0",
     "resource-hints-webpack-plugin": "^0.0.1",

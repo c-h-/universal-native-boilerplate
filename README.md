@@ -47,11 +47,12 @@ macos | platform | [react-native-macos](https://github.com/ptmt/react-native-mac
 server | platform | server side rendering of web version. requires web platform.
 web | platform | Offline-first Progressive Web App powered by [react-native-web](https://github.com/necolas/react-native-web)
 windows | platform | [react-native-windows](https://github.com/ReactWindows/react-native-windows)
-hints | feature | Add (resource hints)[https://www.w3.org/TR/resource-hints/] to speed web load time
+analyze | feature | Enable automated [Page Speed Insights](https://www.npmjs.com/package/psi) and [Lighthouse](https://github.com/GoogleChrome/lighthouse) reports. Saves report as HTML for review. See also visualizer feature. Note: both reports from the analyze command use `ngrok` to publicly host the project. Once analysis is complete the project becomes inaccessible publicly.
+hints | feature | Add [resource hints](https://www.w3.org/TR/resource-hints/) to speed web load time
 offline | feature | Generate a [Service Worker](https://github.com/NekR/offline-plugin) automatically for web. Enables offline use of the app and required to be a Progressive Web App.
 optimize | feature | Attempt to get faster startup times at the expense of a few bytes. [optimize-js](https://github.com/vigneshshanmugam/optimize-js-plugin)
 pwa | feature | Generate [favicons](https://github.com/haydenbleasel/favicons#usage) and [manifest](https://w3c.github.io/manifest/) for web.
-visualizer | feature | Works with web platform. Generates a nice graph of dependency weights. Outputs to `/build/web/{debug|release}/__stats.html`. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
+visualizer | feature | Generates a nice graph of dependency weights. Outputs to `/build/web/bundle_weight_report.html`. Useful for all platforms. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
 
 ### Run, Build, Release
 #### Command Line
@@ -115,6 +116,13 @@ If it is not already set up, follow the official guide: [official getting starte
 
 #### Web
 Nothing :P
+
+### Automated Analysis
+Run automated analysis of your project with `gulp analyze <platform>`.
+
+With the `visualizer` recipe enabled, app bundle weight reports are generated from the web platform builds. Since most apps will have similar JS bundles across platforms, this report will help shed light on what's contributing to bundle file size so it's easy to make improvements.
+
+With the `analysis` recipe enabled, two additional reports become available for the web platform. One, Page Speed Insights, gives you a performance score for how well your app loads in a desktop and mobile browser and shows you the analysis of what impacts your score so you can improve. The second, Lighthouse, gives your app a score based on its fitness as a progressive web app. It includes tons of tips on how to improve your score and optimize your site.
 
 ### Baked-in Features
 Some features come baked in. This includes:
