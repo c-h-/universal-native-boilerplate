@@ -63,8 +63,8 @@ const optionalPlugins = [
       background: '#fff',             // Background colour for flattened icons. `string`
       theme_color: '#ccc',         // Theme color for browser chrome
       path: '/',                      // Path for overriding default icons path. `string`
-      display: 'standalone',          // Android display: "browser" or "standalone". `string`
-      orientation: 'portrait',        // Android orientation: "portrait" or "landscape". `string`
+      display: 'standalone',          // Android display: 'browser' or 'standalone'. `string`
+      orientation: 'portrait',        // Android orientation: 'portrait' or 'landscape'. `string`
       start_url: `${PUBLIC_PATH}?homescreen=1`, // Android start application's URL. `string`
       logging: false,                 // Print logs to console? `boolean`
       online: false,                  // Use RealFaviconGenerator to create favicons? `boolean`
@@ -198,7 +198,7 @@ module.exports = {
     alias: {
       'react-native': 'react-native-web',
     },
-    extensions: ['.js', '.json'],
+    extensions: ['.webpack.js', '.web.js', '.js', '.json'],
   },
   module: {
     loaders: [
