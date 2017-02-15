@@ -5,9 +5,9 @@ import {
   View,
   Text,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
+import Icon from '../../components/Icon';
 
 class IconsGrid extends Component {
   static navigationOptions = {
@@ -21,7 +21,7 @@ class IconsGrid extends Component {
           Icons
         </Text>
         <Text>Sup</Text>
-        <Icon name="accessibility" size={30} color="#900" />
+        <Icon name="person" />
       </View>
     );
   }

@@ -11,6 +11,9 @@ import {
   NavigationActions,
 } from 'react-navigation';
 
+/**
+ * A "link" for wiring up buttons to routes and the internet
+ */
 class Link extends Component {
   static contextTypes = {
     store: PropTypes.object,
