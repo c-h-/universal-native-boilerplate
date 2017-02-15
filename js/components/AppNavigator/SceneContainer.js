@@ -9,7 +9,6 @@ import {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    height: 300,
   },
 });
 

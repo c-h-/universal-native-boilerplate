@@ -5,18 +5,20 @@ import React, {
 import {
   View,
   Platform,
+  Dimensions,
 } from 'react-native';
 import {
   addNavigationHelpers,
 } from 'react-navigation';
 
 import SceneContainer from './SceneContainer';
-import AppTabs from './AppTabs';
+import CustomTabBar from '../CustomTabBar';
 
 class AppFrame extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     router: PropTypes.object,
+    tabBarOptions: PropTypes.object,
   }
   componentWillReceiveProps(props) {
     if (this.props.navigation.state !== props.navigation.state) {
@@ -29,6 +31,7 @@ class AppFrame extends Component {
     const {
       navigation,
       router,
+      tabBarOptions,
     } = this.props;
     const childNavigation = addNavigationHelpers({
       ...navigation,
@@ -45,11 +48,20 @@ class AppFrame extends Component {
       Scene = router.getComponentForRouteName(routes[index].routeName);
     }
     return (
-      <View>
+      <View
+        style={{
+          height: Dimensions.get('window').height,
+          width: Dimensions.get('window').width,
+        }}
+      >
+        <CustomTabBar
+          navigation={navigation}
+          router={router}
+          tabBarOptions={tabBarOptions}
+        />
         <SceneContainer>
           <Scene navigation={childNavigation} />
         </SceneContainer>
-        <AppTabs navigation={navigation} />
       </View>
     );
   }

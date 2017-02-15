@@ -5,6 +5,7 @@ import React, {
 import {
   Text,
   View,
+  TouchableHighlight,
 } from 'react-native';
 import {
   NavigationActions,
@@ -15,7 +16,10 @@ class Link extends Component {
     store: PropTypes.object,
   };
   static propTypes = {
+    children: PropTypes.any,
     href: PropTypes.string,
+    style: PropTypes.any,
+    containerStyle: PropTypes.any,
   }
   getAction = () => {
     const {
@@ -28,7 +32,7 @@ class Link extends Component {
     }
     return null;
   }
-  handleClick = () => {
+  handlePress = () => {
     const {
       dispatch,
     } = this.context.store;
@@ -40,23 +44,33 @@ class Link extends Component {
   render() {
     const {
       children,
+      style,
+      containerStyle,
     } = this.props;
+    let toRender = children;
+    if (Array.isArray(children)) {
+      toRender = (
+        <View style={style}>
+          {children}
+        </View>
+      );
+    }
+    else if (typeof children === 'string') {
+      toRender = (
+        <Text style={style}>
+          {children}
+        </Text>
+      );
+    }
     return (
-      <View
-        onClick={this.handleClick}
+      <TouchableHighlight
+        onPress={this.handlePress}
+        style={containerStyle}
       >
-        {
-          typeof children === 'string'
-          ? <Text>{children}</Text>
-          : children
-        }
-      </View>
+        { toRender }
+      </TouchableHighlight>
     );
   }
 }
-
-Link.propTypes = {
-  children: PropTypes.any,
-};
 
 export default Link;

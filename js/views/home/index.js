@@ -11,10 +11,6 @@ import styles from './styles';
 import Random from './components/Random';
 
 class Home extends Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-
   render() {
     return (
       <View style={styles.container}>

@@ -29,6 +29,7 @@
         "exports": "always"
     }],
     "curly": "error",
+    "global-require": "off",
     "guard-for-in": "off",
     "jsx-a11y/img-uses-alt": "off",
     "jsx-a11y/no-static-element-interactions": "off",

@@ -1,16 +1,48 @@
+import React from 'react';
 
+import Icon from './Icon';
 import Home from '../views/Home';
 import IconsGrid from '../views/IconsGrid';
 import NotFound from '../views/NotFound';
 
-const navigatorOptions = {
+export const notFoundKey = 'NotFound';
+
+export const AppRoutes = {
   Home: {
     screen: Home,
     path: 'home',
+    navigationOptions: {
+      title: 'Welcome',
+      tabBar: {
+        label: 'Welcome',
+        icon: ({ tintColor }) => (
+          <Icon
+            name="home"
+            style={{
+              color: tintColor,
+            }}
+          />
+        ),
+      },
+    },
   },
   IconsGrid: {
     screen: IconsGrid,
     path: 'icons',
+    navigationOptions: {
+      title: 'Icons',
+      tabBar: {
+        label: 'Icons',
+        icon: ({ tintColor }) => (
+          <Icon
+            name="view-module"
+            style={{
+              color: tintColor,
+            }}
+          />
+        ),
+      },
+    },
   },
   NotFound: {
     screen: NotFound,
@@ -20,5 +52,3 @@ const navigatorOptions = {
     },
   },
 };
-
-export default navigatorOptions;
