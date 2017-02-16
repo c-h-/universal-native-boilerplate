@@ -30,14 +30,15 @@ To reduce headaches, pick platforms and features when you first begin.
 Some commands:
 ```sh
 # Enable a platform or feature
-gulp enable android
+gulp enable windows
 
 # Build a platform
-gulp build ios
+gulp build ios # Build debug
 gulp build ios --production # Build a production version
 
 # Run a platform
-gulp run windows
+gulp run android # Run debug
+gulp run android -p # Run production
 
 # Analyse bundle contents, load speed, and usability
 gulp analyze web
