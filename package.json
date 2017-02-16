@@ -25,7 +25,7 @@
     "react-dom": "^15.4.2",
     "react-native": "0.41.2",
     "react-native-i18n": "^1.0.0",
-    "react-native-macos": "https://github.com/c-h-/react-native-macos.git",
+    "react-native-macos": "https://github.com/ptmt/react-native-macos.git",
     "react-native-vector-icons": "^4.0.0",
     "react-native-windows": "^0.41.0-rc.0",
     "react-navigation": "^1.0.0-beta.3",
