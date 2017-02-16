@@ -3,7 +3,7 @@ import React, {
   PropTypes,
 } from 'react';
 import {
-  Button,
+  TouchableHighlight,
   View,
   Text,
 } from 'react-native';
@@ -35,7 +35,9 @@ class Home extends Component {
           To get started, edit index.*.js
         </Text>
         <Random />
-        <Button onPress={this.handlePress}>Dispatch worker action</Button>
+        <TouchableHighlight onPress={this.handlePress}>
+          <Text>{'Dispatch worker action'}</Text>
+        </TouchableHighlight>
       </View>
     );
   }
