@@ -12,7 +12,5 @@ if (typeof navigator === 'object' && navigator) {
   }
 }
 
-console.log('LOCALE\n\n\n\n', I18n.locale);
-
 I18n.fallbacks = true;
 I18n.translations = translations;
