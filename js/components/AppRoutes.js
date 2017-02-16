@@ -4,6 +4,7 @@ import Icon from './Icon';
 import Home from '../views/Home';
 import IconsGrid from '../views/IconsGrid';
 import NotFound from '../views/NotFound';
+import Translation from '../views/Translation';
 
 export const notFoundKey = 'NotFound';
 
@@ -36,6 +37,24 @@ export const AppRoutes = {
         icon: ({ tintColor }) => (
           <Icon
             name="view-module"
+            style={{
+              color: tintColor,
+            }}
+          />
+        ),
+      },
+    },
+  },
+  Translation: {
+    screen: Translation,
+    path: 'translation',
+    navigationOptions: {
+      title: 'Translation',
+      tabBar: {
+        label: 'Translation',
+        icon: ({ tintColor }) => (
+          <Icon
+            name="translate"
             style={{
               color: tintColor,
             }}

@@ -3,16 +3,17 @@ import {
   View,
   Text,
 } from 'react-native';
+import I18n from 'react-native-i18n';
+
 import styles from './styles';
 
-const NotFound = () => {
+const Translation = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Nothing found here
-      </Text>
+      <Text>Translated greeting:</Text>
+      <Text>{I18n.t('greeting')}</Text>
     </View>
   );
 };
 
-export default NotFound;
+export default Translation;

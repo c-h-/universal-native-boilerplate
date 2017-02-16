@@ -1,8 +1,11 @@
+// Translations
+import './I18n';
+
 /**
  * Web only libs
  */
 // enable icons fonts
-require('./fonts');
+import './fonts';
 
 // enable offline support on web platform
-require('./pwa');
+import './pwa';

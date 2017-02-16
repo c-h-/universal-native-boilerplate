@@ -1,6 +1,4 @@
-import React, {
-  Component,
-} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -9,22 +7,15 @@ import {
 import styles from './styles';
 import Icon from '../../components/Icon';
 
-class IconsGrid extends Component {
-  static navigationOptions = {
-    title: 'Icons',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Icons
-        </Text>
-        <Text>Sup</Text>
-        <Icon name="person" />
-      </View>
-    );
-  }
-}
+const IconsGrid = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>
+        Icons
+      </Text>
+      <Icon name="person" />
+    </View>
+  );
+};
 
 export default IconsGrid;
