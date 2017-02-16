@@ -5,7 +5,7 @@ import React, {
 import {
   View,
   Platform,
-  Dimensions,
+  StyleSheet,
 } from 'react-native';
 import {
   addNavigationHelpers,
@@ -14,12 +14,24 @@ import {
 import SceneContainer from './SceneContainer';
 import CustomTabBar from '../CustomTabBar';
 
+const styles = StyleSheet.create({
+  container: {
+    // fit container size
+    flexGrow: 1,
+    flexShrink: 0,
+    alignSelf: 'stretch',
+  },
+});
+
 class AppFrame extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     router: PropTypes.object,
     tabBarOptions: PropTypes.object,
   }
+  /**
+   * Go to top of viewport on web when navigation changes
+   */
   componentWillReceiveProps(props) {
     if (this.props.navigation.state !== props.navigation.state) {
       if (Platform.OS === 'web') {
@@ -28,6 +40,7 @@ class AppFrame extends Component {
     }
   }
   render() {
+    // set up navigation
     const {
       navigation,
       router,
@@ -49,10 +62,7 @@ class AppFrame extends Component {
     }
     return (
       <View
-        style={{
-          height: Dimensions.get('window').height,
-          width: Dimensions.get('window').width,
-        }}
+        style={styles.container}
       >
         <CustomTabBar
           navigation={navigation}
