@@ -6,13 +6,15 @@ import {
   applyMiddleware,
   compose,
 } from 'redux';
-import thunkMiddleware from 'redux-thunk';
 import {
   persistStore,
   autoRehydrate,
 } from 'redux-persist';
 
-import logger from './middlewares/logger';
+import thunkMiddleware from 'redux-thunk';
+import loggerMiddleware from './middlewares/logger';
+import workerMiddleware from './middlewares/worker';
+
 import storageEngine from './storageEngine';
 import reducer from './reducers';
 import ActionTypes from './action_types.json';
@@ -39,7 +41,7 @@ function init() {
     undefined,
     compose(
       autoRehydrate(),
-      applyMiddleware(thunkMiddleware, logger)
+      applyMiddleware(workerMiddleware, thunkMiddleware, loggerMiddleware)
     )
   );
   persistStore(store, persistConfig, () => {

@@ -19,7 +19,7 @@ export default function home(state = initState, action) {
     case ActionTypes.GET_RANDOM: {
       return {
         ...state,
-        random: action.random,
+        random: action.payload.random,
       };
     }
     default:
