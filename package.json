@@ -11,7 +11,7 @@
     "start:packager:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
     "build:web": "cross-env NODE_ENV=production webpack --config web/webpack.config.js --progress",
     "build:debug:web": "webpack --config web/webpack.config.js --progress",
-    "start:release:web": "serve build/web/release -s -c 1",
+    "start:production:web": "serve build/web/production -s -c 1",
     "test": "jest",
     "lint": "eslint -c .eslintrc --fix js/**",
     "validate": "npm ls"

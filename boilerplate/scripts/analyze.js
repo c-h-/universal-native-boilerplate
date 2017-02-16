@@ -163,7 +163,7 @@ function analyzePageSpeed(cb) {
  */
 function startServer(callback) {
   global.settings.platform = 'web'; // switch to web platform
-  global.settings.release = true; // set to release mode
+  global.settings.production = true; // set to production mode
   queuedCallbacks.push(callback);
   if (serverFinished) {
     callback();

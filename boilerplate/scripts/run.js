@@ -16,8 +16,8 @@ function runStdPlatform(callback) {
 
 function runWebPlatform(callback) {
   function startServer() {
-    shell.exec(global.settings.release
-      ? 'npm run start:release:web'
+    shell.exec(global.settings.production
+      ? 'npm run start:production:web'
       : 'npm run start:packager:web',
       {
         async: true, // async this so it doesn't block task completion
@@ -25,7 +25,7 @@ function runWebPlatform(callback) {
     );
     callback();
   }
-  if (global.settings.release) {
+  if (global.settings.production) {
     runSequence('build', startServer);
   }
   else {

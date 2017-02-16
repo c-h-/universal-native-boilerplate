@@ -8,7 +8,7 @@ const shell = require('shelljs');
 function buildAndroid(resolve, reject) {
   const suffix = process.platform === 'win32' ? '.bat' : '';
   const cmd = path.join(process.cwd(), 'android', `gradlew${suffix}`);
-  const mode = global.settings.release ? 'Release' : 'Debug';
+  const mode = global.settings.production ? 'Production' : 'Debug';
   const code = shell.exec(`${cmd} assemble${mode}`, {
     cwd: path.join(process.cwd(), 'android'),
   }).code;
@@ -21,7 +21,7 @@ function buildAndroid(resolve, reject) {
       'build',
       'outputs',
       'apk',
-      `app-${mode === 'Release' ? `${mode.toLowerCase()}-unsigned` : mode.toLowerCase()}.apk`
+      `app-${mode === 'Production' ? `${mode.toLowerCase()}-unsigned` : mode.toLowerCase()}.apk`
     );
     const pathToDest = path.join(
       process.cwd(),
@@ -29,7 +29,7 @@ function buildAndroid(resolve, reject) {
       'android',
       'apk',
       mode.toLowerCase(),
-      `app${mode === 'Release' ? '-unsigned' : ''}.apk`
+      `app${mode === 'Production' ? '-unsigned' : ''}.apk`
     );
     // Remove last build
     rimraf(pathToDest.slice(0, pathToDest.lastIndexOf(path.sep)), (removeErr) => {
@@ -60,9 +60,9 @@ function buildWeb(callback) {
     process.cwd(),
     'build',
     'web',
-    global.settings.release ? 'release' : 'debug'
+    global.settings.production ? 'production' : 'debug'
   ), () => {
-    shell.exec(`npm run build${global.settings.release ? '' : ':debug'}:web`);
+    shell.exec(`npm run build${global.settings.production ? '' : ':debug'}:web`);
     callback();
   });
 }
