@@ -3,9 +3,10 @@ import React, {
   Component,
 } from 'react';
 import {
+  Platform,
   Text,
-  View,
   TouchableHighlight,
+  View,
 } from 'react-native';
 import {
   NavigationActions,
@@ -17,6 +18,7 @@ import {
 class Link extends Component {
   static contextTypes = {
     store: PropTypes.object,
+    getURIForAction: PropTypes.func,
   };
   static propTypes = {
     children: PropTypes.any,
@@ -35,7 +37,10 @@ class Link extends Component {
     }
     return null;
   }
-  handlePress = () => {
+  handlePress = (e) => {
+    if (e && e.preventDefault) { // stop web links from changing page
+      e.preventDefault();
+    }
     const {
       dispatch,
     } = this.context.store;
@@ -45,6 +50,9 @@ class Link extends Component {
     }
   }
   render() {
+    const {
+      getURIForAction,
+    } = this.context;
     const {
       children,
       style,
@@ -65,13 +73,22 @@ class Link extends Component {
         </Text>
       );
     }
+    let CompToRender = TouchableHighlight;
+    const extraProps = {};
+    if (Platform.OS === 'web') {
+      // see https://github.com/necolas/react-native-web/issues/65
+      CompToRender = Text;
+      extraProps.accessibilityRole = 'link';
+      extraProps.href = getURIForAction(this.getAction());
+    }
     return (
-      <TouchableHighlight
+      <CompToRender
         onPress={this.handlePress}
         style={containerStyle}
+        {...extraProps}
       >
         { toRender }
-      </TouchableHighlight>
+      </CompToRender>
     );
   }
 }
