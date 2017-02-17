@@ -24,6 +24,7 @@ const persistConfig = {
   // don't restore data from these reducers
   blacklist: [
     'transient',
+    'nav',
   ],
 };
 if (Platform.OS !== 'web') {

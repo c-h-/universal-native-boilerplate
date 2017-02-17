@@ -5,15 +5,15 @@ import {
   Text,
 } from 'react-native';
 import {
-  addNavigationHelpers,
-} from 'react-navigation';
-import {
   connect,
 } from 'react-redux';
 
 import '../libs';
 
 import AppNavigator from './AppNavigator';
+import BrowserWrapper from './BrowserWrapper';
+
+const ClientApp = BrowserWrapper(AppNavigator);
 
 const App = (props) => {
   const {
@@ -23,11 +23,9 @@ const App = (props) => {
   } = props;
   if (appReady) {
     return (
-      <AppNavigator
-        navigation={addNavigationHelpers({
-          dispatch,
-          state: nav,
-        })}
+      <ClientApp
+        dispatch={dispatch}
+        state={nav}
       />
     );
   }

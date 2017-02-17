@@ -2,7 +2,7 @@ const express = require('express');
 const ReactDOMServer = require('react-dom/server');
 const AppRegistry = require('react-native').AppRegistry;
 
-const Wrapper = require('../js/components/Wrapper');
+const Wrapper = require('../js/components/ReduxWrapper');
 
 AppRegistry.registerComponent('App', Wrapper);
 
@@ -13,6 +13,6 @@ app.get('/*', (req, res) => {
   res.send(ReactDOMServer.renderToString(rendered.element));
 });
 
-app.listen(3001, () => {
-  console.log('UniversalNativeBoilerplate server listening on port 3000!');
+app.listen(3002, () => {
+  console.log('UniversalNativeBoilerplate server listening on port 3002!');
 });
