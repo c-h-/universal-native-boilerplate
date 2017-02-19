@@ -13,7 +13,6 @@ import {
 
 import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from './middlewares/logger';
-// import workerMiddleware from './middlewares/worker';
 
 import storageEngine from './storageEngine';
 import reducer from './reducers';

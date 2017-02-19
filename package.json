@@ -84,7 +84,6 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.0",
     "webpack-visualizer-plugin": "^0.1.10",
-    "worker-loader": "^0.7.1",
     "yargs": "^6.6.0"
   },
   "jest": {
