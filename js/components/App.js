@@ -11,9 +11,9 @@ import {
 import '../libs';
 
 import AppNavigator from './AppNavigator';
-import BrowserWrapper from './BrowserWrapper';
+import URIWrapper from './URIWrapper';
 
-const ClientApp = BrowserWrapper(AppNavigator);
+const ClientApp = URIWrapper(AppNavigator);
 
 const App = (props) => {
   const {
