@@ -3,22 +3,9 @@ import React, {
   PropTypes,
 } from 'react';
 import {
-  NavigationActions,
   addNavigationHelpers,
 } from 'react-navigation';
-
-function getAction(router, path, params) {
-  const action = router.getActionForPathAndParams(path, params);
-  if (action) {
-    return action;
-  }
-  return NavigationActions.navigate({
-    params: {
-      path,
-    },
-    routeName: 'NotFound',
-  });
-}
+import getAction from './getAction';
 
 /**
  * Enables URL support in browser
