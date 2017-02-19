@@ -44,7 +44,7 @@ function setSettings(args) {
       global.settings = {
         recipe: args.recipe,
         platform: args.platform,
-        release: args.r,
+        production: args.p,
       };
     }
   }

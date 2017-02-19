@@ -177,12 +177,13 @@ module.exports = {
     },
   },
   entry: {
-    application: [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
-      path.join(process.cwd(), 'index.web.js'),
-    ],
+    application: path.join(process.cwd(), 'index.web.js'),
+    // [
+    //   // 'react-hot-loader/patch',
+    //   // 'webpack-dev-server/client?http://localhost:3000',
+    //   // 'webpack/hot/only-dev-server',
+    //   path.join(process.cwd(), 'index.web.js'),
+    // ],
     vendor: [
       'react',
       'react-dom',
@@ -196,7 +197,7 @@ module.exports = {
       process.cwd(),
       'build',
       'web',
-      ENV === 'production' ? 'release' : 'debug'
+      ENV === 'production' ? 'production' : 'debug'
     ),
     publicPath: PUBLIC_PATH,
     filename: '[name].[hash].js',
@@ -215,8 +216,9 @@ module.exports = {
       // JS
       {
         test: /\.js$/,
-        // exclude: /node_modules\/(?!(react-native-vector-icons)\/).*/,
+        // exclude: /node_modules\/(?!(react-native-vector-icons|react-native-i18n\/).*/,
         include: [
+          path.resolve(process.cwd(), 'node_modules', 'react-native-i18n'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-vector-icons'),
           path.resolve(process.cwd(), 'js'),
           path.resolve(process.cwd(), 'index.web.js'),
@@ -226,13 +228,22 @@ module.exports = {
           babelrc: false,
           cacheDirectory: true,
           plugins: [
+            // optimizes react components
             'transform-react-inline-elements',
+
+            // hot module reloading
             // 'react-hot-loader/babel',
           ],
           presets: [
-            'es2015',
+            [
+              'es2015',
+              {
+                modules: false,
+              },
+            ],
             'stage-0',
-            'react-native',
+            // use react preset so we can get properly working tree shaking
+            'react',
           ],
         },
       },

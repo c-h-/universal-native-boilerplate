@@ -141,7 +141,7 @@ None.
 
 #### Publishing
 
-Publishing for the web is the simplest. Grab the files from `/build/web/release` and host them somewhere. GitHub Pages is good for static site hosting. Netlify is good too; it supports HTTPS via Let's Encrypt which is nice. If you want server-side rendering, you'll want to run the included server (or your own) in any Node instance.
+Publishing for the web is the simplest. Grab the files from `/build/web/production` and host them somewhere. GitHub Pages is good for static site hosting. Netlify is good too; it supports HTTPS via Let's Encrypt which is nice. If you want server-side rendering, you'll want to run the included server (or your own) in any Node instance.
 
 Advanced Pro Tip: Use [Polyfill.io](https://polyfill.io/v2/docs/) and a lighter Babel transform preset for web code. This would mean a smaller app bundle size, with only the necessary code polyfilled for each browser. Since service workers don't support third-party origins right now, it breaks offline support to use polyfill.io. You can host your own polyfill service on a first-party server in order to enable offline support with this approach.
 
@@ -204,5 +204,3 @@ To ensure your app works on every platform it's recommended to preview each enab
 
 ### Roadmap
 The frontend world moves fast. As I have time I'll try to add more dev features and any new platforms released that are compatible with React Native and stable.
-
-Something that will definitely be added if it's ever released for React (or an alternative React backend) is Ahead of Time compilation, a feature that only Angular 2 currently supports. There may be a path for React to use [EchoJS](https://github.com/toshok/echojs).
