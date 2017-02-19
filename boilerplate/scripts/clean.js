@@ -12,7 +12,6 @@ gulp.task('clean', (callback) => {
     'clean:boilerplate',
     'clean:watchman',
     'clean:npm',
-    'clean:yarn',
   ], callback);
 });
 
@@ -48,17 +47,6 @@ gulp.task('clean:watchman', (callback) => {
  */
 gulp.task('clean:npm', (callback) => {
   shell.exec('npm cache clean', {
-    async: true,
-  }, () => {
-    callback();
-  });
-});
-
-/**
- * Cleans Yarn cache
- */
-gulp.task('clean:yarn', (callback) => {
-  shell.exec('yarn cache clean', {
     async: true,
   }, () => {
     callback();

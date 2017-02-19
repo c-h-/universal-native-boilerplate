@@ -17,7 +17,7 @@ Familiarity with React and React Native is recommended. Explore the codebase to 
 ```sh
 git clone https://github.com/c-h-/universal-native-boilerplate.git myApp
 cd myApp
-yarn # OR npm install
+npm install
 npm run setup # initialize a new git repository
 ```
 
@@ -47,7 +47,7 @@ gulp analyze web
 ## Reference
 ### Enabling Platforms and Features
 
-When every feature and platform is enabled yarn and npm move quite slowly. Therefore, all the source code required to run each platform and feature is included but the dependencies need to be enabled.
+When every feature and platform is enabled npm moves quite slowly. Therefore, all the source code required to run each platform and feature is included but the dependencies need to be enabled.
 
 Run `gulp enable <recipe>` for each desired platform and feature.
 
@@ -85,7 +85,7 @@ Commands:
   enable-all        Enable all platforms
   build <platform>  Builds the app for the supplied platform
   run <platform>    Builds and runs the app on the supplied platform
-  clean[:target]    Clean all caches (npm, yarn). Or, include a single target.
+  clean[:target]    Clean all caches. Or, include a single target.
 
 Options:
   -p, --production  Build a production, releaseable version. Defaults to debug version.

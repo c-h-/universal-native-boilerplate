@@ -55,7 +55,6 @@ class AppFrame extends Component {
     });
     let Scene = null;
     if (navigation.state) {
-  console.warn('in 1');
       const {
         routes,
         index,

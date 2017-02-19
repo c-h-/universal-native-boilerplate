@@ -23,7 +23,7 @@ const initPlugins = [
   }),
 ];
 const devPlugins = [
-  new webpack.HotModuleReplacementPlugin(),
+  // new webpack.HotModuleReplacementPlugin(),
   new webpack.NamedModulesPlugin(),
 ];
 const productionPlugins = [
@@ -156,7 +156,7 @@ module.exports = {
     contentBase: path.join(process.cwd(), 'web', 'src'),
     port: process.env.PORT || 3000,
     host: 'localhost',
-    hot: true,
+    // hot: true,
     publicPath: PUBLIC_PATH,
     historyApiFallback: {
       index: '/index.html',
@@ -227,7 +227,7 @@ module.exports = {
           cacheDirectory: true,
           plugins: [
             'transform-react-inline-elements',
-            'react-hot-loader/babel',
+            // 'react-hot-loader/babel',
           ],
           presets: [
             'es2015',
