@@ -17,7 +17,7 @@ Familiarity with React and React Native is recommended. Explore the codebase to 
 ```sh
 git clone https://github.com/c-h-/universal-native-boilerplate.git myApp
 cd myApp
-yarn install # OR npm install
+yarn # OR npm install
 npm run setup # initialize a new git repository
 ```
 
@@ -101,11 +101,12 @@ If you use the command line, compiled versions are organized by platform in the 
 Some features come pre-installed. This includes:
 
 - [React Navigation](https://reactnavigation.org/)
-  - Great library shares navigation across every platform. This boilerplate implements a custom navigator to cover web, server, Windows, and macOS.
-  - This boilerplate is set up to use the native TabNavigators for iOS and Android in order to get smooth native behavior. Delete `/js/components/AppNavigator.android.js` and `/js/components/AppNavigator.ios.js` to use the same navigator on every platform.
+  - Great library shares navigation across every platform.
+  - A custom TabNavigator is built into this boilerplate in order to have a working, consistent experience across platforms. This is used by default and does not use native modules.
+  - Native TabNavigators are used on iOS and Android in order to get smooth native behavior. Delete `/js/components/AppNavigator.android.js` and `/js/components/AppNavigator.ios.js` to use the same navigator on every platform.
   - Also configured into this boilerplate:
-    - Deep linking support (coming soon)
-    - URL support (coming soon)
+    - Deep linking support (Android/iOS; easy to add others) _Note: Make sure to [configure the proper scheme and hostname](https://reactnavigation.org/docs/guides/linking) for your app_
+    - URL support (web/server)
     - Redux integrated
 - Redux
   - State management and logic organization

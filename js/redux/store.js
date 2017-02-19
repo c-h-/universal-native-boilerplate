@@ -13,7 +13,7 @@ import {
 
 import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from './middlewares/logger';
-import workerMiddleware from './middlewares/worker';
+// import workerMiddleware from './middlewares/worker';
 
 import storageEngine from './storageEngine';
 import reducer from './reducers';
@@ -42,7 +42,7 @@ function init() {
     undefined,
     compose(
       autoRehydrate(),
-      applyMiddleware(workerMiddleware, thunkMiddleware, loggerMiddleware)
+      applyMiddleware(thunkMiddleware, loggerMiddleware)
     )
   );
   persistStore(store, persistConfig, () => {

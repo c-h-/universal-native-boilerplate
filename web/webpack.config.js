@@ -22,6 +22,10 @@ const initPlugins = [
     },
   }),
 ];
+const devPlugins = [
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NamedModulesPlugin(),
+];
 const productionPlugins = [
   new webpack.optimize.UglifyJsPlugin({
     compress: {
@@ -152,6 +156,7 @@ module.exports = {
     contentBase: path.join(process.cwd(), 'web', 'src'),
     port: process.env.PORT || 3000,
     host: 'localhost',
+    hot: true,
     publicPath: PUBLIC_PATH,
     historyApiFallback: {
       index: '/index.html',
@@ -172,7 +177,12 @@ module.exports = {
     },
   },
   entry: {
-    application: path.join(process.cwd(), 'index.web.js'),
+    application: [
+      'react-hot-loader/patch',
+      'webpack-dev-server/client?http://localhost:3000',
+      'webpack/hot/only-dev-server',
+      path.join(process.cwd(), 'index.web.js'),
+    ],
     vendor: [
       'react',
       'react-dom',
@@ -217,6 +227,7 @@ module.exports = {
           cacheDirectory: true,
           plugins: [
             'transform-react-inline-elements',
+            'react-hot-loader/babel',
           ],
           presets: [
             'es2015',
@@ -253,7 +264,7 @@ module.exports = {
       },
     ],
   },
-  plugins: (initPlugins).concat(ENV === 'production' ? productionPlugins : []),
+  plugins: (initPlugins).concat(ENV === 'production' ? productionPlugins : devPlugins),
 
   stats: {
     colors: true,

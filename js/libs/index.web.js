@@ -8,4 +8,6 @@ import './I18n';
 import './fonts';
 
 // enable offline support on web platform
-import './pwa';
+if (process.env.NODE_ENV === 'production') {
+  require('./pwa');
+}

@@ -49,16 +49,20 @@ class AppFrame extends Component {
     const childNavigation = addNavigationHelpers({
       ...navigation,
       state: navigation.state
+        && navigation.state.routes
         ? navigation.state.routes[navigation.state.index]
         : null,
     });
-    const {
-      routes,
-      index,
-    } = navigation.state;
     let Scene = null;
-    if (routes) {
-      Scene = router.getComponentForRouteName(routes[index].routeName);
+    if (navigation.state) {
+  console.warn('in 1');
+      const {
+        routes,
+        index,
+      } = navigation.state;
+      if (routes) {
+        Scene = router.getComponentForRouteName(routes[index].routeName);
+      }
     }
     return (
       <View

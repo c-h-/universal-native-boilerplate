@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   addNavigationHelpers,
 } from 'react-navigation';
