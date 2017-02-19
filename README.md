@@ -171,7 +171,7 @@ Here's a list of features and notes:
   - [Resource Hints](https://www.w3.org/TR/resource-hints/) for faster page load times
   - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app. (Coming soon)
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
-- BROKEN: Hot Module Reloading (HMR). Haven't figured out how to get it working with this project yet.
+- BROKEN: Hot Module Reloading (HMR). [Doesn't appear to be possible](https://github.com/gaearon/react-hot-loader/issues/262) to co-locate a React and React Native project with HMR right now.
 - BROKEN: Supports alternative React backends (Preact, Inferno, etc). [Currently broken](https://github.com/necolas/react-native-web/issues/330).
 - BROKEN: HappyPack parallelized webpack builds (multi-core JS transpilation)
   - See `happypack` branch. [Currently broken](https://github.com/amireh/happypack/issues/128).
