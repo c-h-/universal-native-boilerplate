@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  PropTypes,
+} from 'react';
 import {
   addNavigationHelpers,
 } from 'react-navigation';
@@ -7,14 +9,20 @@ import {
  * No need for URL support outside browser
  */
 export default (NavigationAwareView) => {
-  return ({ dispatch, nav }) => {
+  const BrowserWrapper = ({ dispatch, state }) => {
     return (
       <NavigationAwareView
         navigation={addNavigationHelpers({
           dispatch,
-          state: nav,
+          state,
         })}
       />
     );
   };
+  BrowserWrapper.propTypes = {
+    dispatch: PropTypes.func,
+    state: PropTypes.object,
+  };
+  return BrowserWrapper;
 };
+

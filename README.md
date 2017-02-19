@@ -160,7 +160,6 @@ The web and server platform has been set up to make newly created projects great
 Here's a list of features and notes:
 
 - Webpack 2 + Babel build script with Tree Shaking enabled.
-- Hot Module Reloading (HMR) enabled.
 - Redux pre-installed
   - [Web Worker Middleware](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive computations. Pro Tip: doing network calls in workers doesn't really change performance; however doing heavy data processing in a worker will help performance.
 - [Progressive Web App](https://developers.google.com/web/progressive-web-apps/)
@@ -172,6 +171,7 @@ Here's a list of features and notes:
   - [Resource Hints](https://www.w3.org/TR/resource-hints/) for faster page load times
   - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app. (Coming soon)
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
+- BROKEN: Hot Module Reloading (HMR). Haven't figured out how to get it working with this project yet.
 - BROKEN: Supports alternative React backends (Preact, Inferno, etc). [Currently broken](https://github.com/necolas/react-native-web/issues/330).
 - BROKEN: HappyPack parallelized webpack builds (multi-core JS transpilation)
   - See `happypack` branch. [Currently broken](https://github.com/amireh/happypack/issues/128).
