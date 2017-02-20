@@ -3,7 +3,10 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const path = require('path');
 const rimraf = require('rimraf');
+const runSequence = require('run-sequence');
 const shell = require('shelljs');
+
+const buildServer = require('./helpers/buildServer');
 
 function buildAndroid(resolve, reject) {
   const suffix = process.platform === 'win32' ? '.bat' : '';
@@ -79,6 +82,15 @@ gulp.task('build', ['switch'], () => {
       case 'web':
         buildWeb(resolve, reject);
         break;
+      case 'server': {
+        global.settings.platform = 'web';
+        runSequence('build', () => {
+          global.settings.platform = 'server';
+          buildServer('run', callback);
+        });
+        buildServer('build', resolve);
+        break;
+      }
       default:
         gutil.log(gutil.colors.yellow('Not yet implemented'));
         resolve();

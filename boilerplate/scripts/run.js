@@ -1,7 +1,10 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const path = require('path');
 const runSequence = require('run-sequence');
 const shell = require('shelljs');
+
+const buildServer = require('./helpers/buildServer');
 
 function runStdPlatform(callback) {
   const suffix = global.settings.platform === 'macos' ? '-macos' : '';
@@ -42,7 +45,11 @@ gulp.task('run', ['switch'], (callback) => {
       runWebPlatform(callback);
       break;
     case 'server':
-      gutil.log(gutil.colors.yellow('Not yet implemented'));
+      global.settings.platform = 'web';
+      runSequence('build', () => {
+        global.settings.platform = 'server';
+        buildServer('run', callback);
+      });
       break;
     default:
       runStdPlatform(callback);

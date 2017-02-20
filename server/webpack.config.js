@@ -1,7 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-const config = require('../webpack/config');
+
+const config = require('../web/webpack/config');
+
+const excludeLibs = [
+  'express',
+  'react',
+  'react-dom',
+  'react-native-web',
+  'animated',
+];
 
 const ENV = config.ENV;
 const PUBLIC_PATH = config.PUBLIC_PATH;
@@ -9,10 +18,7 @@ const PUBLIC_PATH = config.PUBLIC_PATH;
 const nodeModules = {};
 fs.readdirSync(path.join(process.cwd(), 'node_modules'))
   .filter((x) => {
-    return [
-      'express',
-      // 'react',
-    ].indexOf(x) > -1;
+    return excludeLibs.indexOf(x) > -1;
   })
   .forEach((mod) => {
     nodeModules[mod] = `commonjs ${mod}`;
@@ -20,32 +26,7 @@ fs.readdirSync(path.join(process.cwd(), 'node_modules'))
 
 module.exports = {
   devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
-  devServer: {
-    // https://webpack.js.org/configuration/dev-server/
-    quiet: false,
-    contentBase: path.join(process.cwd(), 'web', 'src'),
-    port: process.env.PORT || 3000,
-    host: 'localhost',
-    publicPath: PUBLIC_PATH,
-    historyApiFallback: {
-      index: '/index.html',
-    },
-    setup: (/* app */) => {
-      // Here you can access the Express app object and add your own custom middleware to it.
-      // For example, to define custom handlers for some paths:
-      // app.get('/', (req, res) => {
-      // });
-    },
-    open: true,
-    proxy: {
-      // OPTIONAL: proxy configuration:
-      // '/optional-prefix/**': { // path pattern to rewrite
-      //   target: 'http://target-host.com',
-      //   pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
-      // }
-    },
-  },
-  entry: path.join(process.cwd(), 'web', 'server', 'src', 'app.js'),
+  entry: path.join(process.cwd(), 'server', 'src', 'app.js'),
   output: {
     path: path.join(
       process.cwd(),
@@ -77,7 +58,7 @@ module.exports = {
           path.resolve(process.cwd(), 'node_modules', 'react-native-i18n'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-vector-icons'),
           path.resolve(process.cwd(), 'js'),
-          path.resolve(process.cwd(), 'web', 'server', 'src'),
+          path.resolve(process.cwd(), 'server', 'src'),
         ],
         loader: 'babel-loader',
         query: {

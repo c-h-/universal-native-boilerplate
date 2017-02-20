@@ -11,7 +11,7 @@
     "start:packager:macos": "node node_modules/react-native-macos/local-cli/cli.js start",
     "build:production:web": "cross-env NODE_ENV=production webpack --config web/webpack.config.js --progress",
     "build:debug:web": "webpack --config web/webpack.config.js --progress",
-    "build:debug:server": "webpack --config web/server/webpack.config.js --progress",
+    "start:debug:server": "nodemon build/server/debug/main.js --ignore js/ --ignore web/ --ignore index.web.js",
     "start:production:web": "serve build/web/production -s -c 1",
     "test": "jest",
     "lint": "eslint -c .eslintrc --fix js/**",
@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "express": "^4.14.1",
+    "nodemon": "^1.11.0",
     "react": "~15.4.0",
     "react-dom": "^15.4.2",
     "react-native": "0.41.2",

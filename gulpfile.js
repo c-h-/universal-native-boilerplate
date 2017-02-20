@@ -1,14 +1,6 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 
-require('./boilerplate/scripts/analyze.js');
-require('./boilerplate/scripts/build.js');
-require('./boilerplate/scripts/clean.js');
-require('./boilerplate/scripts/enable.js');
-require('./boilerplate/scripts/run.js');
-require('./boilerplate/scripts/setup.js');
-require('./boilerplate/scripts/switch.js');
-
 global.platforms = [
   'android',
   'ios',
@@ -55,6 +47,11 @@ function setSettings(args) {
 }
 setSettings(argv);
 
+if (argv && argv.p) {
+  // in production mode, make sure environment is production
+  process.env.NODE_ENV = 'production';
+}
+
 // Customize CLI behavior
 // Make gulp think we have tasks so that it doesn't error
 if (argv._) {
@@ -76,3 +73,11 @@ if (argv._) {
     }
   });
 }
+
+require('./boilerplate/scripts/analyze.js');
+require('./boilerplate/scripts/build.js');
+require('./boilerplate/scripts/clean.js');
+require('./boilerplate/scripts/enable.js');
+require('./boilerplate/scripts/run.js');
+require('./boilerplate/scripts/setup.js');
+require('./boilerplate/scripts/switch.js');

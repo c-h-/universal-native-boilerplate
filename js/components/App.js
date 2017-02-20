@@ -2,9 +2,6 @@ import React, {
   PropTypes,
 } from 'react';
 import {
-  Text,
-} from 'react-native';
-import {
   connect,
 } from 'react-redux';
 
@@ -13,7 +10,7 @@ import '../libs';
 import AppNavigator from './AppNavigator';
 import URIWrapper from './URIWrapper';
 
-const ClientApp = URIWrapper(AppNavigator);
+const NavigationWrappedApp = URIWrapper(AppNavigator);
 
 const App = (props) => {
   const {
@@ -22,24 +19,12 @@ const App = (props) => {
     nav,
   } = props;
   return (
-    <ClientApp
+    <NavigationWrappedApp
       dispatch={dispatch}
       state={nav}
+      appReady={appReady}
     />
   );
-  if (appReady) {
-    return (
-      <ClientApp
-        dispatch={dispatch}
-        state={nav}
-      />
-    );
-  }
-  else {
-    return (
-      <Text>Loading...</Text>
-    );
-  }
 };
 
 App.propTypes = {

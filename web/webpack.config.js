@@ -17,12 +17,6 @@ module.exports = {
     historyApiFallback: {
       index: '/index.html',
     },
-    setup: (/* app */) => {
-      // Here you can access the Express app object and add your own custom middleware to it.
-      // For example, to define custom handlers for some paths:
-      // app.get('/', (req, res) => {
-      // });
-    },
     open: true,
     proxy: {
       // OPTIONAL: proxy configuration:

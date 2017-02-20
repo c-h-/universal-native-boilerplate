@@ -56,7 +56,15 @@ export function generateStore(initialState, hydrate = true) {
  *  start out the app with the stored state
  */
 function init() {
-  store = generateStore();
+  let preloadedState;
+  if (
+    typeof window !== 'undefined'
+    && window.__PRELOADED_STATE__
+  ) {
+    preloadedState = window.__PRELOADED_STATE__;
+    delete window.__PRELOADED_STATE__;
+  }
+  store = generateStore(preloadedState);
   persistStore(store, persistConfig, () => {
     // called when rehydration complete
     console.log('INIT STATE', store.getState());
