@@ -5,8 +5,6 @@ const rimraf = require('rimraf');
 let nodemon;
 let webpack;
 
-const serverWebpackConfig = require(path.join(process.cwd(), 'server', 'webpack.config.js'));
-
 function buildServerPlatform(modeToRun, callback) {
   try {
     nodemon = require('nodemon'); // eslint-disable-line
@@ -20,6 +18,7 @@ function buildServerPlatform(modeToRun, callback) {
   catch (e) {
     gutil.log(gutil.colors.red('Server platform must be enabled. Run `gulp enable server`.'));
   }
+  const serverWebpackConfig = require(path.join(process.cwd(), 'server', 'webpack.config.js'));
   if (nodemon && webpack) {
     const webpackMode = modeToRun === 'run' ? 'watch' : 'run';
 
