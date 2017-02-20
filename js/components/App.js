@@ -21,6 +21,12 @@ const App = (props) => {
     dispatch,
     nav,
   } = props;
+  return (
+    <ClientApp
+      dispatch={dispatch}
+      state={nav}
+    />
+  );
   if (appReady) {
     return (
       <ClientApp

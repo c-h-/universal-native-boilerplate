@@ -62,7 +62,7 @@ function buildWeb(callback) {
     'web',
     global.settings.production ? 'production' : 'debug'
   ), () => {
-    shell.exec(`npm run build${global.settings.production ? '' : ':debug'}:web`);
+    shell.exec(`npm run build:${global.settings.production ? 'production' : 'debug'}:web`);
     callback();
   });
 }

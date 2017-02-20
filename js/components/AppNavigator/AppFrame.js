@@ -34,7 +34,7 @@ class AppFrame extends Component {
    */
   componentWillReceiveProps(props) {
     if (this.props.navigation.state !== props.navigation.state) {
-      if (Platform.OS === 'web') {
+      if (Platform.OS === 'web' && typeof window !== 'undefined') {
         window.scrollTo(0, 0);
       }
     }

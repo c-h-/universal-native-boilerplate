@@ -11,7 +11,10 @@ import getAction from './getAction';
  * Enables URL support in browser
  */
 export default (NavigationAwareView) => {
-  const initialAction = getAction(NavigationAwareView.router, window.location.pathname.substr(1));
+  const initialAction = getAction(
+    NavigationAwareView.router,
+    typeof window !== 'undefined' ? window.location.pathname.substr(1) : ''
+  );
 
   class NavigationContainer extends Component {
     static propTypes = {
@@ -41,18 +44,22 @@ export default (NavigationAwareView) => {
         state,
       } = this.props;
       // set webpage title when page changes
-      document.title = NavigationAwareView.router.getScreenConfig({
-        state: state.routes[state.index],
-        dispatch,
-      }, 'title');
+      if (typeof document !== 'undefined') {
+        document.title = NavigationAwareView.router.getScreenConfig({
+          state: state.routes[state.index],
+          dispatch,
+        }, 'title');
+      }
       // when url is changed, dispatch action to update view
-      window.onpopstate = (e) => {
-        e.preventDefault();
-        const action = getAction(NavigationAwareView.router, window.location.pathname.substr(1));
-        if (action) {
-          dispatch(action);
-        }
-      };
+      if (typeof window !== 'undefined') {
+        window.onpopstate = (e) => {
+          e.preventDefault();
+          const action = getAction(NavigationAwareView.router, window.location.pathname.substr(1));
+          if (action) {
+            dispatch(action);
+          }
+        };
+      }
     }
     componentWillUpdate(nextProps) {
       const {
@@ -64,7 +71,7 @@ export default (NavigationAwareView) => {
       } = NavigationAwareView.router.getPathAndParamsForState(state);
       const uri = `/${path}`;
       // update url to match route state
-      if (window.location.pathname !== uri) {
+      if (typeof window !== 'undefined' && window.location.pathname !== uri) {
         window.history.pushState({}, state.title, uri);
       }
       // set webpage title when page changes

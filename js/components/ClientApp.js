@@ -7,7 +7,7 @@ import {
 } from '../redux/store';
 import App from './App';
 
-const Wrapper = () => {
+const ClientApp = () => {
   return (
     <Provider store={getStore()}>
       <App />
@@ -15,4 +15,4 @@ const Wrapper = () => {
   );
 };
 
-export default Wrapper;
+export default ClientApp;

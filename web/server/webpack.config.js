@@ -1,9 +1,22 @@
+const fs = require('fs');
 const path = require('path');
-const config = require('./webpack/config');
-const plugins = require('./webpack/plugins');
+const webpack = require('webpack');
+const config = require('../webpack/config');
 
 const ENV = config.ENV;
 const PUBLIC_PATH = config.PUBLIC_PATH;
+
+const nodeModules = {};
+fs.readdirSync(path.join(process.cwd(), 'node_modules'))
+  .filter((x) => {
+    return [
+      'express',
+      // 'react',
+    ].indexOf(x) > -1;
+  })
+  .forEach((mod) => {
+    nodeModules[mod] = `commonjs ${mod}`;
+  });
 
 module.exports = {
   devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
@@ -32,26 +45,19 @@ module.exports = {
       // }
     },
   },
-  entry: {
-    application: path.join(process.cwd(), 'index.web.js'),
-    vendor: [
-      'react',
-      'react-dom',
-      'react-native-web',
-      'animated',
-      'react-navigation',
-    ],
-  },
+  entry: path.join(process.cwd(), 'web', 'server', 'src', 'app.js'),
   output: {
     path: path.join(
       process.cwd(),
       'build',
-      'web',
+      'server',
       ENV === 'production' ? 'production' : 'debug'
     ),
     publicPath: PUBLIC_PATH,
-    filename: '[name].[hash].js',
+    filename: '[name].js',
   },
+  target: 'node',
+  externals: nodeModules,
   resolve: {
     modules: [
       path.join(process.cwd(), 'node_modules'),
@@ -71,7 +77,7 @@ module.exports = {
           path.resolve(process.cwd(), 'node_modules', 'react-native-i18n'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-vector-icons'),
           path.resolve(process.cwd(), 'js'),
-          path.resolve(process.cwd(), 'index.web.js'),
+          path.resolve(process.cwd(), 'web', 'server', 'src'),
         ],
         loader: 'babel-loader',
         query: {
@@ -99,30 +105,29 @@ module.exports = {
         test: /\.json$/,
         loader: 'json-loader',
       },
-      // Images
-      // Inline base64 URLs for <=8k images, direct URLs for the rest
-      {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 8192,
-          name: 'images/[name]_[hash:base64:5].[ext]',
-        },
-      },
-      // Fonts
-      // Inline base64 URLs for <=8k fonts, direct URLs for the rest
-      {
-        test: /\.(woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader',
-        include: path.join(process.cwd(), 'node_modules/react-native-vector-icons'),
-        options: {
-          limit: 8192,
-          name: 'fonts/[name]_[hash:base64:5].[ext]',
-        },
-      },
     ],
   },
-  plugins: (plugins.init).concat(ENV === 'production' ? plugins.production : plugins.dev),
+  plugins: ([
+    new webpack.IgnorePlugin(/\.(woff|woff2|ttf|eot|png|jpg|jpeg|gif|svg)$/),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    }),
+  ]).concat(ENV === 'production' ? [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+      },
+      output: {
+        comments: false,
+      },
+      sourceMap: false,
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }),
+  ] : []),
 
   stats: {
     colors: true,

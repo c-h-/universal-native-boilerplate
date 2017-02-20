@@ -33,17 +33,30 @@ if (Platform.OS !== 'web') {
 let store;
 
 /**
+ * exportable function for creating the store
+ */
+export function generateStore(initialState, hydrate = true) {
+  // conditionally add args to store
+  const args = [
+    hydrate ? autoRehydrate() : null,
+    applyMiddleware(thunkMiddleware, loggerMiddleware),
+  ].filter(arg => arg !== null);
+
+  // create the store
+  return createStore(
+    reducer,
+    initialState,
+    compose(
+      ...args
+    )
+  );
+}
+
+/**
  *  start out the app with the stored state
  */
 function init() {
-  store = createStore(
-    reducer,
-    undefined,
-    compose(
-      autoRehydrate(),
-      applyMiddleware(thunkMiddleware, loggerMiddleware)
-    )
-  );
+  store = generateStore();
   persistStore(store, persistConfig, () => {
     // called when rehydration complete
     console.log('INIT STATE', store.getState());
