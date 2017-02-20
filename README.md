@@ -5,7 +5,7 @@ The holy grail of front-end development is writing code and compiling for every 
 
 This starter project is a boilerplate: a project pre-configured so that you can start building.
 
-With this boilerplate it's straightforward to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. Pick the platforms and features you want. As you create the built-in tools grow with you. It's organized to prevent headaches from the beginning. When you're ready for production, pain-free web and server optimizations are built-in.
+Use this boilerplate to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. Pick the platforms and features you want. As you create the built-in tools grow with you. It's organized to prevent headaches from the beginning. When you're ready for production, pain-free web and server optimizations are built-in.
 
 Familiarity with React and React Native is recommended. Explore the codebase to see how easy it is to make 99% of code written cross-platform.
 
