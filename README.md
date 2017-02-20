@@ -116,6 +116,7 @@ Some features come pre-installed. This includes:
 
 ## Platforms
 ### Android
+![Android Screenshot](/boilerplate/docs/images/android.png?raw=true)
 #### SDK Setup
 This boilerplate takes care of everything project-related for the platform.
 That means the only remaining task to get up and running is to configure the Android SDK.
@@ -127,6 +128,8 @@ Once you build your app with `gulp build android -p` to get a production version
 Pro Tip: Use [Redex](http://fbredex.com/) to optimize your app before publishing.
 
 ### iOS and macOS
+![macOS Screenshot](/boilerplate/docs/images/macos.png?raw=true)
+![iOS Screenshot](/boilerplate/docs/images/ios.png?raw=true)
 #### SDK Setup
 This boilerplate takes care of everything project-related for the platform.
 That means the only remaining task to get up and running is to configure XCode.
@@ -136,6 +139,7 @@ Use the [official getting started guide](https://facebook.github.io/react-native
 Use XCode to sign and publish your app.
 
 ### Server and Web
+![Web Screenshot](/boilerplate/docs/images/web.png?raw=true)
 #### SDK Setup
 None.
 
@@ -146,6 +150,7 @@ Publishing for the web is the simplest. Grab the files from `/build/web/producti
 Advanced Pro Tip: Use [Polyfill.io](https://polyfill.io/v2/docs/) and a lighter Babel transform preset for web code. This would mean a smaller app bundle size, with only the necessary code polyfilled for each browser. Since service workers don't support third-party origins right now, it breaks offline support to use polyfill.io. You can host your own polyfill service on a first-party server in order to enable offline support with this approach.
 
 ### Windows
+![Windows Screenshot](/boilerplate/docs/images/windows.png?raw=true)
 #### SDK Setup
 This boilerplate takes care of everything project-related for the platform.
 That means the only remaining task to get up and running is to configure the Windows SDK.
