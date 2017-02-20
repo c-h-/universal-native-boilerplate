@@ -24,6 +24,15 @@ gulp.task('build', ['switch'], () => {
         }, reject);
         break;
       }
+      case 'ios':
+      case 'macos':
+        gutil.log(gutil.colors.yellow('Please use XCode to complete the operation.'));
+        resolve();
+        break;
+      case 'windows':
+        gutil.log(gutil.colors.yellow('Please use Visual Studio to complete the operation.'));
+        resolve();
+        break;
       default:
         gutil.log(gutil.colors.yellow('Not yet implemented'));
         resolve();
