@@ -28,12 +28,18 @@ module.exports = {
   },
   entry: {
     application: path.join(process.cwd(), 'index.web.js'),
+    // libraries that don't change often and should be bundled externally
     vendor: [
       'react',
       'react-dom',
       'react-native-web',
       'animated',
       'react-navigation',
+      'lodash',
+      'react-native-vector-icons',
+      'react-redux',
+      'redux',
+      'react-native-i18n',
     ],
   },
   output: {

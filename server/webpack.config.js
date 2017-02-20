@@ -10,6 +10,12 @@ const excludeLibs = [
   'react-dom',
   'react-native-web',
   'animated',
+  'react-navigation',
+  'lodash',
+  'react-native-vector-icons',
+  'react-redux',
+  'redux',
+  'react-native-i18n',
 ];
 
 const ENV = config.ENV;

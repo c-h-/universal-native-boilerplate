@@ -54,9 +54,11 @@ function buildServerPlatform(modeToRun, callback) {
         compiler[webpackMode]({}, webpackDone);
         break;
       case 'run':
+      default:
         compiler[webpackMode](webpackDone);
         break;
     }
   });
-};
+}
+
 module.exports = buildServerPlatform;
