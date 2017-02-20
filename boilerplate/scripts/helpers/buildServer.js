@@ -10,13 +10,15 @@ function buildServerPlatform(modeToRun, callback) {
     nodemon = require('nodemon'); // eslint-disable-line
   }
   catch (e) {
-    gutil.log(gutil.colors.red('Server platform must be enabled. Run `gulp enable server`.'));
+    gutil.log(gutil.colors.red('Need server platform. Run `gulp enable server`.'));
+    callback();
   }
   try {
     webpack = require('webpack'); // eslint-disable-line
   }
   catch (e) {
-    gutil.log(gutil.colors.red('Server platform must be enabled. Run `gulp enable server`.'));
+    gutil.log(gutil.colors.red('Need server platform. Run `gulp enable server`.'));
+    callback();
   }
   const serverWebpackConfig = require(path.join(process.cwd(), 'server', 'webpack.config.js'));
   if (nodemon && webpack) {

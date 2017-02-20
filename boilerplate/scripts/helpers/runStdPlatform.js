@@ -1,6 +1,25 @@
+const gutil = require('gulp-util');
 const shell = require('shelljs');
 
+const tryPackage = require('./tryPackage');
+
 function runStdPlatform(callback) {
+  if (global.settings.platform === 'windows') {
+    const enabled = tryPackage('react-native-windows');
+    if (!enabled) {
+      gutil.log(gutil.colors.red('Need Windows platform. Run `gulp enable windows`.'));
+      callback();
+      return;
+    }
+  }
+  else if (global.settings.platform === 'macos') {
+    const enabled = tryPackage('react-native-macos');
+    if (!enabled) {
+      gutil.log(gutil.colors.red('Need macOS platform. Run `gulp enable macos`.'));
+      callback();
+      return;
+    }
+  }
   const hasYarn = false; // Yarn doesn't work!! shell.which('yarn');
   const suffix = global.settings.platform === 'macos' ? '-macos' : '';
   if (!shell.which(`react-native${suffix}`)) {
