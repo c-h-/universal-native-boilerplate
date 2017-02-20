@@ -9,7 +9,7 @@ const recipePkgs = require('../../recipes');
 
 const pathToPkg = path.join(process.cwd(), 'package.json');
 
-const haveYarn = shell.which('yarn');
+const haveYarn = false; // Yarn doesn't work! shell.which('yarn');
 
 function enableRecipe(recipe) {
   return new Promise((resolve, reject) => {

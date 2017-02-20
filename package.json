@@ -32,7 +32,7 @@
     "redux": "^3.6.0",
     "redux-persist": "^4.3.0",
     "redux-thunk": "^2.2.0",
-    "redux-worker-middleware": "^0.2.0"
+    "react-native": "0.41.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
@@ -54,7 +54,8 @@
     "react-test-renderer": "~15.4.0",
     "run-sequence": "^1.2.2",
     "shelljs": "^0.7.6",
-    "yargs": "^6.6.0"
+    "yargs": "^6.6.0",
+    "babel-preset-react-native": "^1.9.1"
   },
   "jest": {
     "preset": "react-native"
