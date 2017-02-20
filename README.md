@@ -203,8 +203,10 @@ The frontend world moves fast. As I have time I'll try to add more dev features 
 
 Platform | Feature | Notes
 --- |--- | ---
+All | Tests | Add basic tests: successfully build and render app on all platforms, etc.
 All | AoT Compilation | Ahead of time compilation could reduce bundle sizes and start times. Angular 2 is the only framework that supports it right now.
 All | Web Workers | Currently I'm of the opinion it's too much complexity to have web workers come standard.
+All | Child Navigator | Potentially add a child navigator if it doesn't add too much complexity.
 Android | Android sign, zipalign, and optimize | It would be nice to have signing, zipaligning, and optimization (like Redex) built-in.
 iOS | Build | Use gulp CLI to build iOS IPA files.
 macOS | Build | Use gulp CLI to build macOS packages.

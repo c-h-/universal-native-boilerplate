@@ -9,7 +9,7 @@ import Link from '../Link';
 
 import styles from './styles';
 
-const CustomTabBar = ({ navigation, router, tabBarOptions, }) => {
+const CustomTabBar = ({ navigation, router, tabBarOptions }) => {
   const links = navigation.state ? [
     ...navigation.state.routes.map((route, i) => {
       if (route.routeName === 'NotFound') {
@@ -60,7 +60,7 @@ const CustomTabBar = ({ navigation, router, tabBarOptions, }) => {
   ] : [];
   return (
     <View
-      style={[styles.customTabBar, tabBarOptions.style, ]}
+      style={[styles.customTabBar, tabBarOptions.style]}
     >
       {links}
     </View>

@@ -17,16 +17,23 @@
       "react"
   ],
   "extends": "airbnb",
+  "settings": {
+    "import/resolver": {
+        "webpack": {
+            "config": "./web/webpack.config.js"
+        }
+    }
+  },
   "rules": {
     "arrow-body-style": "off",
     "brace-style": ["error", "stroustrup"],
     "camelcase": "off",
     "comma-dangle": ["error", {
         "functions": "never",
-        "objects": "always",
-        "arrays": "always",
-        "imports": "always",
-        "exports": "always"
+        "objects": "always-multiline",
+        "arrays": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline"
     }],
     "curly": "error",
     "global-require": "off",

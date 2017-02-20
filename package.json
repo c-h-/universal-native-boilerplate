@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "nodemon": "^1.11.0",
+    "offline-plugin": "^4.6.1",
     "react": "~15.4.0",
     "react-dom": "^15.4.2",
     "react-native": "0.41.2",
@@ -52,6 +53,7 @@
     "cross-env": "^3.1.4",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
@@ -68,7 +70,6 @@
     "lodash.assign": "^4.2.0",
     "lodash.isequal": "^4.5.0",
     "ngrok": "^2.2.6",
-    "offline-plugin": "^4.6.1",
     "open": "^0.0.5",
     "optimize-js-plugin": "^0.0.4",
     "path-exists": "^3.0.0",

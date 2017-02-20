@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  PropTypes,
+} from 'react';
 
 import Icon from './Icon';
 import Home from '../views/Home';
@@ -8,6 +10,27 @@ import Translation from '../views/Translation';
 
 export const notFoundKey = 'NotFound';
 
+/**
+ * Gets an Icon component.
+ */
+const getIcon = (name) => {
+  const comp = ({ tintColor }) => (
+    <Icon
+      name={name}
+      style={{
+        color: tintColor,
+      }}
+    />
+  );
+  comp.propTypes = {
+    tintColor: PropTypes.string,
+  };
+  return comp;
+};
+
+/**
+ * The routes for the App
+ */
 export const AppRoutes = {
   Home: {
     screen: Home,
@@ -16,14 +39,7 @@ export const AppRoutes = {
       title: 'Welcome',
       tabBar: {
         label: 'Welcome',
-        icon: ({ tintColor, }) => (
-          <Icon
-            name="home"
-            style={{
-              color: tintColor,
-            }}
-          />
-        ),
+        icon: getIcon('home'),
       },
     },
   },
@@ -34,14 +50,7 @@ export const AppRoutes = {
       title: 'Icons',
       tabBar: {
         label: 'Icons',
-        icon: ({ tintColor, }) => (
-          <Icon
-            name="view-module"
-            style={{
-              color: tintColor,
-            }}
-          />
-        ),
+        icon: getIcon('view-module'),
       },
     },
   },
@@ -52,14 +61,7 @@ export const AppRoutes = {
       title: 'Translation',
       tabBar: {
         label: 'Translation',
-        icon: ({ tintColor, }) => (
-          <Icon
-            name="translate"
-            style={{
-              color: tintColor,
-            }}
-          />
-        ),
+        icon: getIcon('translate'),
       },
     },
   },

@@ -76,16 +76,16 @@ function handleRender(req, res) {
           <App />
         </Provider>
       );
-    })
+    });
 
     const {
       // element,
       stylesheet,
     } = AppRegistry.getApplication('UniversalNativeBoilerplate', {});
-    
+
     // BROKEN Render the component to a string
     // const html = renderToString(element);
-    
+
     // HOTFIX Render the component to a string
     // NOTE: For server side rendering to work properly the generated HTML
     // has to match what the client would render. The View and its style

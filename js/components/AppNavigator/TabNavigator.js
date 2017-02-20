@@ -10,7 +10,7 @@ import AppFrame from './AppFrame';
 export default (tabRoutes, options) => {
   const Router = TabRouter(tabRoutes, options);
 
-  const AppNavigator = ({ navigation, }) => {
+  const AppNavigator = ({ navigation }) => {
     return (
       <AppFrame
         router={Router}

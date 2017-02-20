@@ -67,7 +67,6 @@ function init() {
   store = generateStore(preloadedState);
   persistStore(store, persistConfig, () => {
     // called when rehydration complete
-    console.log('INIT STATE', store.getState());
     store.dispatch({
       type: ActionTypes.SET_APP_READY,
       appReady: true,

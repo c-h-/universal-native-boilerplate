@@ -8,3 +8,12 @@ export function getRandomNumber() {
     },
   };
 }
+
+export function doSomeStuff() {
+  return {
+    type: ActionTypes.DO_STUFF,
+    payload: {
+      stuff: 2 + 2,
+    },
+  };
+}
