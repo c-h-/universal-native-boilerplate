@@ -1,9 +1,4 @@
 {
-  "favicon": {
-    "devDependencies": {
-      "favicons-webpack-plugin": "https://github.com/c-h-/favicons-webpack-plugin.git"
-    }
-  },
   "hints": {
     "devDependencies": {
       "preload-webpack-plugin": "^1.1.0"
@@ -24,6 +19,11 @@
   "optimize": {
     "devDependencies": {
       "optimize-js-plugin": "^0.0.4"
+    }
+  },
+  "pwa": {
+    "devDependencies": {
+      "favicons-webpack-plugin": "https://github.com/c-h-/favicons-webpack-plugin.git"
     }
   },
   "visualizer": {
