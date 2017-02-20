@@ -27,17 +27,19 @@ export default (NavigationAwareView) => {
       const {
         dispatch,
       } = this.props;
-      const initURL = await Linking.getInitialURL();
-      if (initURL && initURL.length) {
-        const pathFromURL = initURL.slice(initURL.indexOf('://') + 3);
-        const deepLinkAction = getAction(
-          NavigationAwareView.router,
-          // Android usually includes hostname so slice that out too
-          Platform.OS === 'android'
-            ? pathFromURL.slice(pathFromURL.indexOf('/') + 1)
-            : pathFromURL
-        );
-        dispatch(deepLinkAction);
+      if (typeof Linking.getInitialURL === 'function') {
+        const initURL = await Linking.getInitialURL();
+        if (initURL && initURL.length) {
+          const pathFromURL = initURL.slice(initURL.indexOf('://') + 3);
+          const deepLinkAction = getAction(
+            NavigationAwareView.router,
+            // Android usually includes hostname so slice that out too
+            Platform.OS === 'android'
+              ? pathFromURL.slice(pathFromURL.indexOf('/') + 1)
+              : pathFromURL
+          );
+          dispatch(deepLinkAction);
+        }
       }
     }
     render() {
