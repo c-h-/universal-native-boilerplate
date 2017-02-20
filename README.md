@@ -1,11 +1,11 @@
 # Universal Native Boilerplate
 
 ## Introduction
-The holy grail of front-end development is writing code once from which great apps are compiled for every platform without compromise. React Native's philosophy is "learn once, write everywhere". Today that goal is closer than ever.
+The holy grail of front-end development is writing code and compiling for every platform without compromise. React Native's philosophy is "learn once, write everywhere". Today that goal is closer than ever.
 
 This starter project is a boilerplate: a project pre-configured so that you can start building.
 
-With this boilerplate it should be straightforward to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. When you first start a project you pick the platforms and features you want. As you build, the tools grow with you. It comes with built-in tools for analysis, code quality, and testing. It's organized in a way that will help prevent headaches as the app's codebase matures and expands. And when you're ready to build a production version, many optimizations are built-in to help get you to production faster.
+With this boilerplate it's straightforward to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. Pick the platforms and features you want. As you create the built-in tools grow with you. It's organized to prevent headaches from the beginning. When you're ready for production, pain-free web and server optimizations are built-in.
 
 Familiarity with React and React Native is recommended. Explore the codebase to see how easy it is to make 99% of code written cross-platform.
 
