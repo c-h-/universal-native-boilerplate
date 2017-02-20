@@ -210,7 +210,7 @@ All | Child Navigator | Potentially add a child navigator if it doesn't add too 
 Android | Android sign, zipalign, and optimize | It would be nice to have signing, zipaligning, and optimization (like Redex) built-in.
 iOS | Build | Use gulp CLI to build iOS IPA files.
 macOS | Build | Use gulp CLI to build macOS packages.
-macOS | Icons | Find a way to bring icons support to macOS.
+macOS | Quality | Work with macOS version to fix quality issues.
 macOS | I18n | [Internationalization support blocked](https://github.com/ptmt/react-native-macos/issues/149)
 Server | Remove Hotfix | Remove the hotfix that currently gets server side rendering to match checksum.
 Web | Lighter bundles with Polyfill | Putting together an example webpack config that utilizes polyfill.io to lighten bundle sizes compatible with Service Workers, perhaps in another branch, would be great.

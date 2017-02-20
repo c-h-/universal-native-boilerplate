@@ -12,14 +12,6 @@ function runStdPlatform(callback) {
       return;
     }
   }
-  else if (global.settings.platform === 'macos') {
-    const enabled = tryPackage('react-native-macos');
-    if (!enabled) {
-      gutil.log(gutil.colors.red('Need macOS platform. Run `gulp enable macos`.'));
-      callback();
-      return;
-    }
-  }
   const hasYarn = false; // Yarn doesn't work!! shell.which('yarn');
   const suffix = global.settings.platform === 'macos' ? '-macos' : '';
   if (!shell.which(`react-native${suffix}`)) {
