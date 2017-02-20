@@ -55,12 +55,12 @@ Adding platforms and features after you write your app can give unexpected resul
 
 Available platforms and features:
 
-name | type | notes
+Name | Type | Notes
 --- | --- | ---
-android | platform | standard [react native](https://github.com/facebook/react-native)
-ios | platform | standard [react native](https://github.com/facebook/react-native)
+android | platform | Standard [react native](https://github.com/facebook/react-native)
+ios | platform | Standard [react native](https://github.com/facebook/react-native)
 macos | platform | [react-native-macos](https://github.com/ptmt/react-native-macos)
-server | platform | server side rendering of web version. requires web platform.
+server | platform | Server side rendering of web version. Requires web platform.
 web | platform | Offline-first Progressive Web App powered by [react-native-web](https://github.com/necolas/react-native-web)
 windows | platform | [react-native-windows](https://github.com/ReactWindows/react-native-windows)
  | |  
@@ -171,10 +171,6 @@ Here's a list of features and notes:
   - [Resource Hints](https://www.w3.org/TR/resource-hints/) for faster page load times
   - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app. (Coming soon)
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
-- BROKEN: Hot Module Reloading (HMR). [Doesn't appear to be possible](https://github.com/gaearon/react-hot-loader/issues/262) to co-locate a React and React Native project with HMR right now.
-- BROKEN: Supports alternative React backends (Preact, Inferno, etc). [Currently broken](https://github.com/necolas/react-native-web/issues/330).
-- BROKEN: HappyPack parallelized webpack builds (multi-core JS transpilation)
-  - See `happypack` branch. [Currently broken](https://github.com/amireh/happypack/issues/128).
 
 ### Notes and Tips
 #### React Performance
@@ -204,3 +200,20 @@ To ensure your app works on every platform it's recommended to preview each enab
 
 ### Roadmap
 The frontend world moves fast. As I have time I'll try to add more dev features and any new platforms released that are compatible with React Native and stable.
+
+Platform | Feature | Notes
+--- |--- | ---
+All | AoT Compilation | Ahead of time compilation could reduce bundle sizes and start times. Angular 2 is the only framework that supports it right now.
+All | Web Workers | Currently I'm of the opinion it's too much complexity to have web workers come standard.
+Android | Android sign, zipalign, and optimize | It would be nice to have signing, zipaligning, and optimization (like Redex) built-in.
+iOS | Build | Use gulp CLI to build iOS IPA files.
+macOS | Build | Use gulp CLI to build macOS packages.
+macOS | Icons | Find a way to bring icons support to macOS.
+macOS | I18n | [Internationalization support blocked](https://github.com/ptmt/react-native-macos/issues/149)
+Server | Remove Hotfix | Remove the hotfix that currently gets server side rendering to match checksum.
+Web | Lighter bundles with Polyfill | Putting together an example webpack config that utilizes polyfill.io to lighten bundle sizes compatible with Service Workers, perhaps in another branch, would be great.
+Web | Web HMR | Web Hot Module Reloading would be lovely, but unfortunately [doesn't appear to be possible right now](https://github.com/gaearon/react-hot-loader/issues/262).
+Web | Alternative React backends | [Currently not possible](https://github.com/necolas/react-native-web/issues/330)
+Web | Parallelized builds | [Currently broken](https://github.com/amireh/happypack/issues/128)
+Web | Code Splitting | Currently I'm of the opinion it's too much complexity to have code splitting come standard.
+Windows | Build | Use gulp CLI to build Windows packages.

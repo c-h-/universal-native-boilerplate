@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import React from 'react';
 import {
+  AppRegistry,
   View,
 } from 'react-native';
 import {
@@ -15,14 +16,14 @@ import {
 // get store from App
 import {
   generateStore,
-} from '../../../js/redux/store';
+} from '../../js/redux/store';
 
 // App un-wrapped by Redux provider
-import App from '../../../js/components/App';
-import getAction from '../../../js/components/getAction';
+import App from '../../js/components/App';
+import getAction from '../../js/components/getAction';
 
 // Navigation components let us process the requested route and render it
-import AppNavigator from '../../../js/components/AppNavigator';
+import AppNavigator from '../../js/components/AppNavigator';
 
 const app = Express();
 const port = 3000;
@@ -44,13 +45,13 @@ const matchClientStyles = {
 let indexHTML = '';
 
 // insert our data into our cached html page
-function renderFullPage(html, preloadedState) {
+function renderFullPage(html, preloadedState, stylesheet) {
   // See http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
   return indexHTML.replace(
     '<div id="container"></div>',
     `<div id="container">${html}</div><script>`
     + `window.__PRELOADED_STATE__=${JSON.stringify(preloadedState)}</script>`
-  );3
+  ).replace('</head>', `${stylesheet}</head>`);
 }
 
 function handleRender(req, res) {
@@ -69,7 +70,23 @@ function handleRender(req, res) {
     // Create a new Redux store instance
     const store = generateStore(initialState);
 
-    // Render the component to a string
+    AppRegistry.registerComponent('UniversalNativeBoilerplate', () => {
+      return (
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+    })
+
+    const {
+      // element,
+      stylesheet,
+    } = AppRegistry.getApplication('UniversalNativeBoilerplate', {});
+    
+    // BROKEN Render the component to a string
+    // const html = renderToString(element);
+    
+    // HOTFIX Render the component to a string
     // NOTE: For server side rendering to work properly the generated HTML
     // has to match what the client would render. The View and its style
     // attribute here make that happen
@@ -87,7 +104,7 @@ function handleRender(req, res) {
     const preloadedState = store.getState();
 
     // Send the rendered page back to the client
-    res.send(renderFullPage(html, preloadedState));
+    res.send(renderFullPage(html, preloadedState, stylesheet));
   }
   else {
     res.sendFile(path.join(process.cwd(), `build/web/${mode}/${req.originalUrl.slice(1)}`));

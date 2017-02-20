@@ -16,7 +16,7 @@ export const AppRoutes = {
       title: 'Welcome',
       tabBar: {
         label: 'Welcome',
-        icon: ({ tintColor }) => (
+        icon: ({ tintColor, }) => (
           <Icon
             name="home"
             style={{
@@ -34,7 +34,7 @@ export const AppRoutes = {
       title: 'Icons',
       tabBar: {
         label: 'Icons',
-        icon: ({ tintColor }) => (
+        icon: ({ tintColor, }) => (
           <Icon
             name="view-module"
             style={{
@@ -52,7 +52,7 @@ export const AppRoutes = {
       title: 'Translation',
       tabBar: {
         label: 'Translation',
-        icon: ({ tintColor }) => (
+        icon: ({ tintColor, }) => (
           <Icon
             name="translate"
             style={{

@@ -4,7 +4,7 @@ const nodemon = require('nodemon');
 const rimraf = require('rimraf');
 const webpack = require('webpack');
 
-const serverWebpackConfig = require(path.join(process.cwd(), 'web', 'server', 'webpack.config.js'));
+const serverWebpackConfig = require(path.join(process.cwd(), 'server', 'webpack.config.js'));
 
 function buildServerPlatform(modeToRun, callback) {
   const webpackMode = modeToRun === 'run' ? 'watch' : 'run';

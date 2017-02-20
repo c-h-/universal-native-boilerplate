@@ -62,8 +62,9 @@
   },
   "server": {
     "dependencies": {
-      "react": "~15.4.0",
       "express": "^4.14.1",
+      "nodemon": "^1.11.0",
+      "react": "~15.4.0",
       "react-dom": "^15.4.2"
     }
   },
