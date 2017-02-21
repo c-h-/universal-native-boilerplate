@@ -167,7 +167,6 @@ Here's a list of features and notes:
 
 - Webpack 2 + Babel build script with Tree Shaking enabled.
 - Redux pre-installed
-  - [Web Worker Middleware](https://github.com/chikeichan/redux-worker) help unblock the main thread during expensive computations. Pro Tip: doing network calls in workers doesn't really change performance; however doing heavy data processing in a worker will help performance.
 - [Progressive Web App](https://developers.google.com/web/progressive-web-apps/)
   - Installable on mobile home screens
   - [Favicons](https://github.com/haydenbleasel/favicons) for every browser
