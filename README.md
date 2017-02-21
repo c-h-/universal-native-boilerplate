@@ -148,7 +148,7 @@ None.
 
 Publishing for the web is the simplest. Grab the files from `/build/web/production` and host them somewhere. GitHub Pages is good for static site hosting. Netlify is good too; it supports HTTPS via Let's Encrypt which is nice. If you want server-side rendering, you'll want to run the included server (or your own) in any Node instance.
 
-Advanced Pro Tip: Use [Polyfill.io](https://polyfill.io/v2/docs/) and a lighter Babel transform preset for web code. This would mean a smaller app bundle size, with only the necessary code polyfilled for each browser. Since service workers don't support third-party origins right now, it breaks offline support to use polyfill.io. You can host your own polyfill service on a first-party server in order to enable offline support with this approach.
+Advanced Pro Tip: Use [Polyfill.io](https://polyfill.io/v2/docs/) and a lighter Babel transform preset for web code. This would mean a smaller app bundle size, with only the necessary code polyfilled for each browser. Make sure to properly set up the OfflinePlugin's service worker to properly cache the third-party polyfill script as an opaque resource. If you use an offline-first approach with Polyfill.io but don't cache the polyfill script, then when users visit the webapp offline it will be broken - the polyfill won't be there to get your app's code executing properly.
 
 ### Windows
 ![Windows Screenshot](/boilerplate/docs/images/windows.png?raw=true)
