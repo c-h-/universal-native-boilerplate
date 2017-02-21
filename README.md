@@ -1,4 +1,5 @@
 # Universal Native Boilerplate
+![Platforms](/boilerplate/docs/images/platforms.png?raw=true)
 
 ## Introduction
 The holy grail of front-end development is writing code and compiling for every platform without compromise. React Native's philosophy is "learn once, write everywhere". Today that goal is closer than ever.
