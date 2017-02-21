@@ -8,7 +8,9 @@ This starter project is a boilerplate: a project pre-configured so that you can 
 
 Use this boilerplate to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. Pick the platforms and features you want. As you create the built-in tools grow with you. It's organized to prevent headaches from the beginning. When you're ready for production, pain-free web and server optimizations are built-in.
 
-Familiarity with React and React Native is recommended. Explore the codebase to see how easy it is to make 99% of code written cross-platform.
+Familiarity with React and React Native is recommended. Explore the codebase in `/js` to see how easy it is to make 99% of code written cross-platform.
+
+**[Read more about this project in the blog post](https://medium.com/@chulcher/better-apps-by-default-f5a77ca4b9fb)**
 
 `Node >= 6.8.0 recommended`
 
@@ -34,11 +36,11 @@ Some commands:
 gulp enable windows
 
 # Build a platform
-gulp build ios # Build debug
-gulp build ios --production # Build a production version
+gulp build android # Build debug
+gulp build android --production # Build a production version
 
 # Run a platform
-gulp run android # Run debug
+gulp run ios # Run debug
 gulp run android -p # Run production
 
 # Analyse bundle contents, load speed, and usability
@@ -109,6 +111,8 @@ Some features come pre-installed. This includes:
     - Deep linking support (Android/iOS; easy to add others) _Note: Make sure to [configure the proper scheme and hostname](https://reactnavigation.org/docs/guides/linking) for your app_
     - URL support (web/server)
     - Redux integrated
+- [Internationalization](https://github.com/AlexanderZaytsev/react-native-i18n) - translate your app into other languages easily
+  - See react-native-i18n home page for usage. Allows for multiple languages with template variables.
 - Redux
   - State management and logic organization
 - Redux Persist
@@ -129,6 +133,8 @@ Once you build your app with `gulp build android -p` to get a production version
 Pro Tip: Use [Redex](http://fbredex.com/) to optimize your app before publishing.
 
 ### iOS and macOS
+_Note: The React Native macOS platform is not considered production-ready. Evaluate for yourself if the platform is ready for your app's needs._
+
 ![macOS Screenshot](/boilerplate/docs/images/macos.png?raw=true)
 ![iOS Screenshot](/boilerplate/docs/images/ios.png?raw=true)
 #### SDK Setup
@@ -174,7 +180,7 @@ Here's a list of features and notes:
   - It's easy to test how well it performs with automatic [lighthouse](https://github.com/GoogleChrome/lighthouse) testing
 - Advanced bundle optimizations such as:
   - [Resource Hints](https://www.w3.org/TR/resource-hints/) for faster page load times
-  - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app. (Coming soon)
+  - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app.
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
 
 ### Notes and Tips
