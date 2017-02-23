@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-
+const babelrc = require('../web/.babelrc');
 const config = require('../web/webpack/config');
 
 const excludeLibs = [
@@ -67,25 +67,7 @@ module.exports = {
           path.resolve(process.cwd(), 'server', 'src'),
         ],
         loader: 'babel-loader',
-        query: {
-          babelrc: false,
-          cacheDirectory: true,
-          plugins: [
-            // optimizes react components
-            'transform-react-inline-elements',
-          ],
-          presets: [
-            [
-              'es2015',
-              {
-                modules: false,
-              },
-            ],
-            'stage-0',
-            // use react preset so we can get tree shaking
-            'react',
-          ],
-        },
+        query: babelrc,
       },
       // JSON
       {

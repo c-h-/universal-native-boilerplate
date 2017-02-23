@@ -1,0 +1,13 @@
+{
+  "preset": "react-native",
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/*.android.jsx?",
+    "/*.windows.jsx?",
+    "/*.macos.jsx?",
+    "/*.ios.jsx?"
+  ],
+  "transformIgnorePatterns": [
+    "node_modules/(?!react-native|react-navigation)"
+  ]
+}

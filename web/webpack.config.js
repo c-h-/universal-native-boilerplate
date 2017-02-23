@@ -1,6 +1,7 @@
 const path = require('path');
 const config = require('./webpack/config');
 const plugins = require('./webpack/plugins');
+const babelrc = require('./.babelrc');
 
 const ENV = config.ENV;
 const PUBLIC_PATH = config.PUBLIC_PATH;
@@ -74,25 +75,7 @@ module.exports = {
           path.resolve(process.cwd(), 'index.web.js'),
         ],
         loader: 'babel-loader',
-        query: {
-          babelrc: false,
-          cacheDirectory: true,
-          plugins: [
-            // optimizes react components
-            'transform-react-inline-elements',
-          ],
-          presets: [
-            [
-              'es2015',
-              {
-                modules: false,
-              },
-            ],
-            'stage-0',
-            // use react preset so we can get tree shaking
-            'react',
-          ],
-        },
+        query: babelrc,
       },
       // JSON
       {

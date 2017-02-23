@@ -1,0 +1,10 @@
+{
+  "preset": "react-native",
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/*.web.jsx?"
+  ],
+  "transformIgnorePatterns": [
+    "node_modules/(?!react-native|react-navigation)"
+  ]
+}

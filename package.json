@@ -13,7 +13,10 @@
     "build:debug:web": "webpack --config web/webpack.config.js --progress",
     "start:debug:server": "nodemon build/server/debug/main.js --ignore js/ --ignore web/ --ignore index.web.js",
     "start:production:web": "serve build/web/production -s -c 1",
-    "test": "jest",
+    "test:native": "jest --config jest/jest.native.json",
+    "test:web": "jest --config jest/jest.web.json",
+    "pretest": "jest --config jest/jest.native.json && jest --config jest/jest.web.json",
+    "test": "gulp test",
     "lint": "eslint -c .eslintrc --fix js/**",
     "validate": "npm ls"
   },
@@ -24,7 +27,7 @@
     "react": "~15.4.0",
     "react-native-i18n": "^1.0.0",
     "react-native-vector-icons": "^4.0.0",
-    "react-navigation": "^1.0.0-beta.3",
+    "react-navigation": "git+https://github.com/c-h-/react-navigation.git",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-persist": "^4.3.0",
@@ -32,7 +35,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
-    "babel-jest": "18.0.0",
+    "babel-jest": "^18.0.0",
     "cross-env": "^3.1.4",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -43,7 +46,7 @@
     "fs-extra": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.8",
-    "jest": "18.1.0",
+    "jest": "^19.0.2",
     "lodash.assign": "^4.2.0",
     "lodash.isequal": "^4.5.0",
     "path-exists": "^3.0.0",
@@ -51,9 +54,6 @@
     "run-sequence": "^1.2.2",
     "shelljs": "^0.7.6",
     "yargs": "^6.6.0"
-  },
-  "jest": {
-    "preset": "react-native"
   },
   "react-native-macos": {
     "react-native": "react-native-macos"

@@ -186,6 +186,9 @@ Here's a list of features and notes:
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
 
 ### Notes and Tips
+#### Git Dependencies
+You may notice that a few dependencies point to forked git repositories. This is only to apply patches that haven't yet been pushed from the package being forked. When the upstream packages release the patches these git dependencies will be removed. 
+
 #### React Performance
 Try to limit passing dynamic props and passing props between React components wherever possible. [Netflix has good insights](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html) into the lengths you can go to maximize performance.
 
