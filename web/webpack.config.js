@@ -71,6 +71,7 @@ module.exports = {
           // add node_modules here that need to be transpiled
           path.resolve(process.cwd(), 'node_modules', 'react-native-i18n'),
           path.resolve(process.cwd(), 'node_modules', 'react-native-vector-icons'),
+          path.resolve(process.cwd(), 'node_modules', 'react-navigation'),
           path.resolve(process.cwd(), 'js'),
           path.resolve(process.cwd(), 'index.web.js'),
         ],
