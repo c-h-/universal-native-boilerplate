@@ -2,6 +2,7 @@
 ![Platforms](/boilerplate/docs/images/platforms.png?raw=true)
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/c-h-/universal-native-boilerplate)
+[![Build Status](https://travis-ci.org/c-h-/universal-native-boilerplate.svg?branch=master)](https://travis-ci.org/c-h-/universal-native-boilerplate)
 [![bitHound Overall Score](https://www.bithound.io/github/c-h-/universal-native-boilerplate/badges/score.svg)](https://www.bithound.io/github/c-h-/universal-native-boilerplate)
 ## Introduction
 The holy grail of front-end development is writing code and compiling for every platform without compromise. React Native's philosophy is "learn once, write everywhere". Today that goal is closer than ever.
