@@ -15,8 +15,7 @@
     "start:production:web": "serve build/web/production -s -c 1",
     "test:native": "jest --config jest/jest.native.json",
     "test:web": "jest --config jest/jest.web.json",
-    "pretest": "jest --config jest/jest.native.json && jest --config jest/jest.web.json",
-    "test": "gulp test",
+    "test": "jest --config jest/jest.native.json && jest --config jest/jest.web.json",
     "lint": "eslint -c .eslintrc --fix js/**",
     "validate": "npm ls"
   },
