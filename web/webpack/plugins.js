@@ -9,7 +9,8 @@ optionalPlugins.forEach((pluginDef) => {
     Plugin = require(pluginDef.name); // eslint-disable-line
   }
   catch (e) {
-    console.info(`Tip: Install ${pluginDef.name} with command 'gulp enable ${pluginDef.recipe}'`);
+    console.info(`Tip: Enable ${pluginDef.recipe} features`
+      + ` with command 'gulp enable ${pluginDef.recipe}'`);
   }
   if (Plugin) {
     const list = pluginDef.prodOnly ? productionPlugins : initPlugins;

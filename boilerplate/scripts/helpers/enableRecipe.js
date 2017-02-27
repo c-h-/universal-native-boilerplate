@@ -55,7 +55,7 @@ function enableRecipe(recipe) {
             }
             else {
               shell.exec(haveYarn ? 'yarn' : 'npm i');
-              gutil.log(gutil.colors.green(`Platform ${recipe} enabled.`));
+              gutil.log(gutil.colors.green(`Recipe ${recipe} enabled.`));
               resolve();
             }
           });
