@@ -59,7 +59,7 @@ Run `gulp enable <recipe>` for each desired platform and feature.
 
 Adding platforms and features after you write your app can give unexpected results. Additionally, your app's code may need refactoring if you enable platforms later on.
 
-Available platforms and features:
+Available to enable platforms and features (disabled by default):
 
 Name | Type | Notes
 --- | --- | ---
