@@ -51,6 +51,26 @@ gulp analyze web
 ``` 
 
 ## Reference
+### Baked-in Features
+Some features come pre-installed. This includes:
+
+- Platform specific features for web/server (See Web and Server Platform Notes)
+- [React Navigation](https://reactnavigation.org/)
+  - Great library shares navigation across every platform.
+  - A custom TabNavigator is built into this boilerplate in order to have a working, consistent experience across platforms. This is used by default and does not use native modules.
+  - Native TabNavigators are used on iOS and Android in order to get smooth native behavior. Delete `/js/components/AppNavigator.android.js` and `/js/components/AppNavigator.ios.js` to use the same navigator on every platform.
+  - Also configured into this boilerplate:
+    - Deep linking support (Android/iOS; easy to add others) _Note: Make sure to [configure the proper scheme and hostname](https://reactnavigation.org/docs/guides/linking) for your app_
+    - URL support (web/server)
+    - Redux integrated
+- [Internationalization](https://github.com/AlexanderZaytsev/react-native-i18n) - translate your app into other languages easily
+  - See react-native-i18n home page for usage. Allows for multiple languages with template variables.
+- Redux
+  - State management and logic organization
+- Redux Persist
+  - Persist state across sessions
+  - See [Redux Persist](https://github.com/rt2zz/redux-persist#transforms) for great transforms like compression and encryption
+
 ### Enabling Platforms and Features
 
 When every feature and platform is enabled npm moves quite slowly. Therefore, all the source code required to run each platform and feature is included but the dependencies need to be enabled.
@@ -102,26 +122,6 @@ Available platforms: android, ios, macos, server, web, windows
 
 #### File Organization
 If you use the command line, compiled versions are organized by platform in the `/build` folder. Analysis reports are saved to `/build/web`.
-
-### Baked-in Features
-Some features come pre-installed. This includes:
-
-- Platform specific features for web/server (See Web and Server Platform Notes)
-- [React Navigation](https://reactnavigation.org/)
-  - Great library shares navigation across every platform.
-  - A custom TabNavigator is built into this boilerplate in order to have a working, consistent experience across platforms. This is used by default and does not use native modules.
-  - Native TabNavigators are used on iOS and Android in order to get smooth native behavior. Delete `/js/components/AppNavigator.android.js` and `/js/components/AppNavigator.ios.js` to use the same navigator on every platform.
-  - Also configured into this boilerplate:
-    - Deep linking support (Android/iOS; easy to add others) _Note: Make sure to [configure the proper scheme and hostname](https://reactnavigation.org/docs/guides/linking) for your app_
-    - URL support (web/server)
-    - Redux integrated
-- [Internationalization](https://github.com/AlexanderZaytsev/react-native-i18n) - translate your app into other languages easily
-  - See react-native-i18n home page for usage. Allows for multiple languages with template variables.
-- Redux
-  - State management and logic organization
-- Redux Persist
-  - Persist state across sessions
-  - See [Redux Persist](https://github.com/rt2zz/redux-persist#transforms) for great transforms like compression and encryption
 
 ## Platforms
 ### Android
