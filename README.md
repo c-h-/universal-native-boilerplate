@@ -5,15 +5,15 @@
 [![Build Status](https://travis-ci.org/c-h-/universal-native-boilerplate.svg?branch=master)](https://travis-ci.org/c-h-/universal-native-boilerplate)
 [![bitHound Overall Score](https://www.bithound.io/github/c-h-/universal-native-boilerplate/badges/score.svg)](https://www.bithound.io/github/c-h-/universal-native-boilerplate)
 ## Introduction
-The holy grail of front-end development is writing code and compiling for every platform without compromise. React Native's philosophy is "learn once, write everywhere". Today that goal is closer than ever.
+Use this starter project to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. Pick only the platforms and features you want.
 
-This starter project is a boilerplate: a project pre-configured so that you can start building.
+As you create, the built-in tools grow with you. The project is organized to prevent headaches and refactors. When you're ready for production, pain-free web and server optimizations are built-in.
 
-Use this boilerplate to create an app that works well on every platform - Android, iOS, macOS, server-side rendering, web, and Windows. Pick the platforms and features you want. As you create the built-in tools grow with you. It's organized to prevent headaches from the beginning. When you're ready for production, pain-free web and server optimizations are built-in.
+The web platform build is very capable with easy progressive web app support, webpack 2 with tree shaking, URL support, state persistence, and more. Get reports on page speed, bundle size, and progressive web app stats with `gulp analyze web`.
 
 Familiarity with React and React Native is recommended. Explore the codebase in `/js` to see how easy it is to make 99% of code written cross-platform.
 
-**[Read more about this project in the blog post](https://medium.com/@chulcher/better-apps-by-default-f5a77ca4b9fb)**
+**[Read about the motivations for this project](https://medium.com/@chulcher/better-apps-by-default-f5a77ca4b9fb)**
 
 `Node >= 6.8.0 recommended`
 
@@ -24,7 +24,7 @@ Familiarity with React and React Native is recommended. Explore the codebase in 
 git clone https://github.com/c-h-/universal-native-boilerplate.git myApp
 cd myApp
 npm install
-npm run setup # initialize a new git repository
+npm run setup # initializes a new git repository
 ```
 
 ### Enable Platforms and Features
@@ -100,7 +100,7 @@ Options:
 Available platforms: android, ios, macos, server, web, windows
 ```
 
-#### Automated Organization
+#### File Organization
 If you use the command line, compiled versions are organized by platform in the `/build` folder. Analysis reports are saved to `/build/web`.
 
 ### Baked-in Features
@@ -202,7 +202,7 @@ It is possible to use CSS with the web platform only, but it's not recommended d
 
 #### Supported JS Features
 See the [official docs](https://facebook.github.io/react-native/docs/javascript-environment.html) for details of which JS features are supported by default.
-The web platform DOES NOT use `.babelrc`, it instead uses a babel configuration within `/web/webpack.config.js` to enable the same features in a way that works with other plugins.
+The web platform DOES NOT use `/.babelrc`, it instead uses a babel configuration located at `/web/.babelrc.json` to enable the same features in a way that works with other plugins and tree shaking.
 
 #### Platform Specific Code
 It's easy to add native functionality to a React Native app and consume it from JS. See [official docs](https://facebook.github.io/react-native/docs/native-modules-ios.html) for details.
