@@ -1,5 +1,5 @@
 # Universal Native Boilerplate
-![Platforms](/boilerplate/docs/images/platforms.png?raw=true)
+![Platforms](/boilerplate/docs/images/platforms_inv.png?raw=true)
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/c-h-/universal-native-boilerplate)
 [![Build Status](https://travis-ci.org/c-h-/universal-native-boilerplate.svg?branch=master)](https://travis-ci.org/c-h-/universal-native-boilerplate)
