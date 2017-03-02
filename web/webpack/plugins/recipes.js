@@ -11,7 +11,7 @@ const PUBLIC_PATH = config.PUBLIC_PATH;
 const optionalPlugins = [
   {
     recipe: 'hints',
-    name: 'resource-hints-webpack-plugin',
+    name: 'preload-webpack-plugin',
     prodOnly: false,
   },
   {
