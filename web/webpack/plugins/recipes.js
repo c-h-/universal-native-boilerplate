@@ -1,5 +1,5 @@
-const config = require('./config');
-const pwaOptions = require('./pwaConfig');
+const config = require('../config');
+const pwaOptions = require('../pwaConfig');
 
 const PUBLIC_PATH = config.PUBLIC_PATH;
 
