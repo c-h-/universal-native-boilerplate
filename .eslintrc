@@ -38,6 +38,12 @@
     "curly": "error",
     "global-require": "off",
     "guard-for-in": "off",
+    "import/no-extraneous-dependencies": ["error", {
+        "devDependencies": [
+            "./web/webpack/**/*.js",
+            "./boilerplate/**/*.js"
+        ]
+    }],
     "jsx-a11y/img-uses-alt": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/redundant-alt": "off",

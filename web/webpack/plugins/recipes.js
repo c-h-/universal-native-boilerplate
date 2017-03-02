@@ -4,7 +4,7 @@ const pwaOptions = require('./pwaConfig');
 const PUBLIC_PATH = config.PUBLIC_PATH;
 
 /**
- * optional plugins.
+ * optional plugins enabled by enabling their recipe.
  * once enabled they succeed being required and get added to plugin list.
  * order them in the order they should be added to the plugin lists.
  */

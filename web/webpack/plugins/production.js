@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-// plugins used in dev and production
+// plugins used in production
 module.exports = [
   new webpack.optimize.UglifyJsPlugin({
     compress: {
