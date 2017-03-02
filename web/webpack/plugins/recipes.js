@@ -13,6 +13,11 @@ const optionalPlugins = [
     recipe: 'hints',
     name: 'preload-webpack-plugin',
     prodOnly: false,
+    options: {
+      rel: 'preload',
+      as: 'script',
+      include: 'all',
+    },
   },
   {
     recipe: 'pwa',
