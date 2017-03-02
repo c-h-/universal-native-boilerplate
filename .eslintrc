@@ -40,7 +40,7 @@
     "guard-for-in": "off",
     "import/no-extraneous-dependencies": ["error", {
         "devDependencies": [
-            "./web/webpack/**/*.js",
+            "./web/**/*.js",
             "./boilerplate/**/*.js"
         ]
     }],
