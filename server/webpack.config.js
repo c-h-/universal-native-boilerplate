@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const babelrc = require('../web/.babelrc');
 const config = require('../web/webpack/config');
+const plugins = require('../web/webpack/plugins');
 
 const excludeLibs = [
   'express',
@@ -81,22 +82,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
-  ]).concat(ENV === 'production' ? [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-      },
-      output: {
-        comments: false,
-      },
-      sourceMap: false,
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false,
-    }),
-  ] : []),
+  ]).concat(ENV === 'production' ? plugins.production : []),
 
   stats: {
     colors: true,

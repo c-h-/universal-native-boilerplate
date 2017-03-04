@@ -92,7 +92,6 @@ windows | platform | [react-native-windows](https://github.com/ReactWindows/reac
  | |  
 hints | feature | Add [resource hints](https://www.w3.org/TR/resource-hints/) to web `index.html` to speed page load time
 insights | feature | Enable automated [Page Speed Insights](https://www.npmjs.com/package/psi) and [Lighthouse](https://github.com/GoogleChrome/lighthouse) reports. Saves reports as HTML for review. See also visualizer feature. Note: both of these reports use `ngrok` to publicly host the project. Once analysis is complete the project is taken down. Run with `gulp analyze web`.
-offline | feature | Generate a [Service Worker](https://github.com/NekR/offline-plugin) automatically for web. Enables offline use of the app and required to be a Progressive Web App.
 optimize | feature | Attempt to get faster startup times at the expense of a few bytes. [optimize-js](https://github.com/vigneshshanmugam/optimize-js-plugin)
 pwa | feature | Make web app a progressive web app. Generates [icons](https://github.com/haydenbleasel/favicons#usage) and [manifest](https://w3c.github.io/manifest/) for web.
 visualizer | feature | Useful for all platforms but requires web platform to be enabled. Generates a nice graph of dependency weights. Saves as html report. Run with `gulp analyze <platform>`. [webpack-visualizer](https://github.com/chrisbateman/webpack-visualizer)
@@ -187,6 +186,7 @@ Here's a list of features and notes:
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
   - [React constant elements](https://babeljs.io/docs/plugins/transform-react-constant-elements/)
   - Strip PropTypes in production
+  - Generates a [Service Worker](https://github.com/NekR/offline-plugin) automatically. Enables offline use of the app and required to be a Progressive Web App.
 
 ### Notes and Tips
 #### Git Dependencies
