@@ -34,6 +34,7 @@ let store;
 
 /**
  * exportable function for creating the store
+ * (exported for use with server-side rendering)
  */
 export function generateStore(initialState, hydrate = true) {
   // conditionally add args to store
