@@ -185,6 +185,8 @@ Here's a list of features and notes:
   - [Resource Hints](https://www.w3.org/TR/resource-hints/) for faster page load times
   - [Optimize JS](https://github.com/nolanlawson/optimize-js) potentially speeds up web app start times. Definitely test to ensure it actually improves start times for your app.
   - [React element inlining](https://babeljs.io/docs/plugins/transform-react-inline-elements/) as described well [here](http://techblog.netflix.com/2017/01/crafting-high-performance-tv-user.html).
+  - [React constant elements](https://babeljs.io/docs/plugins/transform-react-constant-elements/)
+  - Strip PropTypes in production
 
 ### Notes and Tips
 #### Git Dependencies

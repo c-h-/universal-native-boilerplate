@@ -2,7 +2,7 @@
   "babelrc": false,
   "cacheDirectory": true,
   "plugins": [
-    "transform-react-inline-elements"
+    "array-includes"
   ],
   "presets": [
     [
@@ -17,6 +17,13 @@
   "env": {
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
     }
   }
 }
