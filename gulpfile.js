@@ -21,8 +21,8 @@ const argv = require('yargs')
   .command('build <platform>', 'Builds the app for the supplied platform')
   .command('analyze <platform>', 'Analyze weight. For web, also speed and pwa scorecard')
   // .command('start <platform>', 'Start packager for the supplied platform')
-  .alias('r', 'release')
-  .describe('r', 'Build the release version. Defaults to debug version.')
+  .alias('p', 'production')
+  .describe('p', 'Build the release version. Defaults to debug version.')
   .help('h')
   .alias('h', 'help')
   .epilogue(`Available platforms: ${global.platforms.join(', ')}`)
@@ -36,7 +36,7 @@ function setSettings(args) {
       global.settings = {
         recipe: args.recipe,
         platform: args.platform,
-        production: args.p,
+        production: args.production || args.p,
       };
     }
   }
@@ -47,7 +47,7 @@ function setSettings(args) {
 }
 setSettings(argv);
 
-if (argv && argv.p) {
+if (global.settings.production) {
   // in production mode, make sure environment is production
   process.env.NODE_ENV = 'production';
 }
