@@ -1,6 +1,5 @@
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Icon from './Icon';
 import Home from '../views/Home';
@@ -37,10 +36,8 @@ export const AppRoutes = {
     path: 'home',
     navigationOptions: {
       title: 'Welcome',
-      tabBar: {
-        label: 'Welcome',
-        icon: getIcon('home'),
-      },
+      tabBarLabel: 'Welcome',
+      tabBarIcon: getIcon('home'),
     },
   },
   IconsGrid: {
@@ -48,10 +45,8 @@ export const AppRoutes = {
     path: 'icons',
     navigationOptions: {
       title: 'Icons',
-      tabBar: {
-        label: 'Icons',
-        icon: getIcon('view-module'),
-      },
+      tabBarLabel: 'Icons',
+      tabBarIcon: getIcon('view-module'),
     },
   },
   Translation: {
@@ -59,10 +54,8 @@ export const AppRoutes = {
     path: 'translation',
     navigationOptions: {
       title: 'Translation',
-      tabBar: {
-        label: 'Translation',
-        icon: getIcon('translate'),
-      },
+      tabBarLabel: 'Translation',
+      tabBarIcon: getIcon('translate'),
     },
   },
   NotFound: {

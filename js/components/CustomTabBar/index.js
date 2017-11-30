@@ -1,6 +1,5 @@
-import React, {
-  PropTypes,
-} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Text,
   View,
@@ -19,18 +18,18 @@ const CustomTabBar = ({ navigation, router, tabBarOptions }) => {
       const nav = {
         state: route,
       };
-      const tabBarConfig = router.getScreenConfig(nav, 'tabBar');
+      const tabBarConfig = router.getScreenOptions(nav, 'tabBar');
       let icon;
       if (typeof tabBarOptions.showIcon !== 'boolean' || tabBarOptions.showIcon) {
-        icon = typeof tabBarConfig.icon === 'function'
-          ? tabBarConfig.icon({
+        icon = typeof tabBarConfig.tabBarIcon === 'function'
+          ? tabBarConfig.tabBarIcon({
             tintColor: isActive ? tabBarOptions.activeTintColor : tabBarOptions.inactiveTintColor,
           })
-          : tabBarConfig.icon;
+          : tabBarConfig.tabBarIcon;
       }
       let label;
       if (typeof tabBarOptions.showLabel !== 'boolean' || tabBarOptions.showLabel) {
-        label = tabBarConfig.label;
+        label = tabBarConfig.tabBarLabel;
       }
       const activeStyles = isActive ? {
         backgroundColor: tabBarOptions.activeBackgroundColor,
@@ -48,12 +47,14 @@ const CustomTabBar = ({ navigation, router, tabBarOptions }) => {
             activeStyles,
           ]}
         >
-          {icon}
-          <Text
-            style={tabBarOptions.labelStyle}
-          >
-            {label}
-          </Text>
+          <View style={styles.linkContent}>
+            {icon}
+            <Text
+              style={tabBarOptions.labelStyle}
+            >
+              {label}
+            </Text>
+          </View>
         </Link>
       );
     }),
