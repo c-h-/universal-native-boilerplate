@@ -1,7 +1,7 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
+import PropTypes from 'prop-types';
 import {
   addNavigationHelpers,
 } from 'react-navigation';
@@ -22,8 +22,8 @@ export default (NavigationAwareView) => {
       dispatch: PropTypes.func,
     }
     static childContextTypes = {
-      getActionForPathAndParams: React.PropTypes.func.isRequired,
-      getURIForAction: React.PropTypes.func.isRequired,
+      getActionForPathAndParams: PropTypes.func.isRequired,
+      getURIForAction: PropTypes.func.isRequired,
     };
     getChildContext() {
       return {
@@ -45,7 +45,7 @@ export default (NavigationAwareView) => {
       } = this.props;
       // set webpage title when page changes
       if (typeof document !== 'undefined') {
-        document.title = NavigationAwareView.router.getScreenConfig({
+        document.title = NavigationAwareView.router.getScreenOptions({
           state: state.routes[state.index],
           dispatch,
         }, 'title');
@@ -75,7 +75,7 @@ export default (NavigationAwareView) => {
         window.history.pushState({}, state.title, uri);
       }
       // set webpage title when page changes
-      document.title = NavigationAwareView.router.getScreenConfig({
+      document.title = NavigationAwareView.router.getScreenOptions({
         state: state.routes[state.index],
         dispatch,
       }, 'title');

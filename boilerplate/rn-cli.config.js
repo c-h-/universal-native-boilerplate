@@ -1,4 +1,4 @@
-const blacklist = require('react-native/packager/blacklist');
+const blacklist = require('metro-bundler/src/blacklist');
 
 const config = {
   getBlacklistRE() {

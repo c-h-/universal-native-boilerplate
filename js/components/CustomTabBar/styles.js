@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 20,
   },
+  linkContent: {
+    display: 'flex',
+    flex: 1,
+    alignItems: 'center'
+  },
   link: {
     alignItems: 'center',
   },
